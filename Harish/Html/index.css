@@ -1,0 +1,25 @@
+.para {
+    color: red;
+}
+
+#p1 {
+    background-color: green;
+}
+
+* {
+    border: 1px solid;
+}
+
+div div p {
+    color: yellow;
+}
+
+.div .p-div #pp {
+    background-color: blue;
+}
+
+h2,
+h3,
+h4 {
+    color: blue;
+}
