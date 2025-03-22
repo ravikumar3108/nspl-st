@@ -3,21 +3,26 @@ import React from "react";
 // import a function component
 import Home from "./components/Home.jsx"
 import "./App.css"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./components/About.jsx";
+import Contact from "./components/Contact.jsx";
+import Header from "./components/Header.jsx";
 
-function App(){
-  return(
 
+function App() {
+  return (
     // JSX fragments
     <>
-    {/* call a function component */}
-    <Home/>
-     
-    <h1>Helooo</h1>
-    
+      <BrowserRouter>
+        <Header />
 
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
     </>
-
-
   )
 }
 
