@@ -1,5 +1,7 @@
 import React from "react";
-import image from "./Images/dark-style-valentines-day-celebration.jpg"
+import image from "./Images/dark-style-valentines-day-celebration.jpg";
+import Header from "./Header";
+import SecondCompo from "./Props/SecondCompo";
 
 function Home() {
   let name = "Dherraj Kumar";
@@ -21,7 +23,7 @@ function Home() {
         accusamus magni nostrum ullam ipsum, dignissimos, tenetur architecto
         delectus! Vel, doloremque!
       </p>
-      <img src={image} alt="" width="100%"/>
+      <img src={image} alt="" width="100%" />
     </>
   );
 }

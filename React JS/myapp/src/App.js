@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Header from "./components/Header.jsx";
+import FirstCompo from "./components/Props/FirstCompo.jsx";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/props" element={<FirstCompo />} />
         </Routes>
       </BrowserRouter>
     </>
