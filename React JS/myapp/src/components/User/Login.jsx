@@ -10,7 +10,7 @@ function Login() {
   // }
 
   const [data, setData] = useState();
-  console.log(data);
+  console.log(data)
   function getValue(e) {
     setData({
       // spread opertaor
@@ -19,16 +19,25 @@ function Login() {
     });
   }
 
+  function SubmitData(e) {
+    e.preventDefault()
+    // JSON.stringify(data)    this method used to convert javascript object into JSON object
+    localStorage.setItem("User", JSON.stringify(data));
+  }
+
   return (
     <div>
       <form>
+        <h1>Signup Form</h1>
         <label htmlFor="">Name</label>
         <input type="text" name="firstname" id="" onChange={getValue} />
         <label htmlFor="">Email</label>
         <input type="email" name="email" id="" onChange={getValue} />
         <label htmlFor="">Password</label>
         <input type="password" name="password" id="" onChange={getValue} />
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={SubmitData}>
+          Submit
+        </button>
       </form>
     </div>
   );
