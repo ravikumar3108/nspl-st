@@ -22,7 +22,7 @@ function Login() {
   function SubmitData(e) {
     e.preventDefault()
     // JSON.stringify(data)    this method used to convert javascript object into JSON object
-    localStorage.setItem("User", JSON.stringify(data));
+    localStorage.setItem("dheeraj", JSON.stringify(data));
   }
 
   return (
