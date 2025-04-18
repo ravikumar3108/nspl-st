@@ -7,15 +7,58 @@
     <!-- Favicon -->
     <link rel="icon" href="./ved.jpg">
     <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
 
     <style>
+        /* 
+                CSS selectors 
+                id  == unique 
+                class == multiple
+                tagname 
+                * (universal selector)
+                multiple selector 
+                actual path
+            */
+
+
+
         /*  Syntax of class Selector  */
         .ved {
             background-color: red;
         }
+
         /*  Syntax of id Selector  */
         #para {
             background-color: rgb(0, 38, 255);
+        }
+
+        h1 {
+            background-color: green;
+        }
+
+        /* h2{
+    color: greenyellow;
+} */
+        .div .dii .cl h2 {
+            color: red;
+        }
+
+        * {
+            border: 1px solid black;
+        }
+
+
+        /*  multiple  */
+
+        h3,
+        h4,
+        h5,
+        h6 {
+            background-color: brown;
+        }
+
+        .ll {
+            color: yellow;
         }
     </style>
 
@@ -34,14 +77,34 @@
     <h1 style="color: red; background-color: green;">Heloo</h1>
 
     <div class="ved" id="para">
-        <h1 class="">Heloo</h1>
-        <h1 class="">Heloo</h1>
-        <h1>Heloo</h1>
+        <h1 class="h1" id="">Heloo</h1>
+        <h1 class="h2" id="">Heloo</h1>
+        <h1 class="ll">Heloo</h1>
         <h1>Heloo</h1>
         <h1>Heloo</h1>
     </div>
 
+    <div class="div">
+        <div class="dii">
+            <h1>
 
+            </h1>
+            <div class="cl">
+                <h2>Heloooo</h2>
+            </div>
+            <p>
+
+            </p>
+        </div>
+    </div>
+
+
+    <h2>Green</h2>
+
+    <h3 class="ll">Heading 3</h3>
+    <h4 class="ll">Heading 3</h4>
+    <h5 class="ll">Heading 3</h5>
+    <h6 class="ll">Heading 3</h6>
 
 
 </body>

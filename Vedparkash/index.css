@@ -1,0 +1,33 @@
+.ved {
+    background-color: red;
+}
+
+/*  Syntax of id Selector  */
+#para {
+    background-color: rgb(0, 38, 255);
+}
+
+h1 {
+    background-color: green;
+}
+/* h2{
+    color: greenyellow;
+} */
+.div .dii .cl h2{
+    color: red;
+}
+
+*{
+    border: 1px solid black;
+}
+
+
+/*  multiple  */
+
+h3,h4,h5,h6{
+    background-color: brown;
+}
+
+.ll{
+    color: yellow;
+}
