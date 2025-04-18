@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoHomeSharp } from "react-icons/io5";
 
 function Login() {
   // const [data, setData] = useState();
@@ -28,7 +29,7 @@ function Login() {
   return (
     <div>
       <form>
-        <h1>Signup Form</h1>
+        <h1>Signup Form <IoHomeSharp /></h1>
         <label htmlFor="">Name</label>
         <input type="text" name="firstname" id="" onChange={getValue} />
         <label htmlFor="">Email</label>

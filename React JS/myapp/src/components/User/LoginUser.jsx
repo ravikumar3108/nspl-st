@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function LoginUser() {
   let [data, setData] = useState("");
   console.log(data)
+
+  let nav = useNavigate()
 
   function getValue(e) {
     setData({
@@ -15,14 +19,17 @@ function LoginUser() {
     e.preventDefault()
     const user = JSON.parse(localStorage.getItem("dheeraj"))
     if(user.email == data.email && user.password == data.password){
-        alert("Login Success")
+        // alert("Login Success")
+        nav("/")
+
     }  else{
-        alert("Failed")
+      toast.error("Failed")
     }
   }
 
   return (
     <div>
+      <Toaster/>
       <form onSubmit={handleSubmit}>
         <h1>Login Form</h1>
         <label htmlFor="">Email</label>
