@@ -10,6 +10,7 @@ import Header from "./components/Header.jsx";
 import FirstCompo from "./components/Props/FirstCompo.jsx";
 import Login from "./components/User/Login.jsx";
 import LoginUser from "./components/User/LoginUser.jsx";
+import Api from "./components/Api.jsx";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/props" element={<FirstCompo />} />
           <Route path="/signup" element={<Login />} />
           <Route path="/login" element={<LoginUser />} />
+          <Route path="/api" element={<Api />} />
         </Routes>
       </BrowserRouter>
     </>
