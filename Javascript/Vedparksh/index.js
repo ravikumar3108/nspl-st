@@ -81,9 +81,95 @@ var a = 10
 // 3. it cannot be re-assign
 
 const ab = 20
-ab = 50
-console.log(ab)
+// ab = 50
+// console.log(ab)
 
+
+
+// Data Types :- 
+// Primitive  : - single data store
+// Non-primitive :- multiple data store
+
+
+
+// Interger 
+let num = 10
+let num1 = 10.0
+
+// String Data :- it is used to store Character values.
+let str = "Ved"
+let str1 = 'Ved'
+
+// Boolean data ;- True and False 
+let bl = true
+
+// null 
+let xs = null
+
+// undefined 
+let cv
+console.log(cv)
+
+// Array :- it is used to store multiple data types 
+
+let arr = [1, 3, 4, 5, 6, 7, 8, 9, 9]
+console.log(arr)
+console.log(arr[2])
+
+// object :- it is used to store multiple data types in the form of key and values
+
+let obj = {
+    name: "vedpraksh",
+    age: 21,
+    rollno: 34,
+    classe: "12th"
+}
+console.log(obj)
+console.log(obj.name)
+
+
+// Operators : -
+// Arithmetic Op
+// + , - , * , / ,
+// % Modulus = remainder
+// **Expontation = power 
+// ++ increment  +1 
+// -- decremement  -1
+
+let num3 = 13
+let num5 = 13
+let num4 = 4
+console.log(num3 % num4)
+
+console.log(num3 ** num4)
+
+// Prefix 
+let inc = ++num3
+console.log(num3)
+console.log(inc)
+
+// postfix 
+let inc1 = num5++
+console.log(num5)
+console.log(inc1)
+
+// Assignment OP
+// +=
+// *=
+// -=
+// /=
+// %=
+// **=
+
+let c = 10
+
+let d = c + 10
+c += 10
+console.log(d)
+console.log("c",c)
+
+// Comparision OP
+// Logical OP
 
 
 
