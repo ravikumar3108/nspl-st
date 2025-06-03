@@ -211,12 +211,53 @@
 // console.log("x11",x1)
 
 
-let x = 500
-let y = 10
-let z = 10
+// let x = 500
+// let y = 10
+// let z = 10
 
-let marks = (x >= 60 || y >= 70) && y == z
-console.log(marks)
+// let marks = (x >= 60 || y >= 70) && y == z
+// console.log(marks)
+
+
+// 
+// if else Statements :- it is a statemrnt which is run when our condition is true.
+
+
+// if(condition){
+//     // code to be executed 
+
+
+
+// }
+// User Input :- Prompt() :- always return a string.
+// Convert string into  interger = parseInt()
+
+let x = parseInt(prompt("Enter Your Number"))
+
+if(x < 20){
+    console.log("X is less than 20")
+}
+else if(x > 20){
+    console.log("X is greater than 20")
+}
+else if(x == 20){
+    console.log("X is equal to 20")
+}
+// default condition  
+else{
+    console.log("Something went wrong")
+}
+
+// else if 
+
+
+
+
+
+
+
+
+
 
 
 
