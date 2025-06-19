@@ -25,6 +25,10 @@ function Navbar() {
              <li>
                 <Link to={"/contact"}>Contact</Link>  
              </li>
+             <li>
+                <Link to={"/signup"}>signup</Link>  
+             </li>
+            
             </ul>
           </div>
         </nav>
