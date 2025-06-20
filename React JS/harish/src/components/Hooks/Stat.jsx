@@ -13,18 +13,32 @@ function Stat() {
 
   function getAllData(e) {
     // spread operator :- to save the initial data(after the changes our state)
-    // ...arr 
+    // ...arr
     setData({
-        ...data,
-        [e.target.name] : e.target.value
+      ...data,
+      [e.target.name]: e.target.value,
     });
   }
-  console.log(data);
+
+  // function handleSubmit(e){
+  //   e.preventDefault()
+  //   let userdata = localStorage.setItem("newUsers",JSON.stringify(data))
+
+  // }
+
+  // to get a data from local storage
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    let getUsers = JSON.parse(localStorage.getItem("newUsers"));
+    console.log(getUsers);
+  }
+
   return (
     <div>
       <h1>heloo State Component</h1>
       <h2>{username}</h2>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" onChange={getAllData} />
         <label htmlFor="">Email</label>
