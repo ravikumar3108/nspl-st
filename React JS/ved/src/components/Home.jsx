@@ -3,6 +3,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import HomeChild from "./HomeChild";
+import Signup from "./Signup";
 
 function Home() {
   let x = 10;
