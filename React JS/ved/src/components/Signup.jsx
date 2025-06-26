@@ -7,23 +7,52 @@ function Signup() {
 
   let [initialValue, setValue] = useState(1);
 
-    function getValue(){
-        setValue(++initialValue)
-    }
+  function getValue() {
+    setValue(++initialValue);
+  }
+
+  // Data store by difffernt states
+  let [userName, setUserName] = useState();
+  // console.log(userName)
+  function getInput(e) {
+    setUserName(e.target.value);
+    console.log(e);
+  }
+
+  // Multiple data store in one state
+  let [data, setData] = useState();
+  console.log("data", data);
+  function getAllData(e) {
+    setData({
+      // spread operator 
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  }
 
   return (
     <div>
-      <h1> {initialValue}</h1>
+      <h1> {userName}</h1>
       {/* Event Handler  */}
       <button onClick={getValue}>Increment</button>
 
       <form action="">
         <label htmlFor="">Username</label>
-        <input type="text" name="" id="" />
+        <input
+          type="text"
+          name="username"
+          id="usernmae"
+          onChange={getAllData}
+        />
         <label htmlFor="">Email</label>
-        <input type="text" name="" id="" />
+        <input type="text" name="email" id="email" onChange={getAllData} />
         <label htmlFor="">Password</label>
-        <input type="text" name="" id="" />
+        <input
+          type="text"
+          name="password"
+          id="password"
+          onChange={getAllData}
+        />
         <button type="submit">Submit</button>
       </form>
     </div>
