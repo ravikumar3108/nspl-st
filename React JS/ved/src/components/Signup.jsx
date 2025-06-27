@@ -30,13 +30,20 @@ function Signup() {
     });
   }
 
+  function handleSubmit(e){
+    e.preventDefault()
+    const formData = localStorage.setItem("ved",JSON.stringify(data))
+    
+  }
+
+
   return (
     <div>
       <h1> {userName}</h1>
       {/* Event Handler  */}
       <button onClick={getValue}>Increment</button>
 
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">Username</label>
         <input
           type="text"

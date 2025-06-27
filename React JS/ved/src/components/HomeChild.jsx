@@ -6,7 +6,7 @@ function HomeChild(props) {
   //     id : 1,
   //     bg : "A+"
   // }
-  console.log("obj.id");
+  // console.log(obj.id);
 
   return (
     <div>
