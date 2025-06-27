@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Stat() {
+  // Usenavigate :-
+  let nav = useNavigate();
   let [username, setUsername] = useState();
 
   function getData(e) {
@@ -31,11 +35,16 @@ function Stat() {
   function handleSubmit(e) {
     e.preventDefault();
     let getUsers = JSON.parse(localStorage.getItem("newUsers"));
-    console.log(getUsers);
+    if (data.email == getUsers.email && data.password == getUsers.password) {
+      nav("/");
+    } else {
+      toast.success("Something wnet wrong");
+    }
   }
 
   return (
     <div>
+      <Toaster />
       <h1>heloo State Component</h1>
       <h2>{username}</h2>
       <form action="" onSubmit={handleSubmit}>

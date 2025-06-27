@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Contact from './components/Contact';
 import Stat from './components/Hooks/Stat';
+import Api from './components/Api';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/signup' element={<Stat />} />
           <Route path='/' element={<Home />} />
+          <Route path='/api' element={<Api />} />
         </Routes>
       </BrowserRouter>
 
