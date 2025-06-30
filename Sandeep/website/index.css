@@ -44,3 +44,34 @@ nav h1{
      /* border: 1px solid; */
      width: 45%;
 }
+
+/* =================Products ========= */
+/* #product{
+    margin: 100px 0px;
+}
+#product .item {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    
+}
+#product .h p{
+    display: inline-block;
+}
+#product .item .box{
+    border: 1px solid;
+    padding: 30px;
+}
+#product .item .box .boximg{
+    margin-bottom: 20px;
+} */
+
+
+/* ================ */
+#product .item{
+    display: flex;
+    flex-wrap: wrap;
+}
+#product .item .box{
+    width: 23%;
+}
