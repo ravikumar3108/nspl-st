@@ -4,6 +4,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import HomeChild from "./HomeChild";
 import Signup from "./Signup";
+import Api from "./Api";
 
 function Home() {
   let x = 10;
@@ -18,8 +19,9 @@ function Home() {
     <>
       <h1>Helooo {x * 10}</h1>
       <p>Ved</p>
+      <Api/>
       {/* send data by the props  */}
-      <HomeChild z={name} age={age} />
+      {/* <HomeChild z={name} age={age} /> */}
     </>
   );
 }

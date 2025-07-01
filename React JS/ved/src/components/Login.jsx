@@ -1,27 +1,35 @@
-import React ,{useState}from 'react'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  let [data, setData] = useState();
 
-    let [data, setData] = useState();
-    console.log("data", data);
-    function getAllData(e) {
-      setData({
-        // spread operator 
-        ...data,
-        [e.target.name]: e.target.value,
-      });
+  // UseNavigate :- route one page to another page
+  let nav = useNavigate();
+
+  console.log("data", data);
+  function getAllData(e) {
+    setData({
+      // spread operator
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const getDataLocal = JSON.parse(localStorage.getItem("ved"));
+    console.log(getDataLocal);
+    if (true) {
+      nav("/")
+    } else {
+      alert("Something went wrong");
     }
-  
-    function handleSubmit(e){
-      e.preventDefault()
-      const getDataLocal = JSON.parse(localStorage.getItem("ved"))
-      console.log(getDataLocal)
-      
-    }
+  }
 
   return (
     <div>
-       <form action="" onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">Username</label>
         <input
           type="text"
@@ -41,7 +49,7 @@ function Login() {
         <button type="submit">Submit</button>
       </form>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
