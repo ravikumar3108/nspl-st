@@ -17,3 +17,12 @@ nav ul li {
   padding: 10px 17px;
   border-radius: 10px;
 }
+
+.btn{
+  padding: 10px 15px;
+  background-color: black;
+  color: whitesmoke;
+  margin: 100px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
