@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Api() {
   let [apiData, setApiData] = useState([]);
@@ -11,17 +12,18 @@ function Api() {
   // Asynchornus function = async and await // promises
   // callback function
   // UseEffect = Side effect of our component
+  // UseParams => send data into tha url.
 
   async function getData() {
     const data = await fetch("https://dummyjson.com/products");
     const jsondata = await data.json();
     setApiData(jsondata.products);
-    setFilterDD(jsondata.products)
+    setFilterDD(jsondata.products);
   }
 
   const filterItem = (category) => {
     const filterData = apiData.filter((item) => item.category == category);
-    setFilterDD(filterData)
+    setFilterDD(filterData);
   };
 
   // Arrow Function => ()=>
@@ -31,7 +33,12 @@ function Api() {
 
   return (
     <div>
-      <button className="btn" onClick={() => {getData()}}>
+      <button
+        className="btn"
+        onClick={() => {
+          getData();
+        }}
+      >
         All
       </button>
       <button onClick={() => filterItem("beauty")} className="btn">
@@ -53,7 +60,15 @@ function Api() {
         {filterDD.map((item) => {
           return (
             <>
-              <div className="item" style={{ width: "33%" }}>
+              <div
+                className="item"
+                style={{
+                  width: "28%",
+                  border: "1px solid",
+                  padding: "10px",
+                  margin: "10px",
+                }}
+              >
                 <h1> {item.id}</h1>
                 <div
                   style={{
@@ -63,6 +78,9 @@ function Api() {
                   <img src={item.images} alt="" width={"100%"} />
                 </div>
                 <p>{item.category}</p>
+                <button>
+                  <Link to={`/more?id=${item.id}`}>More</Link>
+                </button>
               </div>
             </>
           );

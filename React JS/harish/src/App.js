@@ -7,6 +7,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Stat from './components/Hooks/Stat';
 import Api from './components/Api';
+import More from './components/More';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/signup' element={<Stat />} />
           <Route path='/' element={<Home />} />
           <Route path='/api' element={<Api />} />
+          <Route path='/more' element={<More />} />
         </Routes>
       </BrowserRouter>
 
