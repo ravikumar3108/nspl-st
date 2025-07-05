@@ -1,28 +1,68 @@
 //  create a function component
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import image from "./images/download.jpg";
 import HomeChild from "./Props/HomeChild";
+import slider1 from "./images/slider.avif";
+import slider2 from "./images/slider2.avif";
+import slider3 from "./images/slider3.avif";
 
 function Home() {
-  let x = "Harish";
+  let imagesData = [
+    {
+      id: 1,
+      image: slider1,
+      text: "SLider 1",
+    },
+    {
+      id: 2,
+      image: slider2,
+      text: "SLider 2",
+    },
+    {
+      id: 3,
+      image: slider3,
+      text: "SLider 3",
+    },
+  ];
 
-  let age = 10
+  let [data, setData] = useState(0);
 
+  function LeftSlide() {
+    if (data > 0) {
+      setData(data - 1);
+    }
+    if (data == 0) {
+      setData(2);
+    }
+  }
+
+  function RightSlide() {
+    if (data < 2) {
+      setData(data + 1);
+    }
+    if (data == 2) {
+      setData(0);
+    }
+  }
 
   return (
     <>
-      <h1>Home Componnet</h1>
-      <h2>My Name is {x}</h2>
-      <img src={image} alt="images" />
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero ipsum in
-        corporis modi at inventore harum praesentium assumenda fugiat ullam!
-        Est, cupiditate facere laboriosam assumenda libero accusantium vitae
-        ipsam molestiae.
-      </p>
-      {/* Send data by the props */}
-      <HomeChild x={x} age={age}/>
+      <div className="slider">
+        {imagesData &&
+          imagesData.map((item, i) => {
+            return (
+              <>
+                <div className={`${i == data ? "active" : "none"}`}>
+                  <img src={item.image} alt="" width={"100%"} />;
+                  <h1>{item.text}</h1>
+                  <button onClick={LeftSlide}>Left</button>
+                  <button onClick={RightSlide}>Right</button>
+                </div>
+              </>
+            );
+          })}
+      </div>
     </>
   );
 }

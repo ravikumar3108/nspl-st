@@ -26,3 +26,9 @@ nav ul li {
   border-radius: 10px;
   text-align: center;
 }
+.slider{
+  display: flex;
+}
+.none{
+  display: none;
+}
