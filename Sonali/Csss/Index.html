@@ -5,40 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
-        /* 
-            Css Selectors :- 
-            tagname
-            class
-            id (Unique)
+        /* CSS Selectors :- 
+            1. tagname
+            2. class = multiple 
+            3. id = unique
+            4. actaul path
+            5. multiple selectors
+            6. * (universal selector)
+
+            syntax of applying css
+
+            selector{
+                property.name : property.value;
+            }
+
+
         */
 
-        h2{
-           color: blue;
-           background-color: black;     
+        p {
+            color: green;
+        }
+
+        /* Class Selector  */
+        .para1 {
+            background-color: blue;
+            color: red;
+        }
+
+        .para {
+            background-color: black;
+            color: white;
+        }
+
+        /*Select a Id == #  */
+        #pp{
+            
         }
 
     </style>
+
 </head>
 
 <body>
 
     <!-- 
-        CSS :- Cascadic Style Sheet 
-        
-        1. inline Css = style attribute
-        2. internal css = style tag (body and head )
-        3. external css = external file
+        CSS :- Cascadic style sheet.
 
+        CSS :-
+        1.Inline css = style attiribute
+        2.Internal css = style tag (body and head )
+        3. external css = external stylesheet
     -->
-    <!-- left Side :- property name 
-         right side :- property value 
-        -->
 
-    <h1 style="color: red; background-color: blue;">Heading</h1>
-    <h2 class="head" id="he">Heading 2</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam corrupti amet non doloremque recusandae, impedit
-        itaque numquam fuga illum magnam! Repudiandae animi velit quaerat quis dolor. Quo assumenda consectetur est!</p>
+    <h1 style="color: red; background-color: aqua;">Heading</h1>
+    <h2 class="h">Heading 2</h2>
+    <p class="para" id="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione iste nostrum
+        exercitationem tempore blanditiis
+        ex, excepturi consequuntur beatae voluptatem repellendus commodi voluptatum error! Earum et est numquam
+        consequuntur repudiandae ratione.</p>
+    <p class="para1" id="pp1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione iste nostrum
+        exercitationem tempore blanditiis
+        ex, excepturi consequuntur beatae voluptatem repellendus commodi voluptatum error! Earum et est numquam
+        consequuntur repudiandae ratione.</p>
+    <p class="para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione iste nostrum exercitationem
+        tempore blanditiis
+        ex, excepturi consequuntur beatae voluptatem repellendus commodi voluptatum error! Earum et est numquam
+        consequuntur repudiandae ratione.</p>
+    <p class="para1"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione iste nostrum exercitationem
+        tempore blanditiis
+        ex, excepturi consequuntur beatae voluptatem repellendus commodi voluptatum error! Earum et est numquam
+        consequuntur repudiandae ratione.</p>
 
 </body>
 
