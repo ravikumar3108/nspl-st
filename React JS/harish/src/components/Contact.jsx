@@ -1,9 +1,10 @@
 import React from 'react'
+import Products from './Products/Products'
 
 function Contact() {
   return (
     <div>
-      <h1>Conatct</h1>
+      <Products/>
     </div>
   )
 }
