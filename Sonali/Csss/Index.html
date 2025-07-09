@@ -24,9 +24,6 @@
 
         */
 
-        p {
-            color: green;
-        }
 
         /* Class Selector  */
         .para1 {
@@ -40,10 +37,29 @@
         }
 
         /*Select a Id == #  */
-        #pp{
-            
+        #pp {}
+
+
+        /* actual path */
+
+        div div p {
+            color: blue;
         }
 
+        .main .pp p {
+            background-color: aqua;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            background-color: red;
+        }
+
+        * {
+            border: 1px solid black;
+        }
     </style>
 
 </head>
@@ -59,7 +75,7 @@
         3. external css = external stylesheet
     -->
 
-    <h1 style="color: red; background-color: aqua;">Heading</h1>
+    <!-- <h1 style="color: red; background-color: aqua;">Heading</h1>
     <h2 class="h">Heading 2</h2>
     <p class="para" id="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione iste nostrum
         exercitationem tempore blanditiis
@@ -76,7 +92,49 @@
     <p class="para1"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione iste nostrum exercitationem
         tempore blanditiis
         ex, excepturi consequuntur beatae voluptatem repellendus commodi voluptatum error! Earum et est numquam
-        consequuntur repudiandae ratione.</p>
+        consequuntur repudiandae ratione.</p> -->
+
+    <div class="main">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci provident totam nam quod. Quibusdam ipsum
+            sunt doloremque aliquam eos, quam doloribus nulla nobis cum officia placeat tempora dolores! Excepturi,
+            provident?</p>
+        <div class="pp">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam sit inventore doloribus cupiditate enim,
+                laborum eius fuga, praesentium maiores beatae sequi iste dignissimos? Voluptatem tempore quae, ipsa
+                ratione tempora dolore?
+            </p>
+        </div>
+        <h1>heading</h1>
+        <div>
+            <h1>Heading</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae modi nisi provident ad perferendis magnam
+                debitis necessitatibus facere. Iure, provident exercitationem tenetur vero numquam eveniet quibusdam
+                ducimus temporibus accusamus illo?</p>
+        </div>
+    </div>
+
+
+    <div>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum cumque earum aut cupiditate totam.
+                Perspiciatis, numquam cumque tempore doloremque optio, quasi qui molestiae accusamus corporis ea minus
+                incidunt consequatur necessitatibus!</p>
+        </div>
+    </div>
+
+
+    <section class="footer">
+        <div>
+            <h1></h1>
+            <p></p>
+        </div>
+    </section>
+
+    <h1>Head1</h1>
+    <h2>Head1</h2>
+    <h3>Head1</h3>
+    <h4>Head1</h4>
 
 </body>
 
