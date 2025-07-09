@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Api() {
 
@@ -28,7 +29,8 @@ function Api() {
         {apiData.map((item)=>{
             return(
                 <>
-                <h1>{item.title}</h1>
+                <h3>{item.id}</h3>
+                <Link to={`more?id=${item.id}`}>{item.title}</Link>
                 <p>{item.description}</p>
                 <p>{item.price}</p>
                 <img src="" alt="" />
