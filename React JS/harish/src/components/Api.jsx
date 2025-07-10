@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "react-use-cart";
 
 function Api() {
   let [apiData, setApiData] = useState([]);
   let [filterDD, setFilterDD] = useState([]);
+  const { addItem, inCart } = useCart();
 
   // Usenavigate
   // Toast
@@ -81,6 +83,13 @@ function Api() {
                 <button>
                   <Link to={`/more?id=${item.id}`}>More</Link>
                 </button>
+                <div key={item.id}>
+                  {inCart(item.id) ? (
+                    <button>Added</button>
+                  ) : (
+                    <button onClick={() => addItem(item)}>Add to cart</button>
+                  )}
+                </div>
               </div>
             </>
           );
