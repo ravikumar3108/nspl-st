@@ -6,21 +6,31 @@ import { Platform, SafeAreaView, StyleSheet ,Text,TextInput,TouchableOpacity,Vie
 export default function HomeScreen() {
 
   const [data,setData] = useState("")
+  const [submitData , setSubmitData] = useState("")
+
+  const handleSubmit = ()=>{
+    setSubmitData(data)
+    setData("")
+  }
 
   return (
    <>
    <SafeAreaView style={{flex:1}}>
-     {/* <View style={styles.main}>
+     <View style={styles.main}>
       <Text style={styles.header}>Login</Text>
-      <TextInput style={styles.input} onChangeText={setData} placeholder='Username'/>
+      <TextInput 
+      style={styles.input} 
+       placeholder='Username'
+       value={data}
+       onChangeText={(text)=>setData(text)}
+      />
       <TextInput style={styles.input} placeholder='Password'/>
-
       <TouchableOpacity>
-        <Text style={styles.btn}>Submit Button</Text>
+        <Text style={styles.btn} onPress={handleSubmit}>Submit Button</Text>
       </TouchableOpacity>
-    </View> */}
-
-    
+      {/* <Text>My Input Data :- {submitData}</Text> */}
+      {submitData ? <Text>My Input Data :- {submitData}</Text> : ""}
+    </View>
    </SafeAreaView>
    </>
   );
@@ -31,13 +41,19 @@ const styles = StyleSheet.create({
    main:{
       alignContent:"center",
       margin:30,
+      // backgroundColor:"black",
+      padding:20,
     },
     input :{
-        color:"red",
         padding:20,
-        height:20,
+        // height:20,
         marginBottom:20,
-        borderWidth:1
+        borderWidth:1,
+        // color:"white",
+       outlineColor:"white",
+       borderColor:"white",
+       
+
     },
     header:{
       textAlign:"center",
