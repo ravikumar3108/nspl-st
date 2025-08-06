@@ -1,9 +1,15 @@
 const express = require("express")
 const app = express()
 const mongoose = require('mongoose');
+const cors = require('cors')
+
+ 
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 main().catch(err => console.log(err));
-
 async function main() {
   await mongoose.connect('mongodb+srv://raviluhaniwal318:ZElVoJDwr5XJvdMz@cluster0.us8usk1.mongodb.net/hriday');
     console.log("Databse is connect")
@@ -13,6 +19,7 @@ async function main() {
 
 // middleware
 app.use(express.json())
+app.use(cors(corsOptions))
 app.use(require("./routes/userRoutes"))
 
 // Apis create 
