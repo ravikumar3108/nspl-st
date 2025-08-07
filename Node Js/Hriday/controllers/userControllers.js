@@ -9,14 +9,15 @@ const userLogin = async (req, res) => {
 
 const userSignup = async (req, res) => {
     console.log(req.body)
-    const newUser = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-    });
+    console.log(req.file)
+    // const newUser = new User({
+    //     name: req.body.name,
+    //     email: req.body.email,
+    //     password: req.body.password,
+    // });
 
-    const saveuser = await newUser.save()
-    console.log(saveuser)
+    // const saveuser = await newUser.save()
+    // console.log(saveuser)
 
 }
 
