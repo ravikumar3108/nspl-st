@@ -1,9 +1,16 @@
 const express = require('express')
+const User = require("../models/UserModel")
 
-
-const userLogin = (req, res) => {
+const userLogin = async (req, res) => {
     console.log(req.body)
-    res.json({ Message: "MVC Pattern" })
+    const newuser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+    })
+
+    const saveuser = await newuser.save()
+    res.json({ message: saveuser })
 }
 
 module.exports = { userLogin }
