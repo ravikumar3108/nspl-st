@@ -12,9 +12,6 @@ async function main() {
 }
 
 
-
-
-
 // Middlewares 
 app.use(express.json())
 app.use(require("./routes/UserRoutes"))

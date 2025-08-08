@@ -13,6 +13,14 @@ const userLogin = async (req, res) => {
     res.json({ message: saveuser })
 }
 
-module.exports = { userLogin }
+const getUser = async (req, res) => {
+    console.log(req.body)
+    // const alldata = await User.find({})
+    const alldata = await User.findOne({name: "Harish",})
+    res.json({ message: alldata })
+
+}
+
+module.exports = { userLogin, getUser }
 
 
