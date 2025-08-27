@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,7 @@ function Stat() {
   //   Multiple data
 
   let [data, setData] = useState("");
-
+  console.log(data);
   function getAllData(e) {
     // spread operator :- to save the initial data(after the changes our state)
     // ...arr
@@ -32,14 +33,23 @@ function Stat() {
 
   // to get a data from local storage
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    let getUsers = JSON.parse(localStorage.getItem("newUsers"));
-    if (data.email == getUsers.email && data.password == getUsers.password) {
-      nav("/");
-    } else {
-      toast.success("Something wnet wrong");
-    }
+    console.log("Funcin runnn");
+    // const fdata = new FormData();
+    // fdata.append("name", data.name);
+    // fdata.append("email", data.email);
+    // fdata.append("password", data.password);
+    const sendata = await axios
+      .post("http://localhost:8000/userLogin", data)
+      .then((res) => {
+        console.log(res.data);
+        // if (res.data.status) {
+        //   alert("User Create Succesfull");
+        // } else {
+        //   alert("something went wrong");
+        // }
+      });
   }
 
   return (
