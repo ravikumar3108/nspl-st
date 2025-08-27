@@ -61,8 +61,51 @@ console.log("z is", z)
 // constant = it cannot be redecalred
 const a = 10
 // re-assign :- re-assign is not supported.
-a = 30
-console.log(a)
+// a = 30
+// console.log(a)
 
 
+// Data Types:-
+// 1. Integer
 
+let num1 = 20
+let num2 = 40
+console.log(num1 + num2)
+
+// 2. String : - string is used to store character(alphabets) values.
+// String data store into single quotes and double quotes "" ''
+
+let name = "kumar"
+let name1 = 'kumar'
+let numchar = "5"
+
+
+// 3. bollean
+let bl1 = true
+let bl2 = false
+
+// 4. null
+
+let nl = null
+
+// 5. undefined
+let un;
+console.log(un)
+
+// 6. array :- Array is used to store multiple data/values
+
+let arr = [1, 2, 4, 5, 6, 8, 9, "Name", null, undefined, true, false]
+console.log(arr)
+
+// 7. object : object is used to store multiple data/values in the form of key and values
+
+let obj = {
+    id: 1,
+    name: "Sandeep",
+    rollno: 21,
+    classe: "12th"
+}
+
+console.log(obj)
+console.log(obj.name)
+console.log(obj.classe)
