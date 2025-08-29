@@ -141,9 +141,51 @@ console.log(--y)
 
 
 // 2. Assignment op
-    
+// = 
+// += 
+let a = 10
+let b = 20
+let c = a + b
+a += 20
+console.log(a)
+console.log(c)
 
-// 3. Comparision op
+// -=
+// *=
+// /=
+// %=
+// **= 
+
+// 3. Comparision op = (true and false)
+// == equal value
+// != not equal
+// === equal value and equal type
+// !== not equal value and type
+// > greater than
+// < less than 
+// >= greater than equal to
+// <=  less than equal to
+
+let aa = 12
+let bb = 13
+let cc = 12
+let dd = "12"
+
+// console.log(aa == bb)
+// console.log(aa == cc)
+// console.log(aa == dd)
+// console.log(aa != cc) // opposite ==
+
+// console.log(aa === bb)
+// console.log(aa === dd)
+
+
+console.log(aa > bb)
+console.log(aa < bb)
+console.log(aa <= cc)
+
+
+
 // 4. Logical op
 
 
