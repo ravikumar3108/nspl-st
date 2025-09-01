@@ -6,6 +6,7 @@ const createproduct = async (req, res) => {
     //     status: true
     // })
     console.log(req.body)
+    console.log(req.file)
 }
 
 
