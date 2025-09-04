@@ -3,13 +3,38 @@ const express = require('express')
 // create a object 
 const app = express()
 
-// Api's GET , POST , PUT , DELETE
+// Middlewares:- 
+app.use(express.json())
 
+
+
+// Api's GET , POST , PUT , DELETE
 // Create a GET Api
 app.get("/", (req, res) => {
     res.json({
-        message:"Heloo Ved"
+        message: "Heloo Ved"
     })
+})
+
+app.get("/getUsers", (req, res) => {
+    res.json({
+        message: "User Api"
+    })
+})
+
+app.post("/createUsers", (req, res) => {
+    console.log(req.body)
+    // Error Handling :- 
+    try {
+        res.json({
+            message: "Post Api",
+            data: req.body
+        })
+
+    } catch (error) {
+        console.log("create user", error)
+        res.json({ error: error })
+    }
 })
 
 
