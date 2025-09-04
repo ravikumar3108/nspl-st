@@ -203,14 +203,14 @@
 
 // // ! not
 
-let num1 = 10
-let num2 = 20
-let num3 = 20
+// let num1 = 10
+// let num2 = 20
+// let num3 = 20
 
-let cc = num1 > num2 && num3 == num2
-let dd = !(num1 > num2 || num3 == num2)
-console.log(cc)
-console.log(dd)
+// let cc = num1 > num2 && num3 == num2
+// let dd = !(num1 > num2 || num3 == num2)
+// console.log(cc)
+// console.log(dd)
 
 
 // If else Statements (conditional statements):- it is a block of code which is executed when our condition is true
@@ -226,5 +226,69 @@ console.log(dd)
 
 
 
+
+// if(condition){
+
+// }
+// else if(condition){
+//     // code to be executed
+// }  
+// else{
+// default condition
+// }
+
+
+
+// Write a program on Voting system...
+
+let votingAge = 100
+
+if (votingAge >= 18) {
+
+    console.log("You are Eligible for the voting..", votingAge)
+
+} else {
+    console.log("You are not eligible for voting..")
+}
+
+
+// 
+
+
+// Write a program which given number is greater.. (two numbers)
+
+// let num1 = 20
+// let num2 = 20
+
+// if (num1 > num2) {
+//     console.log("Num1 is greater than Num2")
+// }
+// else {
+//     console.log("Num2 is greater than Num1")
+// }
+
+
+
+//
+
+// let num1 = 20
+// let num2 = 20
+
+// if (num1 > num2) {
+//     console.log("Num1 is greater than Num2")
+// }
+// else if (num1 == num2) {
+//     console.log("Num1 is equal to number2")
+// }
+// else if (num1 < num2) {
+//     console.log("Num1 is smaller than Num2")
+// }
+// else {
+//     console.log("Something Wrong...")
+// }
+
+// Grren light 
+// orange light
+// red light
 
 
