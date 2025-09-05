@@ -1,10 +1,23 @@
 const express = require('express')
+const mongoose = require("mongoose")
 
 // create a object 
 const app = express()
 
 // Middlewares:- 
 app.use(express.json())
+
+
+// Connectivity of cloud mongodb to node js 
+main().catch(err => console.log(err));
+
+async function main() {
+    await mongoose.connect('mongodb+srv://raviluhaniwal318:ZElVoJDwr5XJvdMz@cluster0.us8usk1.mongodb.net/vedparkash?retryWrites=true&w=majority&appName=Cluster0').then(() => {
+        console.log("database connect")
+    });
+
+    // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
 
 
 
@@ -47,6 +60,27 @@ app.post("/createUsers", (req, res) => {
 app.listen(8000, () => {
     console.log("Server is started")
 })
+
+
+// mongodb :-
+// Collections
+// Json Objects
+// Nosql and sql
+// libarary :- mongoose (connect  mongodb to nodejs )
+
+// Conectivity
+// MVC :- Model view Controler
+// Schema
+// Models
+// Asynchronus
+// schema type
+// Queries
+// middlewares 
+
+
+
+
+
 
 
 
