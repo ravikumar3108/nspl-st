@@ -7,6 +7,7 @@ import slider1 from "./images/slider.avif";
 import slider2 from "./images/slider2.avif";
 import slider3 from "./images/slider3.avif";
 import CreateProducts from "./Products/CreateProducts";
+import GetUsers from "./Products/GetUsers";
 
 function Home() {
   let imagesData = [
@@ -50,7 +51,9 @@ function Home() {
   return (
     <>
       <div className="slider">
-        <CreateProducts/>
+        <GetUsers />
+
+        {/* <CreateProducts/> */}
         {/* {imagesData &&
           imagesData.map((item, i) => {
             return (
