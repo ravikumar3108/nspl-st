@@ -24,11 +24,23 @@ const userLogin = async (req, res) => {
 
 const getUser = async (req, res) => {
     console.log(req.body)
-    
-    const alldata = await User.findOne({email : req.body.email})
+
+    const alldata = await User.find({})
     res.json({ message: alldata })
 }
 
-module.exports = { userLogin, getUser }
+const deleteuser = async (req, res) => {
+    console.log(req.params.id)
+    const id = req.params.id
+
+    const deleteUSer = await User.deleteOne({ _id: id })
+    res.json({
+        status: true,
+        message: deleteUSer
+    })
+
+}
+
+module.exports = { userLogin, getUser, deleteuser }
 
 
