@@ -20,6 +20,16 @@ async function main() {
 }
 
 
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String,
+});
+
+// Model :-  collection Name (user)
+
+const User = mongoose.model('user', userSchema);
+
 
 // Api's GET , POST , PUT , DELETE
 // Create a GET Api
@@ -29,20 +39,39 @@ app.get("/", (req, res) => {
     })
 })
 
-app.get("/getUsers", (req, res) => {
-    res.json({
-        message: "User Api"
-    })
+app.post("/getUsers", async (req, res) => {
+
+    try {
+        console.log(req.body)
+        const email = req.body.email
+        const getusers = await User.findOne({ email: email })
+        console.log(getusers)
+        res.json({
+            data: getusers
+        })
+
+    } catch (error) {
+
+    }
+
 })
 
-app.post("/createUsers", (req, res) => {
+app.post("/createUsers", async (req, res) => {
     console.log(req.body)
     // Error Handling :- 
     try {
-        res.json({
-            message: "Post Api",
-            data: req.body
+
+        const newUser = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
         })
+
+        const saveuser = await newUser.save()
+        res.json({
+            data: saveuser
+        })
+
 
     } catch (error) {
         console.log("create user", error)
