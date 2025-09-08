@@ -1,11 +1,17 @@
 const express = require('express')
 const mongoose = require("mongoose")
-
+const userRoutes = require("./routes/user")
 // create a object 
 const app = express()
 
 // Middlewares:- 
 app.use(express.json())
+app.use("/users", userRoutes)
+// app.use("/users", require("./routes/user"))
+// app.use("/users", require("./routes/user"))
+// app.use("/users", require("./routes/user"))
+// app.use("/users", require("./routes/user"))
+
 
 
 // Connectivity of cloud mongodb to node js 
@@ -20,64 +26,66 @@ async function main() {
 }
 
 
-const userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String,
-});
+// const userSchema = new mongoose.Schema({
+//     name: String,
+//     email: String,
+//     password: String,
+// });
 
-// Model :-  collection Name (user)
+// // Model :-  collection Name (user)
 
-const User = mongoose.model('user', userSchema);
+// const User = mongoose.model('user', userSchema);
 
 
 // Api's GET , POST , PUT , DELETE
 // Create a GET Api
-app.get("/", (req, res) => {
-    res.json({
-        message: "Heloo Ved"
-    })
-})
+// app.get("/", (req, res) => {
+//     res.send({
+//         message: "Heloo Ved"
+//     })
+// })
 
-app.post("/getUsers", async (req, res) => {
+// app.post("/getUsers", async (req, res) => {
 
-    try {
-        console.log(req.body)
-        const email = req.body.email
-        const getusers = await User.findOne({ email: email })
-        console.log(getusers)
-        res.json({
-            data: getusers
-        })
+//     try {
+//         console.log(req.body)
+//         const email = req.body.email
+//         const getusers = await User.findOne({ email: email })
+//         // const getusers = await User.find({})
+//         console.log(getusers)
+//         res.json({
+//             data: getusers
+//         })
 
-    } catch (error) {
+//     } catch (error) {
 
-    }
+//     }
 
-})
+// })
 
-app.post("/createUsers", async (req, res) => {
-    console.log(req.body)
-    // Error Handling :- 
-    try {
+// app.post("/createUsers", async (req, res) => {
+//     console.log(req.body)
+//     // Error Handling :- 
+//     try {
 
-        const newUser = new User({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password,
-        })
+//         const newUser = new User({
+//             name: req.body.name,
+//             email: req.body.email,
+//             password: req.body.password,
 
-        const saveuser = await newUser.save()
-        res.json({
-            data: saveuser
-        })
+//         })
+
+//         const saveuser = await newUser.save()
+//         res.json({
+//             data: saveuser
+//         })
 
 
-    } catch (error) {
-        console.log("create user", error)
-        res.json({ error: error })
-    }
-})
+//     } catch (error) {
+//         console.log("create user", error)
+//         res.json({ error: error })
+//     }
+// })
 
 
 
