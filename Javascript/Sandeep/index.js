@@ -292,3 +292,45 @@ if (votingAge >= 18) {
 // red light
 
 
+// Loops :- it is a block of code which is run as well as our condition is true
+
+// initialise 
+// condition
+// increment / decremrnt
+
+// while loop
+
+// while(condition){
+//     // code 
+//     // increment / decrememt 
+// }
+
+let num1 = 1;
+
+// while (num1 <= 20) {
+//     console.log(num1);
+//     num1++;
+// }
+
+
+// do-while loop
+
+do {
+    console.log(num1);
+    num1++;
+} while (num1 > 20)
+
+// for loop
+
+for (let i = 20; i > 1; i--) {
+    console.log(i)
+}
+
+
+// table 
+
+let table = 2
+
+for (let i = 1; i <= 10; i++) {
+    console.log(table * i)
+}
