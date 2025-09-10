@@ -7,10 +7,6 @@ const app = express()
 // Middlewares:- 
 app.use(express.json())
 app.use("/users", userRoutes)
-// app.use("/users", require("./routes/user"))
-// app.use("/users", require("./routes/user"))
-// app.use("/users", require("./routes/user"))
-// app.use("/users", require("./routes/user"))
 
 
 

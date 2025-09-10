@@ -9,5 +9,5 @@ const userSchema = new mongoose.Schema({
 
 // Model :-  collection Name (user)
 
-const User = mongoose.model('ved', userSchema);
+const User = mongoose.model('user', userSchema);
 module.exports = User
