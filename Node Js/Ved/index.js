@@ -1,12 +1,14 @@
 const express = require('express')
 const mongoose = require("mongoose")
 const userRoutes = require("./routes/user")
+const productRoutes = require("./routes/product")
 // create a object 
 const app = express()
 
 // Middlewares:- 
 app.use(express.json())
 app.use("/users", userRoutes)
+app.use("/product", productRoutes)
 
 
 
