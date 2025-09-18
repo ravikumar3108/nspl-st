@@ -46,3 +46,26 @@ let sl = arr.slice(2, 5)
 console.log(sl)
 
 
+// Splice :- 3 Parameters
+// 1. index number 
+// 2. Remove items
+// 3. Add Items / values
+
+arr.splice(5, 0, true)
+console.log(arr)
+
+arr.splice(6, 2, 1, 2, 3)
+console.log(arr)
+
+// Accesss
+console.log(arr.at(3))
+
+// delete 
+delete arr[3]
+console.log(arr)
+
+// sort : arrange data into ascending 
+let arr2 = ["a", "z", "c", "b", "A", "Heloo", "Ram", "Hallo"]
+arr2.sort()
+console.log(arr2)
+
