@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require("mongoose")
 const userRoutes = require("./routes/user")
 const productRoutes = require("./routes/product")
+const cartRoutes = require("./routes/CartRoutes")
 // create a object 
 const app = express()
 
@@ -9,6 +10,7 @@ const app = express()
 app.use(express.json())
 app.use("/users", userRoutes)
 app.use("/product", productRoutes)
+app.use("/productCart", cartRoutes)
 
 
 
