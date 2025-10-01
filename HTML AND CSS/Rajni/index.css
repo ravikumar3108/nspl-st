@@ -1,0 +1,35 @@
+@media only screen and (max-width: 768px) {
+    body {
+        background-color: rgb(26, 228, 19);
+    }
+
+    h1 {
+        background-color: blueviolet !important;
+        border: 1px solid blue;
+    }
+
+
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: rgb(228, 19, 19);
+    }
+
+    h1 {
+        background-color: blueviolet !important;
+        border: 1px solid blue;
+    }
+
+
+
+}
+
+
+
+h1 {
+    background-color: green;
+    color: red;
+}
