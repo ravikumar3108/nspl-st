@@ -3,8 +3,23 @@ const mongoose = require("mongoose")
 const userRoutes = require("./routes/user")
 const productRoutes = require("./routes/product")
 const cartRoutes = require("./routes/CartRoutes")
+const multer = require('multer')
 // create a object 
 const app = express()
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // Specify the destination folder
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Generate a unique filename
+    }
+});
+
+const upload = multer({ storage: storage })
+
+
+
 
 const cors = require('cors')
 
@@ -16,7 +31,7 @@ const corsOptions = {
 // Middlewares:- 
 app.use(express.json())
 app.use("/users", userRoutes)
-app.use("/product", productRoutes)
+app.use("/product", upload.single("image"), productRoutes)
 app.use("/productCart", cartRoutes)
 // app.use(cors())
 

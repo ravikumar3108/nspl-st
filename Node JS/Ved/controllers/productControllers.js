@@ -4,7 +4,8 @@ const Product = require('../models/productModel')
 
 
 const createProduct = async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
+    console.log(req.file)
     res.json({
         message: "ture"
     })
@@ -14,6 +15,7 @@ const createProduct = async (req, res) => {
             description: req.body.description,
             category: req.body.category,
             price: req.body.price,
+            image: req.file.filename
         })
 
         const saveproduct = await newProduct.save()
@@ -88,4 +90,4 @@ const updateProduct = async (req, res) => {
 
 
 
-module.exports = { createProduct, singleProduct, updateProduct ,getAllProducts}
+module.exports = { createProduct, singleProduct, updateProduct, getAllProducts }
