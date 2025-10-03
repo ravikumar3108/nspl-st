@@ -1,28 +1,48 @@
-@media only screen and (max-width: 768px) {
-    body {
-        background-color: rgb(26, 228, 19);
-    }
+/* 
+sm >= 600px
+md >= 768px 
+lg >= 1024px
+xl >= 1280px
 
-    h1 {
-        background-color: blueviolet !important;
-        border: 1px solid blue;
-    }
+*/
 
+
+@media only screen and (max-width: 1024px) {
+  body {
+    background-color: rgb(218, 52, 23);
+  }
+
+  .product{
+    flex-direction: column;
+  }
+
+  h1{
+    background-color: yellow !important;
+    border: 4px solid red;
+    color: black !important;
+    font-size: 30px !important;
+  }
 
 
 }
 
 
+
 @media only screen and (max-width: 600px) {
-    body {
-        background-color: rgb(228, 19, 19);
-    }
+  body {
+    background-color: rgb(38, 194, 32);
+  }
 
-    h1 {
-        background-color: blueviolet !important;
-        border: 1px solid blue;
-    }
+  .product{
+    flex-direction: column;
+  }
 
+  h1{
+    background-color: yellow !important;
+    border: 4px solid red;
+    color: black !important;
+    font-size: 30px !important;
+  }
 
 
 }
@@ -30,6 +50,7 @@
 
 
 h1 {
-    background-color: green;
-    color: red;
+    background-color: red;
+    color: white;
+    font-size: 100px;
 }
