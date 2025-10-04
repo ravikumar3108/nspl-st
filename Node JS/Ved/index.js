@@ -33,6 +33,8 @@ app.use(express.json())
 app.use("/users", userRoutes)
 app.use("/product", upload.single("image"), productRoutes)
 app.use("/productCart", cartRoutes)
+// TO get image globallly 
+app.use("/uploads", express.static("uploads"))
 // app.use(cors())
 
 
