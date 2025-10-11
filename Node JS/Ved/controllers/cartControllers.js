@@ -19,13 +19,14 @@ const AddToCart = async (req, res) => {
 
 const GetCartData = async (req, res) => {
 
-
     const getDAta = await Cart.find({}).populate("item")
     res.json({
         message: getDAta
     })
 
 }
+
+
 
 
 module.exports = { AddToCart, GetCartData }
