@@ -3,3 +3,16 @@
     
 }
 
+.header{
+    background-color: black;
+    color: white;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+}
+.header ul li{
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid white;
+    margin: 10px 12px;
+}
