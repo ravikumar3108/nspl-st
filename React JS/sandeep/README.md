@@ -18,3 +18,4 @@ node modules:- packages
 
 
 For Routing :-  npm i react-router-dom
+Props :- by the props we can send data one component to another component
