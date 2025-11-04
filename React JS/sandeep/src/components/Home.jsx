@@ -3,6 +3,7 @@ import React from "react";
 import img from "./image/pexels-anhdanghihi-34094302.jpg"
 import Header from "./Header";
 import Data from "./Data";
+import UseStateHook from "./Hooks/UseStateHook";
 
 function Home() {
 
@@ -13,10 +14,10 @@ function Home() {
         <>
             {/* <Header /> */}
             <h1>Home Component</h1>
-
+            <UseStateHook/>
             {/* Props :- Properties */}
             {/* Send Props */}
-            <Data name={x} age={age} />
+            {/* <Data name={x} age={age} /> */}
 
 
             {/* <h1 style={{ color: "green", padding: "10px", paddingTop: "20px" }}>My name is {x} . My Age is {age}.</h1>

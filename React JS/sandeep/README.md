@@ -19,3 +19,5 @@ node modules:- packages
 
 For Routing :-  npm i react-router-dom
 Props :- by the props we can send data one component to another component
+
+Hooks:- React Hooks are JavaScript functions that enable the use of state and other React features within functional components
