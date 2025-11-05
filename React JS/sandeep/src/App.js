@@ -5,6 +5,7 @@ import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from './components/About';
 import Contact from './components/Contact';
+import Form from './components/Form';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/form' element={<Form />} />
         </Routes>
 
       </BrowserRouter>
