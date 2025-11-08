@@ -35,11 +35,31 @@ function Form() {
     // }
 
 
+    // function handleSubmit(e){
+    //     e.preventDefault()
+    //     console.log("submit function call")
+    //     localStorage.setItem("users",JSON.stringify(allData));
+        
+    // }
+
+
+    // login function handle submit 
+
     function handleSubmit(e){
         e.preventDefault()
-        console.log("submit function call")
-        localStorage.setItem("users",JSON.stringify(allData));
-        
+        let user = JSON.parse(localStorage.getItem("users"))
+       
+        if(allData && user && allData.firstname === user.firstname && allData.email === user.email){
+            alert("Login Success")
+        }
+        else{
+            alert("Invalid Details")
+        }
+
+    }
+
+    function LogoutUser(){
+        localStorage.removeItem("users")
     }
 
 
@@ -61,7 +81,7 @@ function Form() {
             <button type='submit'>Submit</button>
         </form>
 
-
+    <button onClick={LogoutUser}>Logout</button>
     </>
   )
 }
