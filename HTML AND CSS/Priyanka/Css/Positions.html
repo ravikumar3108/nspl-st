@@ -27,8 +27,28 @@
             width: 100px;
             height: 100px;
             border: 1px solid;
-            background-color: rgb(119, 0, 255);
+            background-color: rgb(17, 218, 107);
+            position: fixed;
+            right: 100px;
+            top: 300px;
            
+        }
+        .header{
+            display: flex;
+            background-color: rgb(7, 36, 36);
+            justify-content: space-between;
+            color: whitesmoke;
+            padding: 5px 30px;
+            position: sticky;
+            top: 0;
+            left: 0;
+            /* stack order */
+            z-index: 99999999;
+        }
+        .header ul li{
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 8px 12px;
         }
     </style>
 </head>
@@ -44,12 +64,27 @@
     
     -->
 
+    <div class="header">
+        <h1>Header</h1>
+        <ul>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+            <li>Home</li>
+        </ul>
+    </div>
+
 
     <div class="main">
         <div class="box"></div>
         <div class="box1"></div>
     </div>
 
+    <div class="main"></div>
+    <div class="main"></div>
+    <div class="main"></div>
 
 
 </body>
