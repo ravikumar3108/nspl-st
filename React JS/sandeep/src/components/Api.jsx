@@ -14,7 +14,7 @@ function Api() {
     */
   }
 
-  let [apiData, setApiData] = useState();
+  let [apiData, setApiData] = useState([]);
   console.log(apiData);
 
   async function getData() {
@@ -31,6 +31,22 @@ function Api() {
     <>
       <h1>Heloo</h1>
       {/* <button onClick={getData}>Fetch Data</button> */}
+
+      {/* Map the all products */}
+      {/* Item :- its is iteration(refrence) */}
+      <div className="products" style={{display:"flex",flexWrap:"wrap",justifyContent:"space-between"}}>
+        {apiData.map((item) => {
+          return (
+            <>
+              <div className="" style={{ border: "1px solid" ,width:"30%"}}>
+                <h2>Title: {item.title} </h2>
+                <p>{item.description}</p>
+                <p>{item.price}</p>
+              </div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 }
