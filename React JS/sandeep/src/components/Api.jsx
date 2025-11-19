@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Api() {
   {
@@ -34,15 +35,24 @@ function Api() {
 
       {/* Map the all products */}
       {/* Item :- its is iteration(refrence) */}
-      <div className="products" style={{display:"flex",flexWrap:"wrap",justifyContent:"space-between"}}>
+      <div
+        className="products"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
+      >
         {apiData.map((item) => {
           return (
             <>
-              <div className="" style={{ border: "1px solid" ,width:"30%"}}>
-                <h2>Title: {item.title} </h2>
-                <p>{item.description}</p>
-                <p>{item.price}</p>
-              </div>
+              <Link to={`/details/${item.id}`}>
+                <div className="" style={{ border: "1px solid", width: "30%" }}>
+                  <h2>Title: {item.title} </h2>
+                  <p>{item.description}</p>
+                  <p>{item.price}</p>
+                </div>
+              </Link>
             </>
           );
         })}
