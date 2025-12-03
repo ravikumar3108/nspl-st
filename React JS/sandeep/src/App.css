@@ -16,3 +16,9 @@
     border: 1px solid white;
     margin: 10px 12px;
 }
+.active{
+    display: block;
+}
+.none{
+    display: none;
+}

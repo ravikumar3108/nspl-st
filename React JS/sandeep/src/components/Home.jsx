@@ -4,6 +4,7 @@ import img from "./image/pexels-anhdanghihi-34094302.jpg"
 import Header from "./Header";
 import Data from "./Data";
 import UseStateHook from "./Hooks/UseStateHook";
+import Slider from "./Slider";
 
 function Home() {
 
@@ -14,7 +15,8 @@ function Home() {
         <>
             {/* <Header /> */}
             <h1>Home Component</h1>
-            <UseStateHook/>
+            {/* <UseStateHook/> */}
+            <Slider/>
             {/* Props :- Properties */}
             {/* Send Props */}
             {/* <Data name={x} age={age} /> */}
