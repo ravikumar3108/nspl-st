@@ -17,16 +17,23 @@ function Api() {
 
   let [apiData, setApiData] = useState([]);
   console.log(apiData);
+  const [filterApi, setFilterApi] = useState([]);
 
   async function getData() {
     let getApiData = await fetch("https://dummyjson.com/products");
     let jsondata = await getApiData.json();
     setApiData(jsondata.products);
+    setFilterApi(jsondata.products);
   }
 
   useEffect(() => {
     getData();
   }, []);
+
+  const filterData = (cate) => {
+    const filterItems = apiData.filter((item) => item.category == cate);
+    setFilterApi(filterItems);
+  };
 
   return (
     <>
@@ -43,7 +50,11 @@ function Api() {
           justifyContent: "space-between",
         }}
       >
-        {apiData.map((item) => {
+        <button>All</button>
+        <button>Furniture</button>
+        <button>Fragness</button>
+        <button onClick={() => filterData("beauty")}>beauty</button>
+        {filterApi.map((item) => {
           return (
             <>
               <Link to={`/details/${item.id}`}>
@@ -56,6 +67,7 @@ function Api() {
             </>
           );
         })}
+        <Link to={"/api"}>More Products</Link>
       </div>
     </>
   );
