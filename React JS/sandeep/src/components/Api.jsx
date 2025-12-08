@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { useCart } from "react-use-cart";
 
 function Api() {
   {
@@ -16,8 +18,8 @@ function Api() {
   }
 
   let [apiData, setApiData] = useState([]);
-  console.log(apiData);
   const [filterApi, setFilterApi] = useState([]);
+  const { addItem } = useCart();
 
   async function getData() {
     let getApiData = await fetch("https://dummyjson.com/products");
@@ -34,36 +36,50 @@ function Api() {
     const filterItems = apiData.filter((item) => item.category == cate);
     setFilterApi(filterItems);
   };
+  const AllFilterData = () => {
+    setFilterApi(apiData);
+  };
+
+  const CartPopUp = () => {
+    toast.success("Item Add to Cart");
+  };
 
   return (
     <>
+    <Toaster/>
       <h1>Heloo</h1>
       {/* <button onClick={getData}>Fetch Data</button> */}
 
       {/* Map the all products */}
       {/* Item :- its is iteration(refrence) */}
+      <button onClick={() => AllFilterData()}>All</button>
+      <button>Furniture</button>
+      <button>Fragness</button>
+      <button onClick={() => filterData("beauty")}>beauty</button>
       <div
         className="products"
         style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
         }}
       >
-        <button>All</button>
-        <button>Furniture</button>
-        <button>Fragness</button>
-        <button onClick={() => filterData("beauty")}>beauty</button>
         {filterApi.map((item) => {
           return (
             <>
-              <Link to={`/details/${item.id}`}>
-                <div className="" style={{ border: "1px solid", width: "30%" }}>
+              <div className="" style={{ border: "1px solid", width: "30%" }}>
+                <Link to={`/details/${item.id}`}>
                   <h2>Title: {item.title} </h2>
                   <p>{item.description}</p>
                   <p>{item.price}</p>
-                </div>
-              </Link>
+                </Link>
+                <button
+                  onClick={() => {
+                    addItem(item); CartPopUp();
+                  }}
+                >
+                  Add to cart
+                </button>
+              </div>
             </>
           );
         })}
