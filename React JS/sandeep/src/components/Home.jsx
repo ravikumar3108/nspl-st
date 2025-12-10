@@ -5,6 +5,7 @@ import Header from "./Header";
 import Data from "./Data";
 import UseStateHook from "./Hooks/UseStateHook";
 import Slider from "./Slider";
+import Timer from "./Timer";
 
 function Home() {
 
@@ -15,6 +16,7 @@ function Home() {
         <>
             {/* <Header /> */}
             <h1>Home Component</h1>
+            <Timer/>
             {/* <UseStateHook/> */}
             <Slider/>
             {/* Props :- Properties */}
