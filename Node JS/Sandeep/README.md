@@ -1,5 +1,5 @@
 
-<!-- Mongoose :-
+Mongoose :-
 
 MVC pattern : model view controller 
 
@@ -10,8 +10,6 @@ req
 res
 queries
 routes
-
- -->
 
 
 MongoDB is a non-relational (NoSQL), document-oriented database management system that stores data in flexible, JSON-like formats called BSON (Binary JSON) documents
