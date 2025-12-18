@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
     <!-- 
     CSS :- Cascadic style sheet which is used to design our web page.
     types:- 3
@@ -30,7 +31,11 @@
             }
 
          */
-      a {
+      * {
+        /* border: 1px solid; */
+      }
+
+      /* a {
         color: red;
       }
       p {
@@ -38,7 +43,7 @@
       }
       h3 {
         background-color: bisque;
-      }
+      } */
       /* Class :-  */
       .para {
         border: 1px solid black;
@@ -53,6 +58,27 @@
 
       /* Id  */
       #p1 {
+      }
+
+      /* Actual path */
+
+      div .head1 {
+        color: red;
+      }
+      div div div p {
+        color: green;
+      }
+      .main .second p {
+        background-color: red;
+      }
+
+      /* Multiple tags */
+
+      .a,
+      .b,
+      .c,
+      .d {
+        color: rgb(243, 25, 61);
       }
     </style>
   </head>
@@ -72,12 +98,54 @@
     <div class="btn">Button</div>
     <div class="btn">Button</div>
 
+    <a href="" class="a">Link</a>
+    <a href="" class="b">Link</a>
+    <a href="" class="c">Link</a>
+    <a href="" class="d">Link</a>
     <a href="">Link</a>
     <a href="">Link</a>
     <a href="">Link</a>
-    <a href="">Link</a>
-    <a href="">Link</a>
-    <a href="">Link</a>
-    <a href="">Link</a>
+
+    <div class="">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
+        suscipit saepe inventore harum, doloribus repudiandae accusantium dolor,
+        animi, rem tempore consequuntur ut fuga reiciendis ipsam cupiditate
+        repellat? Similique, quam rem? Lorem ipsum dolor, sit amet consectetur
+        adipisicing elit. Impedit suscipit saepe inventore harum, doloribus
+        repudiandae accusantium dolor, animi, rem tempore consequuntur ut fuga
+        reiciendis ipsam cupiditate repellat? Similique, quam rem? Lorem ipsum
+        dolor, sit amet consectetur adipisicing elit. Impedit suscipit saepe
+        inventore harum, doloribus repudiandae accusantium dolor, animi, rem
+        tempore consequuntur ut fuga reiciendis ipsam cupiditate repellat?
+        Similique, quam rem?
+      </p>
+      <h1 class="head1" id="">Heloo</h1>
+      <h1>Heloo</h1>
+      <h1>Heloo</h1>
+      <h1>Heloo</h1>
+    </div>
+
+    <div class="main">
+      <div class="first">
+        <div class="first-cont">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+            atque blanditiis illo. Sint id voluptas iste ut nobis temporibus
+            dolorem esse fuga illum. Saepe itaque cum nemo illo corrupti
+            voluptatibus.
+          </p>
+        </div>
+      </div>
+
+      <div class="second">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+          voluptates ipsa incidunt, excepturi quibusdam sint magnam ducimus
+          natus enim, hic nisi pariatur totam corporis! Beatae quod eligendi
+          repellendus iste omnis!
+        </p>
+      </div>
+    </div>
   </body>
 </html>
