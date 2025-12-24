@@ -7,9 +7,9 @@ require("dotenv").config();
 
 // Middlewares:-
 app.use(express.json());
+app.use("/user", require("./routes/userRoutes"));
 
 main().catch((err) => console.log(err));
-
 async function main() {
   await mongoose.connect(process.env.MONGO_URL);
   console.log("Databse Connect");
@@ -20,24 +20,6 @@ async function main() {
 
 // Crate a schema
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-});
-
-// create a model
-const UserModel = mongoose.model("users", userSchema);
-
 app.get("/api/getusers", (req, res) => {
   // res.send("Message send")
   res.json({
@@ -46,26 +28,7 @@ app.get("/api/getusers", (req, res) => {
   });
 });
 
-app.post("", async (req, res) => {
-  console.log(req.body);
-  const { name, email, password } = req.body;
-
-  const createUser = new UserModel({
-    name: name,
-    email: email,
-    password: password,
-  });
-
-  const saveUser = await createUser.save();
-
-  res.json({
-    message: "Post Request",
-    user: saveUser,
-  });
-});
 
 app.listen(8000, () => {
   console.log("Server Create Successfull");
 });
-
-
