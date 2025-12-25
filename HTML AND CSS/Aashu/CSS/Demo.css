@@ -1,1 +1,28 @@
 
+ul li{
+    display: inline-block;
+    border: 1px solid;
+    padding: 10px 12px;
+    margin: 0px 10px;
+    color: green;
+    /* display: none; */
+    visibility: hidden;
+}
+ul .home{
+    color: red;
+}
+h1{
+    color: blue;
+}
+.yd{
+    color: red;
+}
+
+a{
+    display: block;
+}
+.hh{
+    display: inline-block;
+}
+
+
