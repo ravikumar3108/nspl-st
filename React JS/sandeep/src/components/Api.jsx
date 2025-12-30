@@ -22,7 +22,7 @@ function Api() {
   const { addItem } = useCart();
 
   async function getData() {
-    let getApiData = await fetch("https://dummyjson.com/products");
+    let getApiData = await fetch("https://dummyjson.com/products",{method:"GET"});
     let jsondata = await getApiData.json();
     setApiData(jsondata.products);
     setFilterApi(jsondata.products);

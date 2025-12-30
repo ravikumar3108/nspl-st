@@ -62,7 +62,7 @@ function Form() {
       allData.firstname === user.firstname &&
       allData.email === user.email
     ) {
-      loginPopUp()
+      loginPopUp();
       setTimeout(() => {
         navigate("/about");
       }, 3000);
