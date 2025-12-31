@@ -3,26 +3,40 @@ const UserModel = require("../models/userModel");
 
 const Signup = async (req, res) => {
   console.log(req.body);
-  // const { name, email, password } = req.body;
+  try {
+    const { firstname, lastname, email } = req.body;
 
-  // const createUser = new UserModel({
-  //   name: name,
-  //   email: email,
-  //   password: password,
-  // });
+    const createUser = new UserModel({
+      name: firstname,
+      email: email,
+      lastname: lastname,
+    });
 
-  // const saveUser = await createUser.save();
+    const saveUser = await createUser.save();
 
-  res.json({
-    message: "Post Request",
-    // user: saveUser,
-  });
+    if (saveUser) {
+      res.json({
+        message: "Succesfull Create",
+        // user: saveUser,
+        status: true,
+      });
+    } else {
+      res.json({
+        message: "Something Wrong",
+        // user: saveUser,
+        status: false,
+      });
+    }
+  } catch (error) {
+    res.json({ error: `Error in Signup ${error}` });
+  }
 };
 
 const LoginUser = async (req, res) => {
   // Error handling
+  console.log(req.body);
   try {
-    const { email, name } = req.body;
+    const { email } = req.body;
 
     // const existuser = await UserModel.find({}); // all data
     // const existuser = await UserModel.find({ name: name });  // Specific Data
@@ -61,4 +75,4 @@ const AllUsers = async (req, res) => {
   });
 };
 
-module.exports = { Signup, LoginUser, DeleteUser ,AllUsers};
+module.exports = { Signup, LoginUser, DeleteUser, AllUsers };
