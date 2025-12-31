@@ -15,12 +15,31 @@ function Signup() {
     });
   }
 
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   let data = await axios
+  //     .post("http://localhost:8000/user/signup", allData)
+  //     .then((res) => {
+  //       if (res.data.status) {
+  //         toast.success("Successs");
+  //         setTimeout(() => {
+
+  //         }, 3000);
+  //       } else {
+  //         toast.error("Smothing wrong");
+  //       }
+  //     });
+  // }
+
   async function handleSubmit(e) {
-    e.preventDefault()
-    let data = await axios.post("http://localhost:8000/user/signup", allData).then((res)=>{
-        console.log(res.data)
-    });
-   
+    e.preventDefault();
+    let data = await axios
+      .post("http://localhost:8000/user/LoginUser", allData)
+      .then((res) => {
+        if(res.data.Alluser.name == allData.name){
+
+        }
+      });
   }
 
   return (
