@@ -6,39 +6,62 @@
     <title>Document</title>
 
     <style>
-        .main{
-            border: 1px solid;
-            width: 100%;
-            height: 500px;
-            margin: 100px;
-            position: relative;
-        }
-        .box1{
-            border: 1px solid;
-            width: 100px;
-            height: 100px;
-            /* position: relative;
+      .main {
+        border: 1px solid;
+        width: 100%;
+        height: 500px;
+        margin: 100px;
+        position: relative;
+      }
+      .box1 {
+        border: 1px solid;
+        width: 100px;
+        height: 100px;
+        /* position: relative;
             left: 100px;
             top: -100px; */
-            background-color: aqua;
-            position: absolute;
-            top: 0px;
-            left: 100px;
-        }
-        .box2{
-            border: 1px solid;
-            width: 100px;
-            background-color: red;
-            height: 100px;
-        }
-        .box3{
-            border: 1px solid;
-            background-color: orange;
-            width: 100px;
-            height: 100px;
-        }
-    </style>
+        background-color: aqua;
+        position: absolute;
+        top: 0px;
+        left: 100px;
+      }
+      .box2 {
+        border: 1px solid;
+        width: 100px;
+        background-color: red;
+        height: 100px;
+      }
+      .box3 {
+        border: 1px solid;
+        background-color: orange;
+        width: 100px;
+        height: 100px;
+        /* position: fixed;
+        left: 0px;
+        z-index: 9999; */
+      }
+      .ov {
+        border: 1px solid;
+        width: 30%;
+        height: 50px;
+        overflow: hidden;
+        overflow: scroll;
+        overflow: auto;
+      }
 
+      .bg {
+        width: 50%;
+        height: 300px;
+        border: 1px solid;
+        margin: auto;
+        background-image: linear-gradient(red, green);
+        background-image: radial-gradient(red, rgb(20, 17, 187));
+        background-image: linear-gradient(red,green) , url("../blog11.jpeg");
+        border-radius: 20px;
+        border-radius: 10px 20px 40px 50px;
+
+      }
+    </style>
   </head>
   <body>
     <!-- 
@@ -50,12 +73,18 @@
     -->
 
     <div class="main">
-        <div class="box1"></div>
-        <div class="box2"></div>
-        <div class="box3"></div>
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
     </div>
 
+    <p class="ov">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit expedita
+      adipisci saepe delectus sed ipsa in suscipit exercitationem molestiae quis
+      soluta aspernatur eaque, optio repudiandae, assumenda eius! Obcaecati,
+      similique suscipit.
+    </p>
 
-
+    <div class="bg"></div>
   </body>
 </html>
