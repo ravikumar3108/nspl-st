@@ -141,35 +141,40 @@
 // Dom :- Document Object Model (Real Dom or Virtual Dom)
 
 // Selectors:-
-// document.getElementsByTagName()
-// document.getElementsByClassName()
+// document.getElementsByTagName()[indexnumber]
+// document.getElementsByClassName()[indexnumber]
 // document.getElementsById()
 
-let main = document.getElementById("main");
+// Select a Elements(div) by the id
+let maindiv = (document.getElementById("main").innerHTML =
+  "My name is Priyanka");
 
-// TO write something into our elements:-
-main.innerHTML = "My name is Priyanka";
+// // TO write something into our elements:-
+// maindiv
 
-// let main = document.getElementsByClassName("main")[0]
+let main = document.getElementsByClassName("main")[0];
 // let main = document.getElementsByTagName("h1")[0]
 
 // Create Elements :-
-let h = document.createElement("h1");
+let anchor = document.createElement("a");
+
 // Append
+document.getElementById("main").appendChild(anchor);
 
-let div = document.getElementsByClassName("pp")[0];
+// Set Attributes
+document.getElementsByTagName("a")[0].setAttribute("class", "anc");
+document.getElementsByTagName("a")[0].setAttribute("href", "https://www.com");
 
-div.appendChild(h);
+document.getElementsByTagName("a")[0].innerHTML = "Google Link";
 
-// remove child
-// div.removeChild(h)
+// // remove child
+// // div.removeChild(h)
 
-// Create an Attributes
+// // Create an Attributes
 
-div.setAttribute("id", "maddd");
-div.removeAttribute("id");
+// div.removeAttribute("id");
 
-// Styling :-
+// // Styling :-
 document.getElementById("main").style.backgroundColor = "red";
 document.getElementById("main").style.color = "green";
 document.getElementById("main").style.padding = "10px";
