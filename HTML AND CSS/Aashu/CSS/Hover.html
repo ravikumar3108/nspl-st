@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+      }
+      .box1 {
+        width: 200px;
+        height: 200px;
+        border: 1px solid;
+        box-shadow: 0px 0px 10px 10px red;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+      }
+
+      .box:hover {
+        background-color: green;
+        color: white;
+        font-size: 30px;
+      }
+
+      .box1:hover p {
+        color: red;
+        background-color: green;
+      }
+
+      .box1 .ch {
+        display: none;
+      }
+      .box1:hover .ch {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="box">
+        <p>Heloo</p>
+    </div> -->
+
+    <div class="box1">
+      <p class="ch">Child</p>
+    </div>
+  </body>
+</html>
