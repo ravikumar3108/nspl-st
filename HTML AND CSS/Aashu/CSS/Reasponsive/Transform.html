@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 100px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+        transition: all 2s;
+      }
+
+      .box:hover {
+        transform: scale(0.2, 0.2);
+        transform: rotate(360deg);
+        /* transform: translate(100px, 200px); */
+        /* transform: skew(30deg); */
+        transform: rotate3d(1, 1, 1, 360deg);
+      }
+
+      p::first-letter {
+        color: red;
+        font-size: 30px;
+      }
+      p::first-line {
+        color: green;
+      }
+      p::selection {
+        background-color: rgb(15, 224, 43);
+      }
+      li::marker {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+      molestiae magnam pariatur ullam commodi consectetur ut quae repellendus
+      dolores magni. Aperiam distinctio voluptas eligendi temporibus aut
+      architecto aliquam! Odio, nesciunt!
+    </p>
+  </body>
+</html>
