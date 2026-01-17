@@ -1,25 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 function Header() {
-    return (
+  return (
+    <>
+      <div className="header">
+        <h1>Logo</h1>
+        <ul>
+          <li>
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li>
+            <Link to={"/createProduct"}>createProduct</Link>
+          </li>
 
-        <>
-            <div className="header">
-                <h1>Logo</h1>
-                <ul>
-                    <li><Link to={"/"}>Home</Link></li>
-                    <li><Link to={"/about"}>About</Link></li>
-                    <li><Link to={"/contact"}>Contact</Link></li>  
-                    <li><Link to={"/form"}>Forms</Link></li>  
-                    <li><Link to={"/signup"}>Signup</Link></li>  
-                    <li><Link to={"/cart"}>Cart</Link></li>  
-                </ul>
-            </div>
-
-        </>
-    )
+          <li>
+            <Link to={"/signup"}>Signup</Link>
+          </li>
+          <li>
+            <Link to={"/cart"}>Cart</Link>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
 }
 
-export default Header
+export default Header;
