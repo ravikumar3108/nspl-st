@@ -16,6 +16,9 @@ async function main() {
   await mongoose.connect(process.env.MONGO_URL);
   console.log("Databse Connect");
 }
+app.get("", (req, res) => {
+  res.json({ message: "heii" });
+});
 
 app.listen(8000, () => {
   console.log("Server Create Successfull");

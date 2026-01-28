@@ -57,5 +57,19 @@ const GetAllCartData = async (req, res) => {
     data: getData,
   });
 };
+const deleteCartItem = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const getData = await Cart.findOneAndDelete({ _id: id }); /// Cart.deleteOne()
+  res.json({
+    success: true,
+  });
+};
 
-module.exports = { CreateProduct, AllProduct, AddToCart, GetAllCartData };
+module.exports = {
+  CreateProduct,
+  AllProduct,
+  AddToCart,
+  GetAllCartData,
+  deleteCartItem,
+};
