@@ -1,8 +1,11 @@
 const Product = require("../models/ProductModel");
 const Cart = require("../models/ProductModel");
+const fs = require("fs");
 
 const CreateProduct = async (req, res) => {
   console.log(req.body);
+  console.log(req.file);
+
   try {
     const { title, description, Price } = req.body;
 
@@ -10,11 +13,15 @@ const CreateProduct = async (req, res) => {
       title: title,
       description: description,
       price: Price,
+      image: {
+        data: fs.readFileSync("images/" + req.file.filename),
+        contentType: "images/",
+      },
     });
 
     const saveProduct = await createProduct.save();
 
-    if (saveUser) {
+    if (saveProduct) {
       res.json({
         message: "Succesfull Create",
         // user: saveUser,
@@ -28,7 +35,7 @@ const CreateProduct = async (req, res) => {
       });
     }
   } catch (error) {
-    res.json({ error: `Error in Signup ${error}` });
+    res.json({ error: `Error in Product ${error}` });
   }
 };
 const AllProduct = async (req, res) => {

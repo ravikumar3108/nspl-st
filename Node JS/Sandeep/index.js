@@ -4,12 +4,25 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "images/");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + "-" + uniqueSuffix);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 // Middlewares:-
 app.use(express.json());
 app.use(cors());
 app.use("/user", require("./routes/userRoutes"));
-app.use("/product", require("./routes/productRoutes"));
+app.use("/product", upload.single("image"), require("./routes/productRoutes"));
 
 main().catch((err) => console.log(err));
 async function main() {
