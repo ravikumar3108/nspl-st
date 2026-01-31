@@ -6,6 +6,8 @@ import axios from "axios";
 function CreateProduct() {
   let [allData, setAllData] = useState();
   console.log("alldata", allData);
+  const [productImg, setProductImg] = useState();
+  console.log(productImg);
 
   function getAllData(e) {
     setAllData({
@@ -17,18 +19,30 @@ function CreateProduct() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(allData.title);
+    const fdata = new FormData();
+    fdata.append("title", allData.title);
+    fdata.append("description", allData.description);
+    fdata.append("price", allData.price);
+    fdata.append("image", productImg);
+
     let data = await axios
-      .post("http://localhost:8000/product/createProduct", allData)
+      .post("http://localhost:8000/product/createProduct", fdata)
       .then((res) => {
-        console.log(res)
+        console.log(res);
       });
   }
- 
+
+  //  src={`data:image/;base64,${btoa(
+  //                   String.fromCharCode(
+  //                     ...new Uint8Array(products?.image?.data?.data || "")
+  //                   )
+  //                 )}`} 
 
   return (
     <>
       <Toaster />
-      <form action="" onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit} enctype="multipart/form-data">
         <label htmlFor="">Title</label> <br />
         <input
           type="text"
@@ -51,6 +65,12 @@ function CreateProduct() {
           id=""
           onChange={getAllData}
         /> <br /> <br />
+        <input
+          type="file"
+          name="image"
+          id=""
+          onChange={(e) => setProductImg(e.target.files[0])}
+        />
         <button type="submit">Submit</button>
       </form>
 
