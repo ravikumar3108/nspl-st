@@ -273,7 +273,7 @@ let a = 120;
 let b = 90;
 let c = 40;
 
-if (a > b && a > c ) {
+if (a > b && a > c) {
   console.log("a is greter ", a);
 } else if (b > a && b > c) {
   console.log("b is greter ", b);
@@ -281,6 +281,52 @@ if (a > b && a > c ) {
   console.log(" c is greater", c);
 }
 
+// Age
+// Grade
 
-// Age 
-// Grade 
+let user = "aashu";
+let password = parseInt(prompt("Enter your password"));
+
+if (user === "aashu" && password === 1234) {
+  console.log("login");
+} else {
+  console.log("invalid details");
+}
+// Input value
+// always return a string
+// ParseInt() :- convert string into integer.
+// let math = parseInt(prompt("Enter your math numbers"));
+// let hindi = parseInt(prompt("Enter your hindi numbers"));
+// let english = parseInt(prompt("Enter your eng numbers"));
+
+// if (math >= 33 && hindi >= 33 && english >= 33) {
+//   console.log("pass");
+//   console.log(math + english + hindi);
+// } else {
+//   console.log("fail");
+// }
+
+// Switch Statement
+
+let week = 2;
+switch (week) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  default:
+    console.log("not match");
+}
+
+// odd or even
+let num = parseInt(prompt("Enter number odd or even"));
+if (num % 2 == 0) {
+  console.log("even");
+} else {
+  console.log("odd");
+}
