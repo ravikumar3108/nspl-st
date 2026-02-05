@@ -1,2 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    margin: auto;
+}
 
-
+.home {
+    color: green;
+    /* background-image: url(./components/images//);/ */
+}

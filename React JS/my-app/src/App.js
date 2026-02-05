@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -8,11 +9,8 @@ function App() {
       {/* Call the funtion components */}
       {/* Reusable */}
       <Header />
-      <Header />
-      <Header />
-      <h1>Heloo</h1>
-      <Header />
-      <Header />
+      <Home/>
+      
     </>
   );
 }
