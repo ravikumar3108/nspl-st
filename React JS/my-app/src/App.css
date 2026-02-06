@@ -8,3 +8,11 @@
     color: green;
     /* background-image: url(./components/images//);/ */
 }
+.header{
+    display: flex;
+}
+.header ul li{
+    display: inline-block;
+    margin: 10px 12px;
+    padding: 8px 10px;
+}
