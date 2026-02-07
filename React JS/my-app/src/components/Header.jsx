@@ -22,6 +22,9 @@ function Header() {
           <li>
             <Link to={"/blogs"}>Blogs</Link>
           </li>
+          <li>
+            <Link to={"/props"}>Props</Link>
+          </li>
         </ul>
       </div>
     </>
