@@ -359,9 +359,9 @@
 
 // for loop :-
 
-for (let z = 0; z <= 10; z++) {
-  console.log(z);
-}
+// for (let z = 0; z <= 10; z++) {
+//   console.log(z);
+// }
 
 // Print numbers from 1 to 10 using a for loop.
 
@@ -373,4 +373,67 @@ for (let z = 0; z <= 10; z++) {
 
 // multiplication table on any number.
 
+// Array :-
+// Array works on index number :- 0,1,2,3........
+
+let arr = [1, 2, 3, 4, 7, 88, 56, 3, 4, 5, 6, 7, 8, 9];
+console.log(arr);
+
+console.log(arr.length);
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+
+// Access the value of our array.
+console.log(arr[10]);
+
+// change the value of our array
+arr[0] = "Aashu";
+console.log(arr);
+
+// Methods :-
+
+// pop :- remove last index value
+// push :- add last index value
+// shift : remove first element in our array
+// unshift : add first value.
+
+arr.pop();
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+console.log(arr);
+arr.push("Heloo");
+arr.shift();
+arr.unshift("A");
+console.log(arr);
+
+// Slice :- cut a piece of existing array into a new array.
+// last index is not include.
+
+let arr1 = arr.slice(3, 10);
+console.log(arr1);
+
+// Splice :-
+// 1. index items
+// 2. remove number
+// 3. add items
+
+arr.splice(2, 5, "kumar", 1, 2, 2, 2);
+console.log(arr);
+
+// reverse
+// arr.reverse()
+// console.log(arr)
+
+// sort :-
+// Capital letters , then alphabetically orders
+let a = ["rahul", "aashu", "Rajesh", "sahil", "naveen", "Ashwin"];
+a.sort()
+console.log(a)
+
+// delete 
+delete arr[0]
+console.log(arr)
 
