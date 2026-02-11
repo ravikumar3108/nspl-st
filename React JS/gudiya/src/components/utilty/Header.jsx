@@ -14,7 +14,7 @@ export default function Header() {
     <header className="bg-[#131921] text-white">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-orange-400">Amazon</h1>
+        <h1 className="text-2xl font-bold text-orange-400"><Link to={"/"}>Amazon</Link></h1>
 
         {/* Search */}
         <div className="hidden md:flex flex-1">

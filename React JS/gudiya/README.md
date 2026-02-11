@@ -4,3 +4,5 @@ npm create vite@latest
 start the project : npm run dev
 
 To the icons :- npm install @heroicons/react
+
+POPUPS :-  npm i react-hot-toast
