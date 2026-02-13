@@ -7,12 +7,11 @@ import img6 from "../images/blog8.jpeg";
 import img7 from "../images/blog9.jpeg";
 import img8 from "../images/car.jpg";
 
-
-const sampleProducts = [
+const accesories = [
   {
     id: 1,
     image: img1,
-    title: "Cruiser Chunky Sne",
+    title: "Tyres",
     price: 123,
   },
   {
@@ -34,11 +33,11 @@ const sampleProducts = [
     price: 123,
   },
 ];
-const electronics = [
+const makeup = [
   {
     id: 1,
     image: img5,
-    title: "Cruiser Chunky Sne",
+    title: "Foundation",
     price: 123,
   },
   {
@@ -61,11 +60,11 @@ const electronics = [
   },
 ];
 
-const kitchen = [
+const clothes = [
   {
     id: 1,
     image: img1,
-    title: "Cruiser Chunky Sne",
+    title: "Jeans",
     price: 123,
   },
   {
@@ -88,4 +87,4 @@ const kitchen = [
   },
 ];
 
-export { sampleProducts, electronics, kitchen };
+export { clothes, accesories, makeup };
