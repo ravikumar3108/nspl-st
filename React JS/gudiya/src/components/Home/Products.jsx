@@ -1,10 +1,8 @@
-import React from "react";
-import { sampleProducts ,electronics , kitchen} from "./Data";
+import React, { useState } from "react";
+import { sampleProducts, electronics, kitchen } from "./Data";
 
 function Products(props) {
-  console.log(props.cont1)
-  console.log(props.cont2)
-  console.log(props.cont3)
+  
   // Arrow function
   // Map function
 
@@ -17,7 +15,7 @@ function Products(props) {
     <>
       <div className="flex justify-between">
         <div className="border w-[33%]">
-          <h1>moreExplore more</h1>
+          <h1>{props.contHead}</h1>
           <div className="flex justify-between mx-auto flex-wrap">
             {props?.cont1?.map((item) => {
               return (
