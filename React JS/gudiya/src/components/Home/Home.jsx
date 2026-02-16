@@ -10,13 +10,13 @@ function Home() {
   return (
     <>
       <Slider />
-      <Products
+      {/* <Products
         cont1={sampleProducts}
         cont2={electronics}
         cont3={kitchen}
         cont1Head={"sampleProducts"}
       />
-      <Products cont1={clothes} cont2={makeup} cont3={accesories} />
+      <Products cont1={clothes} cont2={makeup} cont3={accesories} /> */}
       <Api/>
     </>
   );
