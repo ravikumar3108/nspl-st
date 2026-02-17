@@ -1,48 +1,33 @@
+import { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
+
 export default function RecipeDetail() {
-  const product = {
-    id: 2,
-    name: "Vegetarian Stir-Fry",
-    image: "https://cdn.dummyjson.com/recipe-images/2.webp",
-    caloriesPerServing: 250,
-    cookTimeMinutes: 20,
-    prepTimeMinutes: 15,
-    difficulty: "Medium",
-    cuisine: "Asian",
-    rating: 4.7,
-    reviewCount: 26,
-    servings: 3,
-    ingredients: [
-      "Tofu, cubed",
-      "Broccoli florets",
-      "Carrots, sliced",
-      "Bell peppers, sliced",
-      "Soy sauce",
-      "Ginger, minced",
-      "Garlic, minced",
-      "Sesame oil",
-      "Cooked rice for serving",
-    ],
-    instructions: [
-      "Heat sesame oil in wok.",
-      "Add ginger & garlic.",
-      "Add tofu and fry till golden.",
-      "Add vegetables.",
-      "Pour soy sauce.",
-      "Serve with rice.",
-    ],
-    tags: ["Vegetarian", "Stir-fry", "Asian"],
+  const [product, setProduct] = useState(null);
+  // console.log(product.tags[1]);
+  // Get id into the recipe details:-
+  // useParams
+  let { id } = useParams();
+  console.log(id);
+
+  // data fetch
+  const ApiData = async () => {
+    const data = await fetch("https://dummyjson.com/recipes");
+    const jsondata = await data.json();
+    const singleData = jsondata.recipes.find((item) => item.id == id);
+    setProduct(singleData);
   };
+
+  useEffect(() => {
+    ApiData();
+  }, [id]);
+
+  if (!product) return <div>Loading...</div>;
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-
       {/* TOP SECTION */}
       <div className="grid md:grid-cols-2 gap-8">
-
-        <img
-          src={product.image}
-          className="rounded-xl shadow-lg"
-        />
+        <img src={product.image} className="rounded-xl shadow-lg" />
 
         <div>
           <h1 className="text-3xl font-bold">{product.name}</h1>
@@ -52,16 +37,14 @@ export default function RecipeDetail() {
           </p>
 
           <div className="grid grid-cols-2 gap-4 mt-4 text-sm">
-
             <p>🍳 Prep: {product.prepTimeMinutes} min</p>
             <p>🔥 Cook: {product.cookTimeMinutes} min</p>
             <p>🥗 Calories: {product.caloriesPerServing}</p>
             <p>⚡ Difficulty: {product.difficulty}</p>
-
           </div>
 
           <div className="mt-4">
-            {product.tags.map((tag, i) => (
+            {product?.tags?.map((tag, i) => (
               <span
                 key={i}
                 className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs mr-2"
@@ -82,7 +65,7 @@ export default function RecipeDetail() {
         <h2 className="text-xl font-semibold mb-3">Ingredients</h2>
 
         <ul className="list-disc pl-6 space-y-1 text-gray-700">
-          {product.ingredients.map((item, i) => (
+          {product?.ingredients?.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
@@ -93,7 +76,7 @@ export default function RecipeDetail() {
         <h2 className="text-xl font-semibold mb-3">Instructions</h2>
 
         <ol className="list-decimal pl-6 space-y-2 text-gray-700">
-          {product.instructions.map((step, i) => (
+          {product?.instructions?.map((step, i) => (
             <li key={i}>{step}</li>
           ))}
         </ol>
