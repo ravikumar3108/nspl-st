@@ -546,8 +546,28 @@ console.log(sum + 10);
 // Arrow Function
 // ()=>{}
 
-const Arr = () => {
+const Arr = (a, b) => {
   console.log("Arrow function");
 };
 
-Arr();
+// Arr(prompt(""), prompt(""));
+
+// Calculator
+let num = 10;
+let num1 = 20;
+let op1 = "+";
+
+function Calculator(x, y, op) {
+  if (op == "+") {
+    // console.log(x + y);
+    return x + y;
+  } else if (op == "-") {
+    console.log(x - y);
+  }
+}
+
+let pr = parseFloat(prompt("Enter Your First Number"));
+let pr1 = parseFloat(prompt("Enter Your Second Number"));
+let pr2 = prompt("Enter Your Operator");
+let cl = Calculator(pr, pr1, pr2);
+console.log("cl", cl);
