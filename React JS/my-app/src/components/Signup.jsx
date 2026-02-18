@@ -4,40 +4,53 @@ function Signup() {
   // States
   // Hooks :-
 
-  let [intialValue, setInitialValue] = useState(0);
+  let [data, setData] = useState(0);
 
   function Counter() {
-    console.log("Runnning");
-    setInitialValue(++intialValue);
-  }
-  function Sub() {
-    console.log("Runnning");
-    setInitialValue(--intialValue);
+    setData(++data);
   }
 
-  //
-  let [name, setName] = useState();
-  console.log(name);
+  // //
+  let [name, setName] = useState(null);
+  console.log("Name :- ", name);
   let [email, setEmail] = useState();
+  console.log("email", email);
   let [password, setPassword] = useState();
+  console.log("password", password);
 
-  function getName(e) {
-    setName(e.target.value);
+  function getName(event) {
+    console.log(event.target.value);
+    setName(event.target.value);
+  }
+
+  function getEmail(e) {
+    setEmail(e.target.value);
+  }
+  function getPassword(e) {
+    setPassword(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault(); // stop the page from auto-refresh
+    console.log("running");
+    localStorage.setItem("username", name);
   }
 
   return (
     <>
-      <h1>{intialValue}</h1>
+      <h1> Data :- {data}</h1>
       <button onClick={Counter}>Add</button>
-      <button onClick={Sub}>Sub</button>
+      {/* <button onClick={Sub}>Sub</button> */}
 
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">Name</label>
         <input type="text" name="" id="" onChange={getName} />
         <label htmlFor="">Email</label>
-        <input type="email" name="" id="" />
+        <input type="email" name="" id="" onChange={getEmail} />
         <label htmlFor="">Password</label>
-        <input type="password" name="" id="" />
+        <input type="password" name="" id="" onChange={getPassword} />
+
+        <button type="submit">Submit</button>
       </form>
     </>
   );
