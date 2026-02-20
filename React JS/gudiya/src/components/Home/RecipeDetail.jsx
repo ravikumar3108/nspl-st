@@ -21,16 +21,28 @@ export default function RecipeDetail() {
     ApiData();
   }, [id]);
 
-  if (!product) return <div>Loading...</div>;
+  if (!product)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "80vh",
+        }}
+      >
+        <h1 style={{ fontSize: "60px" }}>Loading...</h1>
+      </div>
+    );
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* TOP SECTION */}
       <div className="grid md:grid-cols-2 gap-8">
-        <img src={product.image} className="rounded-xl shadow-lg" />
+        <img src={product?.image} className="rounded-xl shadow-lg" />
 
         <div>
-          <h1 className="text-3xl font-bold">{product.name}</h1>
+          <h1 className="text-3xl font-bold">{product?.name}</h1>
 
           <p className="text-yellow-500 mt-2">
             ⭐ {product.rating} ({product.reviewCount} reviews)

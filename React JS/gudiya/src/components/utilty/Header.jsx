@@ -1,20 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Bars3Icon,
   XMarkIcon,
   ShoppingCartIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState(false);
+  const [userDetails, setDetails] = useState();
+
+  useEffect(() => {
+    const LoginUser = JSON.parse(localStorage.getItem("amazon"));
+    if (LoginUser) {
+      setUser(true);
+      setDetails(LoginUser);
+    } else {
+      setUser(false);
+    }
+  }, []);
+
+  const nav = useNavigate();
+
+  function Logout() {
+    localStorage.removeItem("amazon");
+    nav("/login");
+  }
 
   return (
     <header className="bg-[#131921] text-white">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-orange-400"><Link to={"/"}>Amazon</Link></h1>
+        <h1 className="text-2xl font-bold text-orange-400">
+          <Link to={"/"}>Amazon</Link>
+        </h1>
 
         {/* Search */}
         <div className="hidden md:flex flex-1">
@@ -29,8 +50,20 @@ export default function Header() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-          <Link to={"/login"}>Sign In</Link>
-          <p>Orders</p>
+          {user === true ? (
+            <Link to={"/login"}>{userDetails?.fullname}</Link>
+          ) : (
+            <Link to={"/login"}>Sign In</Link>
+          )}
+          <p>
+            {user === true ? (
+              <button type="button" onClick={Logout}>
+                Logout
+              </button>
+            ) : (
+              ""
+            )}
+          </p>
 
           <div className="relative">
             <ShoppingCartIcon className="h-7" />
@@ -63,7 +96,11 @@ export default function Header() {
       {open && (
         <div className="md:hidden bg-[#232f3e] px-4 py-3 space-y-3">
           <p>
-            <Link to={"/login"}>Sign In</Link>
+            {user === true ? (
+              <Link to={"/login"}>Name</Link>
+            ) : (
+              <Link to={"/login"}>Sign In</Link>
+            )}
           </p>
           <p>Orders</p>
           <p>Cart</p>

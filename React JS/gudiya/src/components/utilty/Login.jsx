@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [loginData, setLoginData] = useState();
-  console.log(loginData);
 
   const nav = useNavigate();
 
@@ -17,7 +16,7 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let saveUser = JSON.parse(localStorage.getItem("user"));
+    let saveUser = JSON.parse(localStorage.getItem("amazon"));
     console.log(saveUser);
     if (
       saveUser &&
@@ -25,9 +24,9 @@ export default function Login() {
       saveUser.password == loginData.password
     ) {
       // nav("/");
-      toast.success("Login Success")
+      toast.success("Login Success");
       setTimeout(() => {
-        nav("/")
+        nav("/");
       }, 2000);
     } else {
       alert("invalid");
@@ -36,7 +35,7 @@ export default function Login() {
 
   return (
     <>
-    <Toaster/>
+      <Toaster />
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
           <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
