@@ -30,6 +30,8 @@ function Signup() {
     setPassword(e.target.value);
   }
 
+
+    
   function handleSubmit(e) {
     e.preventDefault(); // stop the page from auto-refresh
     console.log("running");
