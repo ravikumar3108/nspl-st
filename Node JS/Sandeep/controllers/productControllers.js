@@ -1,5 +1,5 @@
 const Product = require("../models/ProductModel");
-const Cart = require("../models/ProductModel");
+const Cart = require("../models/CartModel");
 const fs = require("fs");
 
 const CreateProduct = async (req, res) => {
@@ -46,7 +46,7 @@ const AllProduct = async (req, res) => {
 };
 
 const AddToCart = async (req, res) => {
-  const { id } = req.params.id;
+  const id = req.params.id;
 
   const saveCartData = new Cart({
     item: id,
@@ -72,6 +72,14 @@ const deleteCartItem = async (req, res) => {
     success: true,
   });
 };
+const AddQuantity = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const data = await Cart.findByIdAndUpdate(id);
+  data.quantity = parseInt(data.quantity + 1);
+  await data.save();
+  res.status(200).json(data);
+};
 
 module.exports = {
   CreateProduct,
@@ -79,4 +87,5 @@ module.exports = {
   AddToCart,
   GetAllCartData,
   deleteCartItem,
+  AddQuantity,
 };
