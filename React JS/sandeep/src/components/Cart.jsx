@@ -14,7 +14,7 @@ function Cart() {
         <ul>
           {items.map((item) => (
             <li key={item.id}>
-                <p>{item.title}</p>
+                <p>{item.description}</p>
               <button
                 onClick={() =>
                   updateItemQuantity(item.id, (item.quantity ?? 0) - 1)
