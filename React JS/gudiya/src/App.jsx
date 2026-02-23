@@ -6,6 +6,7 @@ import Login from "./components/utilty/Login";
 import Signup from "./components/utilty/Signup";
 import RecipeDetail from "./components/Home/RecipeDetail";
 import { useEffect, useState } from "react";
+import Mobile from "./components/Mobiles/Mobile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/receipeDetails/:id" element={<RecipeDetail />} />
+          <Route path="/mobiles" element={<Mobile />} />
         </Routes>
       </BrowserRouter>
     </>

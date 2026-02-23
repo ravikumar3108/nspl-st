@@ -37,15 +37,8 @@ export default function Header() {
           <Link to={"/"}>Amazon</Link>
         </h1>
 
-        {/* Search */}
-        <div className="hidden md:flex flex-1">
-          <input
-            className="w-full px-3 py-2 text-black rounded-l"
-            placeholder="Search products..."
-          />
-          <button className="bg-orange-400 px-4 rounded-r">
-            <MagnifyingGlassIcon className="h-5" />
-          </button>
+        <div className="flex">
+          <h2><Link to={"/mobiles"}>Mobiles</Link></h2>
         </div>
 
         {/* Desktop Menu */}
