@@ -59,10 +59,12 @@ export default function Header() {
           </p>
 
           <div className="relative">
-            <ShoppingCartIcon className="h-7" />
-            <span className="absolute -top-2 -right-2 bg-orange-400 text-black rounded-full px-1 text-xs">
-              0
-            </span>
+            <Link to={"/cart"}>
+              <ShoppingCartIcon className="h-7" />
+              <span className="absolute -top-2 -right-2 bg-orange-400 text-black rounded-full px-1 text-xs">
+                0
+              </span>
+            </Link>
           </div>
         </div>
 

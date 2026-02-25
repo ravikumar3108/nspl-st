@@ -6,3 +6,5 @@ start the project : npm run dev
 To the icons :- npm install @heroicons/react
 
 POPUPS :-  npm i react-hot-toast
+
+Cart ;- npm i react-use-cart

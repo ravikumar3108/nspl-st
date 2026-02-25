@@ -7,19 +7,24 @@ import Signup from "./components/utilty/Signup";
 import RecipeDetail from "./components/Home/RecipeDetail";
 import { useEffect, useState } from "react";
 import Mobile from "./components/Mobiles/Mobile";
+import Cart from "./components/Cart/Cart";
+import { CartProvider } from "react-use-cart";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/receipeDetails/:id" element={<RecipeDetail />} />
-          <Route path="/mobiles" element={<Mobile />} />
-        </Routes>
+        <CartProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/receipeDetails/:id" element={<RecipeDetail />} />
+            <Route path="/mobiles" element={<Mobile />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
   );

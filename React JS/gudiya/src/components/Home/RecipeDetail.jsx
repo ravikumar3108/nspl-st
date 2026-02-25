@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
+import { useCart } from "react-use-cart";
 
 export default function RecipeDetail() {
   const [product, setProduct] = useState(null);
+  const { addItem } = useCart()
   // console.log(product.tags[1]);
   // Get id into the recipe details:-
   // useParams
@@ -66,7 +68,7 @@ export default function RecipeDetail() {
             ))}
           </div>
 
-          <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+          <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 cursor-pointer">
             Add to Cart
           </button>
         </div>
