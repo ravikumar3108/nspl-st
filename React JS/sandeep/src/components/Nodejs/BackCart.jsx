@@ -38,7 +38,7 @@ function BackCart() {
       }
     }
 
-    function subQuantity() {}
+    function subQuantity() { }
 
     return (
       <>

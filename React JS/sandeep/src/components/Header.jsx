@@ -20,6 +20,9 @@ function Header() {
           <li>
             <Link to={"/cart"}>Cart</Link>
           </li>
+          <li>
+            <Link to={"/admin/allproduct"}>Admin</Link>
+          </li>
         </ul>
       </div>
     </>

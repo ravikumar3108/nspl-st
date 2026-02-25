@@ -12,6 +12,7 @@ import Cart from "./components/Cart";
 import Signup from "./components/Nodejs/Signup";
 import CreateProduct from "./components/Nodejs/CreateProducts";
 import BackCart from "./components/Nodejs/BackCart";
+import AllProducts from "./components/Admin/AllProducts";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
 
             {/* Backend */}
 
+            <Route path="/admin/allproduct" element={<AllProducts />} />
             <Route path="/createProduct" element={<CreateProduct />} />
             <Route path="/cart" element={<BackCart />} />
 
