@@ -25,6 +25,9 @@ function Header() {
           <li>
             <Link to={"/props"}>Props</Link>
           </li>
+          <li>
+            <Link to={"/login"}>Login</Link>
+          </li>
         </ul>
       </div>
     </>

@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Datasend from "./components/Props/Datasend";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/props" element={<Datasend />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>
