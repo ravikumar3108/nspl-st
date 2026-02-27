@@ -15,7 +15,6 @@ document
       email: email,
       password: password,
     };
-    console.log(user);
     // 1. Key
     // 2. Value (exist data)
 
@@ -29,5 +28,12 @@ document
 
     // JSON.stringify() // this method used to converrt js object into json object.
 
-    localStorage.setItem("Aashu", JSON.stringify(user));
+    // localStorage.setItem("Aashu", JSON.stringify(user));
+
+    const existUser = JSON.parse(localStorage.getItem("Aashu"));
+    if (user.email == existUser.email && user.password == existUser.password) {
+      alert("Success");
+    } else {
+      alert("Failed");
+    }
   });
