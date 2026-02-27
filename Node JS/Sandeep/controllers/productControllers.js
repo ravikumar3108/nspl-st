@@ -59,7 +59,7 @@ const AddToCart = async (req, res) => {
 };
 
 const GetAllCartData = async (req, res) => {
-  const getData = await Cart.find({}).populate();
+  const getData = await Cart.find({ user: req.user._id }).populate("item");
   res.json({
     data: getData,
   });
