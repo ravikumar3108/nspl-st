@@ -13,6 +13,7 @@ import Signup from "./components/Nodejs/Signup";
 import CreateProduct from "./components/Nodejs/CreateProducts";
 import BackCart from "./components/Nodejs/BackCart";
 import AllProducts from "./components/Admin/AllProducts";
+import Login from "./components/Nodejs/Login";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/admin/allproduct" element={<AllProducts />} />
             <Route path="/createProduct" element={<CreateProduct />} />
             <Route path="/cart" element={<BackCart />} />
+            <Route path="/login" element={<Login />} />
 
 
           </Routes>

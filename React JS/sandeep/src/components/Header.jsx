@@ -23,6 +23,9 @@ function Header() {
           <li>
             <Link to={"/admin/allproduct"}>Admin</Link>
           </li>
+          <li>
+            <Link to={"/login"}>Login</Link>
+          </li>
         </ul>
       </div>
     </>
