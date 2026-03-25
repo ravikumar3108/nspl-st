@@ -31,7 +31,9 @@ const userSchema = new Schema({
 // create a Model and also create a collection(user) into the database
 const User = mongoose.model("user", userSchema);
 
-app.post("/", async (req, res) => {
+// Signup for a user :-
+
+app.post("/signup", async (req, res) => {
   console.log("User Data", req.body);
   // get data from body
   const { username, email, password } = req.body;
@@ -46,7 +48,15 @@ app.post("/", async (req, res) => {
   // Save the user
   const saveuser = await createUser.save();
   // send res of saveuser
-  res.json({ message: "true", user: saveuser });
+  res.json({ message: true, user: saveuser });
+});
+
+// get all users :-
+app.get("/getUsers", async (req, res) => {
+  // Select the Model and also find the data.
+  const getdata = await User.find({});
+  console.log(getdata);
+  res.json({ message: "user fetch", allUser: getdata });
 });
 
 
