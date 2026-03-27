@@ -1,6 +1,5 @@
 // ES6 : Ecmascipt 6 : react js
 // Common js : node js
-
 const express = require("express");
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
@@ -9,9 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Mongodb Connectivity :-
-
 main().catch((err) => console.log(err));
-
 async function main() {
   await mongoose.connect(
     "mongodb+srv://ravikumar:Ravi123@cluster0.cy4n69o.mongodb.net/?appName=Cluster0",
@@ -19,20 +16,19 @@ async function main() {
   console.log("Database connect");
 }
 
+// SCHEMA
 // User Schema :-
-
 // create schema
 const userSchema = new Schema({
   email: String,
   username: String,
   password: String,
 });
-
 // create a Model and also create a collection(user) into the database
 const User = mongoose.model("user", userSchema);
 
-// Signup for a user :-
-
+// Api's
+// Signup for a user (Create a user):-
 app.post("/signup", async (req, res) => {
   console.log("User Data", req.body);
   // get data from body
@@ -59,7 +55,15 @@ app.get("/getUsers", async (req, res) => {
   res.json({ message: "user fetch", allUser: getdata });
 });
 
-
+// Delete a User:-
+app.delete("/deleteUser/:id", async (req, res) => {
+  // 1. Check the id :- http://localhost:8000/deleteUser/123213133
+  console.log(req.params);
+  const id = req.params.id;
+  console.log(id);
+  const dldata = await User.deleteOne({ _id: id });
+  res.json({ message: dldata });
+});
 
 // Api's :- GET , POST , PUT , DELETE
 // req :- request
@@ -72,8 +76,8 @@ app.get("", (req, res) => {
   res.json({ name: "Gudiya", course: "mern stack" });
 });
 
+///////////////////////////////////////////////////////////////////////
 // Callback functions :-
-
 app.listen(8000, () => {
   console.log("Server Create");
 });
