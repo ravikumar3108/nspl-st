@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Api() {
 
     // Store the data into a state
-    const [apiData, setApiData] = useState()
-    console.log("apidata",apiData)
+    const [apiData, setApiData] = useState([])
+    console.log("apidata", apiData)
 
     // Apis 
     // Asynchronus function 
@@ -19,10 +19,45 @@ function Api() {
         setApiData(jsondata.products)
     }
 
+    // Useeffect :- Side effect of our components.
+    // Arrow function 
+    //const arr =  ()=> {}  
+
+    useEffect(() => {
+        getApiData()
+    }, [])
+
+    // [] :- dependencies
+
+
+    // Example for map :-
+    // let arr = [1, 2, 3, 4, 5, 67, 8, 9, 0]
+
+    // function getMultiple() {
+    //     let data = arr.map((item) => item * 2)
+    //     console.log("multiple data ", data)
+    // }
+
+    // getMultiple()
 
     return (
         <>
-            <button onClick={getApiData}>Api Fetch</button>
+
+            {/* Map :-  */}
+            <div className='main' style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
+                {apiData.map((item) => {
+                    return (
+                        <>
+                            <div className='box' style={{ width: "22%", border: "1px solid", height: "200px", margin: "10px" }}>
+                                <h1>{item.title}</h1>
+                                <p>{item.description}</p>
+                                {/* <img src={item.images} alt="" /> */}
+                            </div>
+                        </>
+                    )
+                })}
+            </div>
+
 
         </>
     )
