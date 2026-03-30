@@ -4,7 +4,8 @@ function Api() {
 
     // Store the data into a state
     const [apiData, setApiData] = useState([])
-    console.log("apidata", apiData)
+
+    const [filterApiData, setFilterApiData] = useState([])
 
     // Apis 
     // Asynchronus function 
@@ -17,6 +18,7 @@ function Api() {
         const jsondata = await data.json()
         console.log(jsondata.products)
         setApiData(jsondata.products)
+        setFilterApiData(jsondata.products)
     }
 
     // Useeffect :- Side effect of our components.
@@ -40,12 +42,30 @@ function Api() {
 
     // getMultiple()
 
+    function filterproduct(category) {
+
+        const filterApi = apiData.filter((item) => item.category == category)
+        console.log(filterApi)
+        setFilterApiData(filterApi)
+
+    }
+
     return (
         <>
 
             {/* Map :-  */}
+            {/* Categories :-  */}
+            <h1>
+                Products
+            </h1>
+            <div>
+                <button className='btn'>All</button>
+                <button className='btn' onClick={() => filterproduct("beauty")}>Beauty</button>
+                <button className='btn' onClick={() => filterproduct("furniture")}>Furniture</button>
+                <button className='btn' onClick={() => filterproduct("beauty")}>Fragnance</button>
+            </div>
             <div className='main' style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
-                {apiData.map((item) => {
+                {filterApiData.map((item) => {
                     return (
                         <>
                             <div className='box' style={{ width: "22%", border: "1px solid", height: "200px", margin: "10px" }}>

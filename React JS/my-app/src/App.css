@@ -16,3 +16,12 @@
     margin: 10px 12px;
     padding: 8px 10px;
 }
+.btn{
+    padding: 10px 20px;
+    margin: 8px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
