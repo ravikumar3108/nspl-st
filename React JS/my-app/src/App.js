@@ -7,6 +7,7 @@ import About from "./components/About";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Datasend from "./components/Props/Datasend";
 import Login from "./components/Login";
+import ProductDetail from "./components/Details";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/props" element={<Datasend />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/details/:id" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>
     </>

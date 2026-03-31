@@ -8,7 +8,6 @@ function Home() {
 
   return (
     <>
-      <Header />
       {/* <h1 className="home" style={{ color: "green", paddingTop: "10px" }}>
         Home Component
       </h1>

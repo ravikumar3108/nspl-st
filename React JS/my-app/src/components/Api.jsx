@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Api() {
 
@@ -43,44 +44,53 @@ function Api() {
     // getMultiple()
 
     function filterproduct(category) {
-
         const filterApi = apiData.filter((item) => item.category == category)
         console.log(filterApi)
         setFilterApiData(filterApi)
+    }
 
+    function AllData() {
+        setFilterApiData(apiData)
     }
 
     return (
         <>
-
-            {/* Map :-  */}
-            {/* Categories :-  */}
-            <h1>
-                Products
+            <h1 style={{ textAlign: "center", margin: "20px 0" }}>
+                🛍️ Products
             </h1>
-            <div>
-                <button className='btn'>All</button>
-                <button className='btn' onClick={() => filterproduct("beauty")}>Beauty</button>
-                <button className='btn' onClick={() => filterproduct("furniture")}>Furniture</button>
-                <button className='btn' onClick={() => filterproduct("beauty")}>Fragnance</button>
+
+            {/* Buttons */}
+            <div style={{ textAlign: "center", marginBottom: "20px" }}>
+                <button className="btn" onClick={AllData}>All</button>
+                <button className="btn" onClick={() => filterproduct("beauty")}>Beauty</button>
+                <button className="btn" onClick={() => filterproduct("furniture")}>Furniture</button>
+                <button className="btn" onClick={() => filterproduct("fragrances")}>Fragrance</button>
             </div>
-            <div className='main' style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
+
+            {/* Product Cards */}
+            <div className="container">
                 {filterApiData.map((item) => {
                     return (
-                        <>
-                            <div className='box' style={{ width: "22%", border: "1px solid", height: "200px", margin: "10px" }}>
-                                <h1>{item.title}</h1>
-                                <p>{item.description}</p>
-                                {/* <img src={item.images} alt="" /> */}
+                        <div className="card" key={item.id}>
+                            <img src={item.thumbnail} alt={item.title} />
+
+                            <div className="card-body">
+                                <Link to={`/details/${item.id}`}><h3>{item.title}</h3></Link>
+                                <p>{item.description.slice(0, 60)}...</p>
+
+                                <div className="price-rating">
+                                    <span>₹{item.price}</span>
+                                    <span>⭐ {item.rating}</span>
+                                </div>
+
+                                <button className="buy-btn">Buy Now</button>
                             </div>
-                        </>
-                    )
+                        </div>
+                    );
                 })}
             </div>
-
-
         </>
-    )
+    );
 }
 
 export default Api
