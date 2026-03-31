@@ -73,9 +73,27 @@ app.post("/signup", async (req, res) => {
   } catch (error) {
     res.json({ error: error, message: "Error in Signup" });
   }
-
-  //   res.json({ message: "Signup", status: true });
 });
+
+// login Api ======================
+app.post("/login", async (req, res) => {
+  console.log(req.body);
+  try {
+    const { email } = req.body;
+
+    const existUser = await User.findOne({ email: email });
+    console.log(existUser);
+
+    if (!existUser) {
+      res.status(404).json({ message: "failed", status: false });
+    }
+
+    res.status(200).json({ message: "Success", status: true, user: existUser });
+  } catch (error) {
+    res.json({ error: error, message: "Error in login" });
+  }
+});
+
 
 // to check a server
 app.get("", (req, res) => {
