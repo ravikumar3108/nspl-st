@@ -50,3 +50,107 @@
 .signup-card button:hover {
   background: #5a67d8;
 }
+
+
+
+/* login================================== */
+
+/* Full page background */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  font-family: Arial, sans-serif;
+}
+
+/* Card box */
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #4facfe;
+}
+
+/* Options row */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.forgot {
+  color: #4facfe;
+  cursor: pointer;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #4facfe;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #3a8ee6;
+}
+
+/* Signup text */
+.signup-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-text span {
+  color: #4facfe;
+  cursor: pointer;
+}
+
+.signup-text span:hover {
+  text-decoration: underline;
+}
