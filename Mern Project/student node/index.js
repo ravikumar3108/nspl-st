@@ -79,13 +79,17 @@ app.post("/signup", async (req, res) => {
 app.post("/login", async (req, res) => {
   console.log(req.body);
   try {
-    const { email } = req.body;
+    const { email, password } = req.body;
 
     const existUser = await User.findOne({ email: email });
     console.log(existUser);
 
     if (!existUser) {
-      res.status(404).json({ message: "failed", status: false });
+      res.status(200).json({ message: "failed", status: false });
+    }
+
+    if (existUser.password !== password) {
+      res.status(200).json({ message: "password incorrect", status: false });
     }
 
     res.status(200).json({ message: "Success", status: true, user: existUser });
@@ -93,7 +97,6 @@ app.post("/login", async (req, res) => {
     res.json({ error: error, message: "Error in login" });
   }
 });
-
 
 // to check a server
 app.get("", (req, res) => {
