@@ -4,6 +4,15 @@
     margin: auto;
 }
 
+/* Slider -------------------------- */
+.none{
+  display: none;
+}
+.slider{
+  
+}
+
+
 .home {
     color: green;
     /* background-image: url(./components/images//);/ */
