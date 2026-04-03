@@ -42,6 +42,30 @@ const userschema = new mongoose.Schema({
 // Create a Model :-
 const User = mongoose.model("user", userschema);
 
+// student register form schema
+const studentSchema = new mongoose.Schema({
+  firstname: {
+    type: String,
+    // unique: true,
+    // trim: true,
+  },
+  email: {
+    type: String,
+  },
+  lastname: {
+    type: String,
+  },
+  fathername: {
+    type: String,
+  },
+  mobileno: String,
+  address: String,
+  duration: String,
+  className: String,
+});
+
+const StudentReg = mongoose.model("student", studentSchema);
+
 // Api:- Create a user (Signup)
 app.post("/signup", async (req, res) => {
   // Step:1 :- Check the data. (req.body)
@@ -97,6 +121,52 @@ app.post("/login", async (req, res) => {
     res.json({ error: error, message: "Error in login" });
   }
 });
+
+app.post("/registerform", async (req, res) => {
+  // console.log(req.body);
+
+  try {
+    const {
+      firstName,
+      lastName,
+      fatherName,
+      className,
+      duration,
+      email,
+      address,
+      mobile,
+    } = req.body;
+
+    const CreateStudentData = new StudentReg({
+      firstname: firstName,
+      lastname: lastName,
+      fathername: fatherName,
+      className: className,
+      duration: duration,
+      email: email,
+      address: address,
+      mobileno: mobile,
+    });
+
+    const saveStudent = await CreateStudentData.save();
+
+    if (saveStudent) {
+      res
+        .status(200)
+        .json({
+          message: "Student Create Succesfull",
+          status: true,
+          student: saveStudent,
+        });
+    } else {
+      res.status(200).json({ message: "Something went wrong", status: false });
+    }
+  } catch (error) {
+    res.json({ error: error, message: "Error in Student Regsiter Form" });
+  }
+});
+
+
 
 // to check a server
 app.get("", (req, res) => {
