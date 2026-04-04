@@ -99,6 +99,18 @@ function StudentForm() {
                             placeholder="Mobile Number"
                             onChange={handleChange}
                         />
+                        <div>
+                            <label>Gender</label> <br />
+
+                            <label>Male</label>
+                            <input type="radio" name="gender" value="Male" onChange={handleChange} />
+
+                            <label>Female</label>
+                            <input type="radio" name="gender" value="Female" onChange={handleChange} />
+
+                            <label>Other</label>
+                            <input type="radio" name="gender" value="Other" onChange={handleChange} />
+                        </div>
 
                         <button type="submit">Submit</button>
                     </form>
