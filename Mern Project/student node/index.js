@@ -151,13 +151,11 @@ app.post("/registerform", async (req, res) => {
     const saveStudent = await CreateStudentData.save();
 
     if (saveStudent) {
-      res
-        .status(200)
-        .json({
-          message: "Student Create Succesfull",
-          status: true,
-          student: saveStudent,
-        });
+      res.status(200).json({
+        message: "Student Create Succesfull",
+        status: true,
+        student: saveStudent,
+      });
     } else {
       res.status(200).json({ message: "Something went wrong", status: false });
     }
@@ -166,7 +164,22 @@ app.post("/registerform", async (req, res) => {
   }
 });
 
+// get All Students
+app.get("/allStudents", async (req, res) => {
+  try {
+    const fetchStudent = await StudentReg.find({});
+    console.log(fetchStudent);
+    if (!fetchStudent) {
+      res.status(200).json({ message: "failed  in fetch", status: false });
+    }
 
+    res
+      .status(200)
+      .json({ message: "Success", status: true, user: fetchStudent });
+  } catch (error) {
+    res.json({ error: error, message: "Error in Fetch Students" });
+  }
+});
 
 // to check a server
 app.get("", (req, res) => {
