@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import { useCart } from 'react-use-cart'
 
 function Api() {
 
@@ -7,6 +9,8 @@ function Api() {
     const [apiData, setApiData] = useState([])
 
     const [filterApiData, setFilterApiData] = useState([])
+
+    const { addItem, inCart } = useCart()
 
     // Apis 
     // Asynchronus function 
@@ -52,9 +56,13 @@ function Api() {
     function AllData() {
         setFilterApiData(apiData)
     }
+    function AddCart(name) {
+        toast.success(`${name} Add to cart`)
+    }
 
     return (
         <>
+            <Toaster />
             <h1 style={{ textAlign: "center", margin: "20px 0" }}>
                 🛍️ Products
             </h1>
@@ -83,7 +91,10 @@ function Api() {
                                     <span>⭐ {item.rating}</span>
                                 </div>
 
-                                <button className="buy-btn">Buy Now</button>
+
+                                {inCart(item.id) ? <button className="buy-btn"><Link to={"/cart"}>Added</Link></button> : <button className="buy-btn" onClick={() => { addItem(item); AddCart(item.title) }}>Add to Cart</button>
+                                }
+
                             </div>
                         </div>
                     );
