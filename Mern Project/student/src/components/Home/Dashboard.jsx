@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
 
@@ -13,7 +14,6 @@ function Dashboard() {
             setAllStudents(res.data.user)
         })
     }
-
 
     useEffect(() => {
         getStudents()
@@ -82,9 +82,6 @@ function Dashboard() {
                             <th>Grade</th>
                             <th>Gender</th>
                             <th>Age</th>
-                            {/* <th>Owner Name</th> */}
-                            {/* <th>Owner Job</th> */}
-                            {/* <th>Income</th> */}
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -99,10 +96,7 @@ function Dashboard() {
                                         <td>7</td>
                                         <td>Male</td>
                                         <td>12</td>
-                                        {/* <td>Oliver Thompson</td> */}
-                                        {/* <td>Childcare</td> */}
-                                        {/* <td>₹3000</td> */}
-                                        <td>View</td>
+                                        <td><Link to={`studentdetails/${item._id}`}>View</Link></td>
                                     </tr>
                                 </>
                             )
