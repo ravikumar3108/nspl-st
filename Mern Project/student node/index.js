@@ -61,7 +61,7 @@ const studentSchema = new mongoose.Schema({
   mobileno: String,
   address: String,
   duration: String,
-  className: String,
+  batch: String,
 });
 
 const StudentReg = mongoose.model("student", studentSchema);
@@ -130,7 +130,7 @@ app.post("/registerform", async (req, res) => {
       firstName,
       lastName,
       fatherName,
-      className,
+      batch,
       duration,
       email,
       address,
@@ -141,7 +141,7 @@ app.post("/registerform", async (req, res) => {
       firstname: firstName,
       lastname: lastName,
       fathername: fatherName,
-      className: className,
+      batch: batch,
       duration: duration,
       email: email,
       address: address,
@@ -168,7 +168,6 @@ app.post("/registerform", async (req, res) => {
 app.get("/allStudents", async (req, res) => {
   try {
     const fetchStudent = await StudentReg.find({});
-    console.log(fetchStudent);
     if (!fetchStudent) {
       res.status(200).json({ message: "failed  in fetch", status: false });
     }
@@ -179,6 +178,15 @@ app.get("/allStudents", async (req, res) => {
   } catch (error) {
     res.json({ error: error, message: "Error in Fetch Students" });
   }
+});
+
+// Delete a student
+app.delete("/deleteStudent/:id", async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const delStudent = await StudentReg.deleteOne({ _id: id });
+  console.log(delStudent);
+  res.json({ message: "Success", status: true });
 });
 
 // to check a server
