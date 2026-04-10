@@ -6,14 +6,19 @@ function Dashboard() {
 
 
     const [allStudents, setAllStudents] = useState([])
-    console.log(allStudents)
+    const [Mca, setMca] = useState([])
 
     async function getStudents() {
         const res = await axios.get("http://localhost:8000/allStudents").then((res) => {
             console.log(res.data.user)
             setAllStudents(res.data.user)
+            const students = res.data.user
+            const mcaStudents = students.filter((item) => item.batch == "MCA")
+            setMca(mcaStudents)
         })
     }
+
+
 
     useEffect(() => {
         getStudents()
@@ -46,8 +51,8 @@ function Dashboard() {
                 </div>
 
                 <div className="card">
-                    <p>Total Students</p>
-                    <h2>1375</h2>
+                    <p>Total Students MCA</p>
+                    <h2>{Mca.length}</h2>
                 </div>
 
                 <div className="card">
@@ -69,7 +74,7 @@ function Dashboard() {
 
             {/* FILTERS */}
             <div className="filters">
-                <button className="add-btn">+ Add Student</button>
+                <Link to={"/studentregform"}><button className="add-btn" >+ Add Student</button></Link>
             </div>
 
             {/* TABLE */}

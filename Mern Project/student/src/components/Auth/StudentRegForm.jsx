@@ -63,12 +63,15 @@ function StudentForm() {
                         />
 
                         <div className="row">
-                            <input
-                                type="text"
-                                name="className"
-                                placeholder="Class"
+                            <select
+                                name="batch"
                                 onChange={handleChange}
-                            />
+                            >
+                                <option value="select">Select a option</option>
+                                <option value="MCA">2 MCA</option>
+                                <option value="BCA">BCA</option>
+                                <option value="B.tech">B.tech</option>
+                            </select>
                             <select
                                 name="duration"
                                 onChange={handleChange}

@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const StudentDetails = () => {
 
+    const Navigate = useNavigate()
     const { id } = useParams()
     console.log(id)
     let [detailstudent, setDetailStudent] = useState({})
@@ -21,9 +22,14 @@ const StudentDetails = () => {
         getStudents()
     }, [])
 
+    async function deleteStudent(id) {
+        console.log("delete", id)
+        const res = await axios.delete(`http://localhost:8000/deleteStudent/${id}`)
+        if (res.data.status) {
+            Navigate("/")
+        }
+    }
 
-
-   
 
     return (
         <div className="container">
@@ -65,6 +71,14 @@ const StudentDetails = () => {
                         <label>Address</label>
                         <p>{detailstudent?.address}</p>
                     </div>
+
+                    <button onClick={() => deleteStudent(detailstudent?._id)}>
+                        Delete a Student
+                    </button>
+                    <button>
+                        Update
+                    </button>
+
                 </div>
             </div>
         </div>
