@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 function StudentForm() {
-    const [formData, setFormData] = useState({
+    const [image, setImage] = useState()
+    const [stForm, setFormData] = useState({
         firstName: "",
         lastName: "",
         fatherName: "",
@@ -14,14 +15,29 @@ function StudentForm() {
         mobile: "",
     });
 
-    console.log(formData)
+    console.log(stForm)
+    console.log(image)
+
+
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({ ...stForm, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await axios.post("http://localhost:8000/registerform", formData).then((res) => {
+        const fdata = new FormData()
+        fdata.append("firstName", stForm.firstName)
+        fdata.append("lastName", stForm.lastName)
+        fdata.append("fatherName", stForm.fatherName)
+        fdata.append("className", stForm.className)
+        fdata.append("duration", stForm.duration)
+        fdata.append("email", stForm.email)
+        fdata.append("address", stForm.address)
+        fdata.append("mobile", stForm.mobile)
+        fdata.append("image", image)
+
+        console.log(fdata)
+        const res = await axios.post("http://localhost:8000/registerform", fdata).then((res) => {
             console.log(res.data.status)
             if (res.data.status) {
                 toast.success(res.data.message)
@@ -39,7 +55,7 @@ function StudentForm() {
                 <div className="form-card">
                     <h2>Student Registration</h2>
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} encType="multipart/form-data">
                         <div className="row">
                             <input
                                 type="text"
@@ -61,6 +77,8 @@ function StudentForm() {
                             placeholder="Father Name"
                             onChange={handleChange}
                         />
+
+                        <input type="file" name="image" id="" onChange={(e) => setImage(e.target.files[0])} />
 
                         <div className="row">
                             <select
