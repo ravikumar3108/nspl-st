@@ -9,10 +9,18 @@ const express = require("express");
 // Create a object.
 const app = express();
 
+// Middlewares :-
+app.use(express.json());
+
 // Api's :- GET , POST , PUT , DELETE
 
 app.get("", (req, res) => {
-  res.json({status:"true",data:[{id:"1"}]});
+  res.json({ status: "true", data: [{ id: "1" }] });
+});
+
+app.post("", (req, res) => {
+  console.log(req.body);
+  res.json({ message: "Success", data: req.body });
 });
 
 // Create a server
