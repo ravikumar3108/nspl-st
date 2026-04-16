@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const multer = require("multer");
+const fs = require("fs");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -70,6 +71,10 @@ const studentSchema = new mongoose.Schema({
   },
   fathername: {
     type: String,
+  },
+  image: {
+    data: Buffer,
+    ContentType: String,
   },
   mobileno: String,
   address: String,
@@ -139,43 +144,47 @@ app.post("/registerform", upload.single("image"), async (req, res) => {
   console.log(req.body);
   console.log(req.file);
 
-  // try {
-  //   const {
-  //     firstName,
-  //     lastName,
-  //     fatherName,
-  //     batch,
-  //     duration,
-  //     email,
-  //     address,
-  //     mobile,
-  //   } = req.body;
+  try {
+    const {
+      firstName,
+      lastName,
+      fatherName,
+      batch,
+      duration,
+      email,
+      address,
+      mobile,
+    } = req.body;
 
-  //   const CreateStudentData = new StudentReg({
-  //     firstname: firstName,
-  //     lastname: lastName,
-  //     fathername: fatherName,
-  //     batch: batch,
-  //     duration: duration,
-  //     email: email,
-  //     address: address,
-  //     mobileno: mobile,
-  //   });
+    const CreateStudentData = new StudentReg({
+      firstname: firstName,
+      lastname: lastName,
+      fathername: fatherName,
+      batch: batch,
+      duration: duration,
+      email: email,
+      address: address,
+      mobileno: mobile,
+      image: {
+        data: fs.readFileSync("uploads/" + req.file.filename),
+        ContentType: "uploads/",
+      },
+    });
 
-  //   const saveStudent = await CreateStudentData.save();
+    const saveStudent = await CreateStudentData.save();
 
-  //   if (saveStudent) {
-  //     res.status(200).json({
-  //       message: "Student Create Succesfull",
-  //       status: true,
-  //       student: saveStudent,
-  //     });
-  //   } else {
-  //     res.status(200).json({ message: "Something went wrong", status: false });
-  //   }
-  // } catch (error) {
-  //   res.json({ error: error, message: "Error in Student Regsiter Form" });
-  // }
+    if (saveStudent) {
+      res.status(200).json({
+        message: "Student Create Succesfull",
+        status: true,
+        student: saveStudent,
+      });
+    } else {
+      res.status(200).json({ message: "Something went wrong", status: false });
+    }
+  } catch (error) {
+    res.json({ error: error, message: "Error in Student Regsiter Form" });
+  }
 });
 
 // get All Students
