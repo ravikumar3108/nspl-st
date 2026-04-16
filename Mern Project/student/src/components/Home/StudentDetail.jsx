@@ -8,7 +8,7 @@ const StudentDetails = () => {
     const { id } = useParams()
     console.log(id)
     let [detailstudent, setDetailStudent] = useState({})
-    console.log(detailstudent.firstname)
+    console.log(detailstudent)
 
     async function getStudents() {
         const res = await axios.get("http://localhost:8000/allStudents")
@@ -36,7 +36,11 @@ const StudentDetails = () => {
             <div className="card">
                 <div className="profile-section">
                     <img
-                        src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                        src={`data:image/;base64,${btoa(
+                            String.fromCharCode(
+                                ...new Uint8Array(detailstudent?.image?.data?.data || "")
+                            )
+                        )}`}
                         alt="profile"
                         className="profile-img"
                     />
