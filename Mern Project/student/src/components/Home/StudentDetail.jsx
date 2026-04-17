@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import UpadteFrom from "../Auth/UpadteFrom";
 
 const StudentDetails = () => {
 
@@ -9,6 +10,7 @@ const StudentDetails = () => {
     console.log(id)
     let [detailstudent, setDetailStudent] = useState({})
     console.log(detailstudent)
+    const [update, setUpdate] = useState(null)
 
     async function getStudents() {
         const res = await axios.get("http://localhost:8000/allStudents")
@@ -79,10 +81,12 @@ const StudentDetails = () => {
                     <button onClick={() => deleteStudent(detailstudent?._id)}>
                         Delete a Student
                     </button>
-                    <button>
+                    <button onClick={() => setUpdate(true)}>
                         Update
                     </button>
-
+                    {
+                        update == true ? <UpadteFrom detailstudent={detailstudent} setUpdate={setUpdate} /> : ""
+                    }
                 </div>
             </div>
         </div>
