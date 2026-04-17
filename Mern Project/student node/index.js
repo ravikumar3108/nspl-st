@@ -212,6 +212,18 @@ app.delete("/deleteStudent/:id", async (req, res) => {
   res.json({ message: "Success", status: true });
 });
 
+// update a student
+app.post("/updateStudent/:id", async (req, res) => {
+  const updateStudent = await StudentReg.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+    },
+  );
+  res.json({ message: "Success", user: updateStudent });
+});
+
 // to check a server
 app.get("", (req, res) => {
   res.json({ message: "Success", status: true });
