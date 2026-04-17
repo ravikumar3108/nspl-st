@@ -1,20 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
         <>
-            <h1>
-
-            </h1>
-
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint corrupti, nulla placeat quaerat fuga minus repudiandae saepe nobis exercitationem? Aperiam neque provident sequi, sit numquam dolores delectus at consequatur quam!
-            </p>
-
-            <div>
-                <p></p>
+            <div className="header">
+                <h1>Learn React js</h1>
+                <ul>
+                    <li><Link to={"/"}>Home</Link></li>
+                    <li><Link to={"/about"}>About</Link></li>
+                    <li><Link to={"/contact"}>Contact</Link></li>
+                    <li>Login</li>
+                </ul>
             </div>
-
         </>
     )
 }

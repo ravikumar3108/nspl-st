@@ -1,0 +1,16 @@
+.header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul li {
+    display: inline-block;
+    margin: 8px 12px;
+    padding: 10px 15px;
+}
+
+ul li a {
+    color: white;
+}
