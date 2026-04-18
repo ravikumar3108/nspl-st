@@ -214,14 +214,20 @@ app.delete("/deleteStudent/:id", async (req, res) => {
 
 // update a student
 app.post("/updateStudent/:id", async (req, res) => {
-  const updateStudent = await StudentReg.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-    },
-  );
-  res.json({ message: "Success", user: updateStudent });
+  try {
+    console.log(req.body);
+    console.log(req.params);
+    const updateStudent = await StudentReg.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      },
+    );
+    res.json({ message: "Success", user: updateStudent });
+  } catch (error) {
+    res.json({ error: error });
+  }
 });
 
 // to check a server
