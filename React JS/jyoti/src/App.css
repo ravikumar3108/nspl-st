@@ -14,3 +14,13 @@ ul li {
 ul li a {
     color: white;
 }
+
+.card {
+    border: 1px solid;
+    width: 25%;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+}
