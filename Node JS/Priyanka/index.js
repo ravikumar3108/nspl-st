@@ -9,6 +9,20 @@ const express = require("express");
 // Create a object.
 const app = express();
 
+const mongoose = require("mongoose");
+
+main().catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect(
+    "mongodb+srv://ravikumar:Ravi123@cluster0.cy4n69o.mongodb.net/?appName=Cluster0",
+  );
+  console.log("Databse Connected");
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
+
+
+
 // Middlewares :-
 app.use(express.json());
 
