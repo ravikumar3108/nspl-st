@@ -15,23 +15,81 @@
         propertyname : property value;
         } 
 
-
         Selector :- id , class , tagname , actualpath, universal selector(*) 
-    
+        id :- unique
+        class :- multiples
     -->
-    <style></style>
+    <style>
+      /* Tagname */
+      /* h2 {
+        color: green;
+        background-color: red;
+      } */
+
+      /* class : class select by the .(dot) */
+      .heading {
+        color: blue;
+      }
+
+      /* id :- id is selcted by the #. */
+
+      #head {
+        background-color: red;
+      }
+      * {
+        border: 1px solid blue;
+      }
+
+      /* 
+      div div h1{
+        color: red;
+      } */
+
+      div .hh {
+        color: red;
+      }
+
+
+    </style>
   </head>
   <body>
     <!-- 
         propertyname : property value;
     -->
 
-    <h1 style="color: red; background-color: green;">Heloo</h1>
+    <h1 style="color: red; background-color: green">Heloo</h1>
 
     <p style="color: red">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quaerat
       iusto nesciunt ex neque facere, in et, maiores quisquam sint corrupti
       quis, adipisci ea amet! Magni modi repellendus odio dicta.
     </p>
+
+    <h2 id="head" class="heading">Heloo</h2>
+    <h2 class="">Heloo</h2>
+    <h2>Heloo</h2>
+    <h2 class="heading" id="head1">Heloo</h2>
+    <h2>Heloo</h2>
+    <h2>Heloo</h2>
+    <h2 class="heading">Heloo</h2>
+
+    <div>
+      <div>
+        <h1 class="hh">heading</h1>
+      </div>
+    </div>
+
+    <div>
+      <h1>Heading 2</h1>
+    </div>
+
+    <div>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
+        repellat distinctio dignissimos excepturi, ipsa quidem alias quas magnam
+        ut rerum id voluptatem, sapiente esse eum totam culpa veniam asperiores?
+        Quod!
+      </p>
+    </div>
   </body>
 </html>
