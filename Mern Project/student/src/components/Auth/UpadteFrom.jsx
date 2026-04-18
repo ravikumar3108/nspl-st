@@ -6,8 +6,10 @@ function UpadteFrom({ detailstudent, setUpdate }) {
 
 
     const [image, setImage] = useState()
-    const [stForm,setFormData] = useState()
-    const [firstName, setFirstName] = useState(detailstudent?.firstname)
+    const [stForm, setFormData] = useState()
+    const [firstname, setFirstName] = useState(detailstudent?.firstname)
+    const [lastname, setLastName] = useState(detailstudent?.lastname)
+
 
     console.log(stForm)
     console.log(image)
@@ -18,27 +20,11 @@ function UpadteFrom({ detailstudent, setUpdate }) {
     };
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
-        // const fdata = new FormData()
-        // fdata.append("firstName", stForm.firstName)
-        // fdata.append("lastName", stForm.lastName)
-        // fdata.append("fatherName", stForm.fatherName)
-        // fdata.append("className", stForm.className)
-        // fdata.append("duration", stForm.duration)
-        // fdata.append("email", stForm.email)
-        // fdata.append("address", stForm.address)
-        // fdata.append("mobile", stForm.mobile)
-        // fdata.append("image", image)
-
-        // console.log(fdata)
-        // const res = await axios.post("http://localhost:8000/registerform", fdata).then((res) => {
-        //     console.log(res.data.status)
-        //     if (res.data.status) {
-        //         toast.success(res.data.message)
-        //     } else {
-        //         toast.error(res.data.message)
-        //     }
-        // })
+        const id = detailstudent?._id
+        e.preventDefault()
+        const res = await axios.post(`http://localhost:8000/updateStudent/${id}`, { firstname, lastname }).then((res) => {
+            console.log(res)
+        })
 
     };
 
@@ -50,20 +36,20 @@ function UpadteFrom({ detailstudent, setUpdate }) {
                 <div className="form-card">
                     <h2>Upadte Student</h2>
 
-                    <form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <form encType="multipart/form-data">
                         <div className="row">
                             <input
                                 type="text"
                                 name="firstName"
                                 placeholder="First Name"
-                                onChange={handleChange}
-                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                value={firstname}
                             />
                             <input
                                 type="text"
                                 name="lastName"
                                 placeholder="Last Name"
-                                onChange={handleChange}
+                                onChange={(e) => setLastName(e.target.value)}
                             />
                         </div>
 
@@ -129,7 +115,7 @@ function UpadteFrom({ detailstudent, setUpdate }) {
                             <input type="radio" name="gender" value="Other" onChange={handleChange} />
                         </div>
 
-                        <button type="submit">Submit</button>
+                        <button type="submit" onClick={handleSubmit}>Upadte</button>
                     </form>
                 </div>
             </div>
