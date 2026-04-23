@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './Header'
 import image from "./images/img.jpg"
 import ChildComp from './ChildComp'
+import Signup from './Signup'
 
 function Home() {
 
@@ -10,17 +11,21 @@ function Home() {
 
     // Props :- send data one component to another components
     return (
-        <div style={{ backgroundColor: "green", color: "white", paddingTop: "10px" }}>
+        <div style={{ paddingTop: "10px" }}>
             <h1>Home Componenet {name}</h1>
-            <img src={image} alt="" width={"50%"} height={"500px"} />
+
+            <Signup />
+
+
+            {/* <img src={image} alt="" width={"50%"} height={"500px"} /> */}
 
             {/* Send a props :-  */}
-            <div>
+            {/* <div>
                 <ChildComp name={name} age={x} />
                 <ChildComp name={"Gudiya"} age={x} />
                 <ChildComp name={"Rajni"} age={x} />
                 <ChildComp name={name} age={x} />
-            </div>
+            </div> */}
         </div>
     )
 }
