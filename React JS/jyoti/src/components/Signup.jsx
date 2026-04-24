@@ -6,18 +6,17 @@ function Signup() {
 
     // UseState:- 
 
-    const [initialValue, setInitialValue] = useState("Jyoti")
+    // const [initialValue, setInitialValue] = useState("Jyoti")
 
-    function changeName() {
-        setInitialValue("Gudiya")
-    }
+    // function changeName() {
+    //     setInitialValue("Gudiya")
+    // }
 
-    let [counter, setCounter] = useState(0)
+    // let [counter, setCounter] = useState(0)
 
-    function AddValues() {
-        setCounter(++counter)
-    }
-
+    // function AddValues() {
+    //     setCounter(++counter)
+    // }
 
     // 
     const [name, setName] = useState(null)
@@ -32,15 +31,14 @@ function Signup() {
     }
 
 
-
     return (
 
         <>
             <div>
-                <h1>Signup Form {initialValue}</h1>
-                <h1>Signup Form {counter}</h1>
-                <button onClick={AddValues}>Add ON</button>
-                <button onClick={changeName}>Change Name</button>
+                {/* <h1>Signup Form {initialValue}</h1>
+                <h1>Signup Form {counter}</h1> */}
+                {/* <button onClick={AddValues}>Add ON</button>
+                <button onClick={changeName}>Change Name</button> */}
                 <form>
                     <label htmlFor="">Name</label>
                     <input type="text" name="" id="" onChange={getName} />
