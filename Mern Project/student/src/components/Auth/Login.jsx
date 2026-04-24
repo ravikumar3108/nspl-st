@@ -26,6 +26,7 @@ function Login() {
       console.log(res.data.status)
       if (res.data.status) {
         toast.success("Suucessful login")
+        localStorage.setItem("nsplAuth", "true")
         setTimeout(() => {
           nav("/")
         }, 2000);

@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Dashboard() {
 
 
     const [allStudents, setAllStudents] = useState([])
     const [Mca, setMca] = useState([])
-
+    const nav = useNavigate()
     async function getStudents() {
         const res = await axios.get("http://localhost:8000/allStudents").then((res) => {
             console.log(res.data.user)
@@ -18,6 +18,10 @@ function Dashboard() {
         })
     }
 
+    function logout() {
+        localStorage.removeItem("nsplAuth")
+        nav("/login")
+    }
 
 
     useEffect(() => {
@@ -36,9 +40,12 @@ function Dashboard() {
                     <span>Student Management System</span>
                 </div>
 
-                <div className="header-icons">
-                    <i className="icon">⚙️</i>
-                    <i className="icon">👤</i>
+                <div style={{ display: "flex" }}>
+                    <div className="header-icons" style={{ display: "flex", marginTop: "20px", marginRight: "10px" }}>
+                        <i className="icon">⚙️</i>
+                        <i className="icon">👤</i>
+                    </div>
+                    <button onClick={logout}>Logout</button>
                 </div>
             </div>
 
