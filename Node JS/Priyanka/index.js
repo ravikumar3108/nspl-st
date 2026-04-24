@@ -34,23 +34,45 @@ app.use(express.json());
 
 // Api's :- GET , POST , PUT , DELETE
 
-app.get("", (req, res) => {
-  res.json({ status: "true", data: [{ id: "1" }] });
+app.get("", async (req, res) => {
+  try {
+    const getAll = await Student.find({});
+    res.json({ data: getAll });
+  } catch (error) {
+    res.json({ message: "Error in Login", error: error });
+  }
 });
 
 app.post("/createStudent", async (req, res) => {
-  console.log(req.body);
+  try {
+    const { firstname, lastname, email, fathername, mobilno, address } =
+      req.body;
 
-  const { firstname, lastname, email, fathername, mobilno, address } = req.body;
+    const existStudent = await Student.findOne({ email: email });
+    // console.log(existStudent);
 
-  const createStudent = new Student({
-    firstname: firstname,
-    lastname: lastname,
-    email: email,
-  });
+    if (!existStudent) {
+      const createStudent = new Student({
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+      });
 
-  const saveUser = await createStudent.save();
-  res.json({ message: "Success", data: saveUser });
+      const saveUser = await createStudent.save();
+      if (saveUser) {
+        res.json({ message: "Success", data: saveUser, status: true });
+      } else {
+        res.json({ message: "failed", status: false });
+      }
+    }
+
+    res.json({
+      message: "Student Already register with this mail",
+      status: false,
+    });
+  } catch (error) {
+    res.json({ message: "Error in Signup", error: error });
+  }
 });
 
 // Create a server
