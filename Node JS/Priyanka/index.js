@@ -21,59 +21,22 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-const studentSchema = new mongoose.Schema({
-  firstname: String,
-  lastname: String,
-  email: String,
-});
-
-const Student = mongoose.model("student", studentSchema);
-
 // Middlewares :-
 app.use(express.json());
 
 // Api's :- GET , POST , PUT , DELETE
 
-app.get("", async (req, res) => {
-  try {
-    const getAll = await Student.find({});
-    res.json({ data: getAll });
-  } catch (error) {
-    res.json({ message: "Error in Login", error: error });
-  }
-});
+// app.get("", async (req, res) => {
+//   try {
+//     const allStudent = await Student.find({});
 
-app.post("/createStudent", async (req, res) => {
-  try {
-    const { firstname, lastname, email, fathername, mobilno, address } =
-      req.body;
+//     res.json({ message: "success", status: true, data: allStudent });
+//   } catch (error) {
+//     res.json({ message: "Error in Login", error: error });
+//   }
+// });
 
-    const existStudent = await Student.findOne({ email: email });
-    // console.log(existStudent);
-
-    if (!existStudent) {
-      const createStudent = new Student({
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-      });
-
-      const saveUser = await createStudent.save();
-      if (saveUser) {
-        res.json({ message: "Success", data: saveUser, status: true });
-      } else {
-        res.json({ message: "failed", status: false });
-      }
-    }
-
-    res.json({
-      message: "Student Already register with this mail",
-      status: false,
-    });
-  } catch (error) {
-    res.json({ message: "Error in Signup", error: error });
-  }
-});
+app.use("/api/student", require("./routes/StudentRoutes"));
 
 // Create a server
 // Callback function....
