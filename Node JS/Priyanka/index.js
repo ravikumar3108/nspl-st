@@ -37,6 +37,7 @@ app.use(express.json());
 // });
 
 app.use("/api/student", require("./routes/StudentRoutes"));
+app.use("/api/product", require("./routes/ProductRoute"));
 
 // Create a server
 // Callback function....
