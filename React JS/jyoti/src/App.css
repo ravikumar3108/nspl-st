@@ -24,3 +24,7 @@ ul li a {
     display: flex;
     flex-wrap: wrap;
 }
+
+.none {
+    display: none;
+}

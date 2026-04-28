@@ -4,6 +4,7 @@ import image from "./images/img.jpg"
 import ChildComp from './ChildComp'
 import Signup from './Signup'
 import Signup2 from './Signup2'
+import Slider from './Slider'
 
 function Home() {
 
@@ -17,6 +18,7 @@ function Home() {
 
             {/* <Signup /> */}
             <Signup2/>
+            <Slider/>
 
             {/* <img src={image} alt="" width={"50%"} height={"500px"} /> */}
 
