@@ -8,6 +8,8 @@
     <style>
       /* 
             CSS Selectors :- tagname, id, class, actualpath, *(universal selector)
+            id :- unique
+            class:- multiple 
 
             selector{
                 propertyname : propertyvalue;
@@ -19,12 +21,25 @@
                 propertyname : propertyvalue;
                 propertyname : propertyvalue;
             }
-
         */
 
+      h2 {
+        color: blue;
+        background-color: green;
+      }
 
+      /* Class :- .(dot k sath select) */
 
-            
+      .vikash {
+        color: red;
+      }
+
+      /* id :- # */
+      #head {
+        background-color: brown;
+      }
+
+      
     </style>
   </head>
   <body>
@@ -42,8 +57,6 @@
     -->
 
     <h1 style="color: red; background-color: aqua">Heloo</h1>
-
-    <h2>headinng</h2>
     <p style="color: green">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam quaerat
       eligendi delectus aliquam molestiae possimus eos reprehenderit earum
@@ -51,8 +64,13 @@
       dignissimos, debitis nesciunt.
     </p>
 
+    <h1>Internal CSS</h1>
+    <h2>headinng</h2>
+    <h2>Vikash kumar</h2>
+    <h3 class="vikash" id="head">Heading 3</h3>
+    <h3 class="viki">heading 3 second</h3>
     <ul>
-      <li>Home</li>
+      <li class="vikash">Home</li>
       <li>Home</li>
       <li>Home</li>
       <li>Home</li>
