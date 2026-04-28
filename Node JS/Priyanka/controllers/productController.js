@@ -24,9 +24,24 @@ const delProduct = async (req, res) => {
   const delelteProduct = await Product.deleteOne({ _id: id });
   console.log(delelteProduct);
 };
+
 const getAllProduct = async (req, res) => {
   const getproducts = await Product.find({});
   res.json({ message: "fetch all products", data: getproducts });
 };
 
-module.exports = { createProduct, delProduct, getAllProduct };
+const updateProduct = async (req, res) => {
+  try {
+    const id = req.params.id;
+    console.log(id);
+    const getproducts = await Product.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+
+    res.json({ message: "upadte Success", data: getproducts });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { createProduct, delProduct, getAllProduct, updateProduct };

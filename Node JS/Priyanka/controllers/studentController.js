@@ -7,7 +7,6 @@ const signupStudent = async (req, res) => {
       req.body;
 
     const existStudent = await Student.findOne({ email: email });
-    // console.log(existStudent);
 
     if (!existStudent) {
       const createStudent = new Student({
