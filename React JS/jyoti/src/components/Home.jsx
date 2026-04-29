@@ -5,6 +5,7 @@ import ChildComp from './ChildComp'
 import Signup from './Signup'
 import Signup2 from './Signup2'
 import Slider from './Slider'
+import Api from './Api'
 
 function Home() {
 
@@ -18,7 +19,8 @@ function Home() {
 
             {/* <Signup /> */}
             <Signup2/>
-            <Slider/>
+            {/* <Slider/> */}
+            <Api/>
 
             {/* <img src={image} alt="" width={"50%"} height={"500px"} /> */}
 
