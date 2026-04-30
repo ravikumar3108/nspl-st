@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- link our external css file.... -->
+    <link rel="stylesheet" href="indexcss.css">
 
     <style>
       /* 
@@ -23,23 +25,33 @@
             }
         */
 
-      h2 {
+      /* h2 {
         color: blue;
         background-color: green;
-      }
+      } */
 
       /* Class :- .(dot k sath select) */
 
-      .vikash {
+      /* .vikash {
         color: red;
-      }
+      } */
 
       /* id :- # */
-      #head {
+      /* #head {
         background-color: brown;
       }
 
-      
+      div h1 {
+        background-color: black;
+        color: wheat;
+      }
+      .maindiv .child .head2 {
+        color: red;
+      }
+
+      * {
+        border: 1px solid green;
+      } */
     </style>
   </head>
   <body>
@@ -78,5 +90,12 @@
       <li>Home</li>
       <li>Home</li>
     </ul>
+
+    <div class="maindiv">
+      <h1 class="head1">heloo</h1>
+      <div class="child">
+        <h1 class="head2">Heloo</h1>
+      </div>
+    </div>
   </body>
 </html>

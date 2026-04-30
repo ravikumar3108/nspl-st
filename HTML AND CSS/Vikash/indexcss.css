@@ -1,0 +1,45 @@
+/* 
+            CSS Selectors :- tagname, id, class, actualpath, *(universal selector)
+            id :- unique
+            class:- multiple 
+
+            selector{
+                propertyname : propertyvalue;
+                propertyname : propertyvalue;
+                propertyname : propertyvalue;
+                propertyname : propertyvalue;
+                propertyname : propertyvalue;
+                propertyname : propertyvalue;
+                propertyname : propertyvalue;
+                propertyname : propertyvalue;
+            }
+        */
+
+h2 {
+    color: blue;
+    background-color: green;
+}
+
+/* Class :- .(dot k sath select) */
+
+.vikash {
+    color: red;
+}
+
+/* id :- # */
+#head {
+    background-color: brown;
+}
+
+div h1 {
+    background-color: black;
+    color: wheat;
+}
+
+.maindiv .child .head2 {
+    color: red;
+}
+
+* {
+    border: 1px solid green;
+}
