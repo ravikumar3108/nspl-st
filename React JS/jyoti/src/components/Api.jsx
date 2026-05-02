@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Api() {
 
@@ -13,20 +14,32 @@ function Api() {
         setApiData(jsondata.products)
     }
 
+    // useEffect() :- side effect of our component 
+
+    useEffect(() => {
+        getApiData()
+    }, [])
+
+
+
 
     return (
         <>
             <h1>Products</h1>
-            <button onClick={getApiData}>Api Fetch</button>
-            {
-                apiData && apiData.map((item) => {
-                    return (
-                        <>
-                            <h1>{item.title}</h1>
-                        </>
-                    )
-                })
-            }
+            <div className='' style={{ display: "flex", flexWrap: "wrap" }}>
+                {
+                    apiData && apiData.map((item) => {
+                        return (
+                            <>
+                                <div style={{ border: "1px solid", padding: "10px", width: "19%", margin: "20px" }}>
+                                    <h1><Link to={`/moredetails/${item.id}`}>{item.title}</Link></h1>
+                                    <button> Details</button>
+                                </div>
+                            </>
+                        )
+                    })
+                }
+            </div>
 
         </>
     )
