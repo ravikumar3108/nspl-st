@@ -36,107 +36,24 @@ app.use(cors());
 // Mongodb :-
 // Create a User Schema
 
-const userschema = new mongoose.Schema({
-  username: {
-    type: String,
-    // unique: true,
-    // trim: true,
-  },
-  email: {
-    type: String,
-  },
-  name: {
-    type: String,
-  },
-  password: {
-    type: String,
-  },
-});
+// Link userRoutes....
+app.use("", require("./routes/userRoutes"));
+app.use("", require("./routes/StudentRoute"));
 
-// Create a Model :-
-const User = mongoose.model("user", userschema);
 
-// student register form schema
-const studentSchema = new mongoose.Schema({
-  firstname: {
-    type: String,
-    // unique: true,
-    // trim: true,
-  },
-  email: {
-    type: String,
-  },
-  lastname: {
-    type: String,
-  },
-  fathername: {
-    type: String,
-  },
-  image: {
-    data: Buffer,
-    ContentType: String,
-  },
-  mobileno: String,
-  address: String,
-  duration: String,
-  batch: String,
-});
 
-const StudentReg = mongoose.model("student", studentSchema);
 
-// Api:- Create a user (Signup)
-app.post("/signup", async (req, res) => {
-  // Step:1 :- Check the data. (req.body)
-  // console.log(req.body);
 
-  try {
-    // this data belongs to frontend
-    const { email, username, name, password } = req.body;
-
-    const createuser = new User({
-      // left side :- schema name
-      // right side :- body name
-      email: email,
-      username: username,
-      name: name,
-      password: password,
-    });
-
-    // save the data
-    const saveuser = await createuser.save();
-
-    if (saveuser) {
-      res
-        .status(200)
-        .json({ message: "Success", status: true, user: saveuser });
-    } else {
-      res.status(500).json({ message: "error", status: false });
-    }
-  } catch (error) {
-    res.json({ error: error, message: "Error in Signup" });
-  }
-});
-
-// login Api ======================
-app.post("/login", async (req, res) => {
+// Profile
+app.post("/profile", async (req, res) => {
   console.log(req.body);
   try {
-    const { email, password } = req.body;
-
-    const existUser = await User.findOne({ email: email });
-    console.log(existUser);
-
-    if (!existUser) {
-      res.status(200).json({ message: "failed", status: false });
-    }
-
-    if (existUser.password !== password) {
-      res.status(200).json({ message: "password incorrect", status: false });
-    }
-
-    res.status(200).json({ message: "Success", status: true, user: existUser });
+    const updateUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.json({ message: "Success", user: updateUser });
   } catch (error) {
-    res.json({ error: error, message: "Error in login" });
+    res.json({ error: error, message: "Error in profile" });
   }
 });
 
