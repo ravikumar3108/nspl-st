@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useCart } from 'react-use-cart'
 
 function Api() {
 
     const [apiData, setApiData] = useState()
 
     console.log(apiData)
+
+    const { addItem } = useCart()
+
 
     async function getApiData() {
         const data = await fetch("https://dummyjson.com/products")
@@ -22,7 +26,6 @@ function Api() {
 
 
 
-
     return (
         <>
             <h1>Products</h1>
@@ -33,7 +36,7 @@ function Api() {
                             <>
                                 <div style={{ border: "1px solid", padding: "10px", width: "19%", margin: "20px" }}>
                                     <h1><Link to={`/moredetails/${item.id}`}>{item.title}</Link></h1>
-                                    <button> Details</button>
+                                    <button onClick={() => addItem(item)}> Add to Cart</button>
                                 </div>
                             </>
                         )
