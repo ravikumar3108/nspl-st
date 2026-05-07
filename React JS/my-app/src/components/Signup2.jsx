@@ -1,27 +1,32 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 function Signup2() {
   // States
   // Hooks :-
 
-  let [data, setData] = useState();
-  console.log(data);
+  let [alldata, setData] = useState();
+  console.log(alldata);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    console.log(alldata)
+    const data = await axios.post("http://localhost:8000/api/student/signup", alldata).then((res) => {
+      console.log(res)
+    })
+  }
 
   function getValue(e) {
     setData({
       // Spread Operator
-      ...data,
+      ...alldata,
       [e.target.name]: e.target.value,
     });
   }
 
   //   Json Objects :- Javascript object notation
   // {"firstname":"Ravi","lastname":"Kumar","email":"gullukumar3108@gmail.com"}
-  function handleSubmit(e) {
-    e.preventDefault();
-    // JSON.stringify() // this method used to convert data into json object.
-    localStorage.setItem("neeraj", JSON.stringify(data));
-  }
+
   return (
     <>
       <form action="" onSubmit={handleSubmit}>

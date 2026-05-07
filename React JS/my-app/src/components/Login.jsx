@@ -15,14 +15,7 @@ function Login() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        let saveUser = JSON.parse(localStorage.getItem("neeraj"))
-        console.log("user", saveUser)
-        if (saveUser.email == loginData.email && saveUser.password == loginData.password) {
-            alert("Success")
-        }
-        else {
-            alert("Failed")
-        }
+        
 
     }
 
