@@ -2,16 +2,16 @@ const express = require("express");
 const Student = require("../model/studentModel");
 
 const signupStudent = async (req, res) => {
+  console.log(req.body);
   try {
-    const { firstname, lastname, email, fathername, mobilno, address } =
-      req.body;
+    const { username, email, password } = req.body;
 
     const existStudent = await Student.findOne({ email: email });
 
     if (!existStudent) {
       const createStudent = new Student({
-        firstname: firstname,
-        lastname: lastname,
+        username: username,
+        password: password,
         email: email,
       });
 
@@ -22,7 +22,6 @@ const signupStudent = async (req, res) => {
         res.json({ message: "failed", status: false });
       }
     }
-
     res.json({
       message: "Student Already register with this mail",
       status: false,

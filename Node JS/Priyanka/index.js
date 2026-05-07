@@ -8,6 +8,7 @@ console.log("Heloo node js");
 const express = require("express");
 // Create a object.
 const app = express();
+const cors = require("cors");
 
 const mongoose = require("mongoose");
 
@@ -21,8 +22,14 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 // Middlewares :-
 app.use(express.json());
+app.use(cors(corsOptions));
 
 // Api's :- GET , POST , PUT , DELETE
 
