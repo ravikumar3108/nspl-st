@@ -1,19 +1,33 @@
 import axios from "axios";
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 function Signup2() {
   // States
   // Hooks :-
 
   let [alldata, setData] = useState();
+  let [loading, setLoading] = useState(false)
   console.log(alldata);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(alldata)
-    const data = await axios.post("http://localhost:8000/api/student/signup", alldata).then((res) => {
-      console.log(res)
-    })
+    setLoading(true)
+    try {
+      const data = await axios.post("http://localhost:8000/api/student/signup", alldata).then((res) => {
+        console.log(res)
+        if (res.data.status) {
+          toast.success(res.data.message)
+        } else {
+          toast.error(res.data.message)
+        }
+        setLoading(false)
+      })
+    } catch (error) {
+      toast.error(error)
+      console.log(error)
+      setLoading(false)
+    }
   }
 
   function getValue(e) {
@@ -29,6 +43,7 @@ function Signup2() {
 
   return (
     <>
+      <Toaster />
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">Username</label>
         <input type="text" name="username" id="" onChange={getValue} />
@@ -37,7 +52,7 @@ function Signup2() {
         <label htmlFor="">Password</label>
         <input type="password" name="password" id="" onChange={getValue} />
 
-        <button type="submit">Submit</button>
+        {loading ? <button type="">Loading.......</button> : <button type="submit">Submit</button>}
       </form>
     </>
   );
