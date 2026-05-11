@@ -37,11 +37,14 @@ const loginStudent = async (req, res) => {
     const { email, password } = req.body;
 
     const existuser = await Student.findOne({ email: email });
-    if (existuser) {
-      res.json({ message: "Success", data: existuser, status: true });
-    } else {
-      res.json({ message: "failed", status: false });
+    if (!existuser) {
+      res.json({ message: "User is not found", status: false });
     }
+    if (existuser.password != password) {
+      res.json({ message: "Password is not match", status: false });
+    }
+    res.json({ message: "Login Success", data: existuser, status: true });
+    
   } catch (error) {
     console.log(error);
     res.json({ message: "Error in login", error: error });
