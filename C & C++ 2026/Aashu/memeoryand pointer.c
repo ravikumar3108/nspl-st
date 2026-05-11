@@ -26,35 +26,54 @@ int main(){
 	// void function :- that means the function is not givin any return value...
 	// Functions are reusabale
 	
-	myfun();
-	myfun();
-	myfun();
-	myfun();
-	myfun2(23,"AAshu");
-	int c = Aashu();
-	printf("%d \n",c);
-	
-	
-//	Memory Address :- when a varible is create then it store into our memory.... 
-	// To find the mmory address we can use use a refrence & 
-	
-	int x = 90;
-	int y = 10;
-	printf("%p \n",&x);
-	printf("%p \n",&y);
+//	myfun();
+//	myfun();
+//	myfun();
+//	myfun();
+//	myfun2(23,"AAshu");
+//	int c = Aashu();
+//	printf("%d \n",c);
+//	
+//	
+////	Memory Address :- when a varible is create then it store into our memory.... 
+//	// To find the mmory address we can use use a refrence & 
+//	
+//	int x = 90;
+//	int y = 10;
+//	printf("%p \n",&x);
+//	printf("%p \n",&y);
+//
+//
+//// Pointer :- which is store our memory address..
+//
+//int a = 10;
+//
+//printf("%d \n",a);
+//
+//printf("%p \n",&a);
+//
+//
+//int* pt = &a;
+//printf("%p \n",pt);
+
+// user input 
+
+// scanf() // input method 
+//
+//int x;
+//printf("Type a number \n");
+//scanf("%d",&x);
+//
+//printf("my number is: %d",x);
 
 
-// Pointer :- which is store our memory address..
+int y;
+int z;
+printf("Enter a number");
+scanf("%d",&z);
+for(y = 1;y <= 10;y++){
+	printf("%d \n",y * 3);
+}
 
-int a = 10;
-
-printf("%d \n",a);
-
-printf("%p \n",&a);
-
-
-int* pt = &a;
-printf("%p \n",pt);
-	
 	return 0;
 }
