@@ -62,20 +62,20 @@ int main(){
 //// format specifier :- %lf 
 ////char : size in bytes (1 bytes)
 //
-//int s = 10;
+////int s = 10;
+////
+////// to find a size of our data type
+////printf("%d \n",sizeof(s));
 //
-//// to find a size of our data type
-//printf("%d \n",sizeof(s));
-
-
-// operators :- 
-// Assignments op 
-// + ,- , * , / , % , ++ , --
-
-float  x = 11;
-float y = 2;
-
-printf("%f \n", x / y);
+//
+//// operators :- 
+//// Assignments op 
+//// + ,- , * , / , % , ++ , --
+//
+//float  x = 11;
+//float y = 2;
+//
+//printf("%f \n", x / y);
 
 
 // Assignment OP
@@ -104,6 +104,11 @@ printf("%d",z);
 // and :- && 
 // or :- ||  
 // not :- !
+
+int* x = &z;
+
+printf("%p",x);
+
 
 
 
