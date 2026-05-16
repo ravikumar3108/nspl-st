@@ -13,6 +13,10 @@ using namespace std;
 // Methods parameters
 // constructor :- automatic call when our class is used. Constructor name is always create with your class name.
 // Constructor parameters :- 
+// Access specifiers 
+// Ecapsulation :- make sure the sensitive data is hidden or not;
+//setmethod 
+//getmethod
 
 
 
@@ -37,13 +41,29 @@ class Aashu {
 
 
 class Student{
+		private:
+			int enroll;
+	
 		public:
+			string name;
+			int classe;
 			int x;
-			int y;
 		
 		// create a constructor
-		Student(){
-			cout << "Constructor is call...";
+		Student(string a,int b){
+			name = a;
+			classe = b;
+		}
+		
+		int setEnroll(int a){
+			enroll = a;
+		}
+		int getEnroll(){
+			return enroll;
+		}
+		
+		int getName(){
+			return name; 
 		}
 			
 };
@@ -69,7 +89,21 @@ int main(){
 
 
 // Constructor class
-Student student1;
+Student student1("aashu",24);
+
+student1.x = 10;
+//'class Student' has no member named 'y'
+//student1.y = 11;
+
+
+cout << student1.x;
+//cout << student1.y;
+student1.setEnroll(123);
+student1.getEnroll();
+
+
+
+
 
 
 	
