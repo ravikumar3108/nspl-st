@@ -13,7 +13,7 @@ function Dashboard() {
             console.log(res.data.user)
             setAllStudents(res.data.user)
             const students = res.data.user
-            const mcaStudents = students.filter((item) => item.batch == "MCA")
+            const mcaStudents = students?.filter((item) => item.batch == "MCA")
             setMca(mcaStudents)
         })
     }
@@ -43,7 +43,7 @@ function Dashboard() {
                 <div style={{ display: "flex" }}>
                     <div className="header-icons" style={{ display: "flex", marginTop: "20px", marginRight: "10px" }}>
                         <i className="icon">⚙️</i>
-                        <i className="icon">👤</i>
+                        <i className="icon"><Link to={"profile"}>👤</Link></i>
                     </div>
                     <button onClick={logout}>Logout</button>
                 </div>
@@ -59,7 +59,7 @@ function Dashboard() {
 
                 <div className="card">
                     <p>Total Students MCA</p>
-                    <h2>{Mca.length}</h2>
+                    <h2>{Mca?.length}</h2>
                 </div>
 
                 <div className="card">
@@ -99,7 +99,7 @@ function Dashboard() {
                     </thead>
 
                     <tbody>
-                        {allStudents.map((item) => {
+                        {allStudents?.map((item) => {
                             return (
                                 <>
                                     <tr>

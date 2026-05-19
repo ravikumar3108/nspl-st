@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import Api from "../API/Api";
 
 function Login() {
 
@@ -22,7 +23,7 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const res = await axios.post("http://localhost:8000/login", loginData).then((res) => {
+    const res = await Api.post("/login", loginData).then((res) => {
       console.log(res.data.status)
       if (res.data.status) {
         toast.success("Suucessful login")

@@ -7,6 +7,7 @@ import StudentDetails from "./components/Home/StudentDetail";
 import StudentForm from "./components/Auth/StudentRegForm";
 import PrivateRoute from "./components/privareRoute/PrivateRoute";
 import NotFound from "./components/Utility/NotFound";
+import ProfilePage from "./components/Auth/Profile";
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
             element={
               <PrivateRoute>
                 <StudentDetails />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
               </PrivateRoute>
             }
           />
