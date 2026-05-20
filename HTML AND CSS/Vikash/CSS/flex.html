@@ -12,21 +12,65 @@
         margin: auto;
       }
 
-      .header{
+      .header {
         display: flex;
         background-color: black;
         color: white;
       }
 
-      .header .list-items ul li{
+      .header .list-items ul li {
         display: inline-block;
         margin: 8px 12px;
         padding: 10px 15px;
       }
-      .btn{
+      .btn {
         padding: 8px 10px;
         border-radius: 10px;
       }
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+      .info-card {
+        border: 1px solid;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .info-project {
+        color: green;
+      }
+      .expertise{
+        padding: 100px 50px;
+      }
+      .expertise .exp-header{
+        border: 1px solid;
+        text-align: center;
+        padding: 40px 0px;
+      }
+       .expertise .exp-header p{
+        width: 60%;
+       }
+       .expertise .exp-header h2{
+        margin: 10px 0px;
+       }
+       .exper-items{
+        display: flex;
+        justify-content: space-between;
+        
+       }
+       .exp-box{
+        border: 1px solid;
+        margin: 10px;
+        padding: 10px;
+       }
+       .exp-box h2{
+        margin: 10px 0px;
+       }
+
+
 
     </style>
   </head>
@@ -56,5 +100,77 @@
         <button class="btn">Book Appointment</button>
       </div>
     </header>
+
+    <section class="bg"></section>
+
+    <div class="info">
+      <div class="info-card info-project">
+        <h2>12</h2>
+        <p>Project Completed</p>
+      </div>
+      <div class="info-card">
+        <h2>12</h2>
+        <p>Project Completed</p>
+      </div>
+      <div class="info-card">
+        <h2>12</h2>
+        <p>Project Completed</p>
+      </div>
+      <div class="info-card">
+        <h2>12</h2>
+        <p>Project Completed</p>
+      </div>
+    </div>
+
+    <!-- ===========================Expertise============================ -->
+
+    <div class="expertise">
+      <div class="exp-header">
+        <p>Our Expertise</p>
+        <h2>Comprehensive Design Services</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus, iure. Nam minus voluptate porro rerum temporibus atque
+          sed beatae voluptates quas accusamus! Minus maiores quod tempora culpa
+          cumque molestias in?
+        </p>
+      </div>
+      <!-- ---- -->
+      <div class="exper-items">
+        <div class="exp-box">
+          <p>Icon</p>
+          <h2>heading</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis
+            labore distinctio facilis earum, ipsa cumque consectetur eveniet
+            libero dignissimos minus quam temporibus, ab eaque tempore
+            voluptates aliquam iusto, reprehenderit id.
+          </p>
+          <a href="">Learn more</a>
+        </div>
+        <div class="exp-box">
+          <p>Icon</p>
+          <h2>heading</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis
+            labore distinctio facilis earum, ipsa cumque consectetur eveniet
+            libero dignissimos minus quam temporibus, ab eaque tempore
+            voluptates aliquam iusto, reprehenderit id.
+          </p>
+          <a href="">Learn more</a>
+        </div>
+        <div class="exp-box">
+          <p>Icon</p>
+          <h2>heading</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis
+            labore distinctio facilis earum, ipsa cumque consectetur eveniet
+            libero dignissimos minus quam temporibus, ab eaque tempore
+            voluptates aliquam iusto, reprehenderit id.
+          </p>
+          <a href="">Learn more</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
