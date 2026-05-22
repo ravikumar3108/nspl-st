@@ -1,5 +1,4 @@
-console.log("Heloo node js");
-console.log("Heloo node js");
+
 
 // Create a server
 // Common js
@@ -45,6 +44,7 @@ app.use(cors(corsOptions));
 
 app.use("/api/student", require("./routes/StudentRoutes"));
 app.use("/api/product", require("./routes/ProductRoute"));
+app.use("/api/cart", require("./routes/CartRoutes"));
 
 // Create a server
 // Callback function....
