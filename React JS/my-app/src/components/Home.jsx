@@ -10,8 +10,8 @@ function Home() {
 
   return (
     <>
-      <Signup2/>
-      <Slider/>
+      {/* <Signup2/> */}
+      {/* <Slider/> */}
       <Api/>
 
     </>

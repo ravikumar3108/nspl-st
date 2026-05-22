@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
@@ -10,7 +11,7 @@ function Api() {
 
     const [filterApiData, setFilterApiData] = useState([])
 
-    const { addItem, inCart } = useCart()
+    // const { addItem, inCart } = useCart()
 
     // Apis 
     // Asynchronus function 
@@ -56,8 +57,12 @@ function Api() {
     function AllData() {
         setFilterApiData(apiData)
     }
-    function AddCart(name) {
-        toast.success(`${name} Add to cart`)
+    async function AddCart(id) {
+        const res = await axios.post(`http://localhost:8000/api/cart/addtocart/${id}`).then((res) => {
+            console.log(res)
+        })
+
+
     }
 
     return (
@@ -91,10 +96,7 @@ function Api() {
                                     <span>⭐ {item.rating}</span>
                                 </div>
 
-
-                                {inCart(item.id) ? <button className="buy-btn"><Link to={"/cart"}>Added</Link></button> : <button className="buy-btn" onClick={() => { addItem(item); AddCart(item.title) }}>Add to Cart</button>
-                                }
-
+                                <button className="buy-btn" onClick={() => AddCart(item.id)}>Add to Cart</button>
                             </div>
                         </div>
                     );
