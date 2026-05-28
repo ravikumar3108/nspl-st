@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("../models/UserModel");
+const jwt = require("jsonwebtoken");
 
 const SignupUser = async (req, res) => {
   // Step:1 :- Check the data. (req.body)
@@ -22,9 +23,17 @@ const SignupUser = async (req, res) => {
     const saveuser = await createuser.save();
 
     if (saveuser) {
-      res
-        .status(200)
-        .json({ message: "Success", status: true, user: saveuser });
+      let token;
+      token = jwt.sign({ _id: saveuser._id }, process.env.JWT_SECRET_KEY, {
+        expiresIn: "7d",
+      });
+
+      res.status(200).json({
+        message: "Success",
+        status: true,
+        user: saveuser,
+        token: token,
+      });
     } else {
       res.status(500).json({ message: "error", status: false });
     }
@@ -48,8 +57,16 @@ const loginuser = async (req, res) => {
     if (existUser.password !== password) {
       res.status(200).json({ message: "password incorrect", status: false });
     }
-
-    res.status(200).json({ message: "Success", status: true, user: existUser });
+    let token;
+    token = jwt.sign({ _id: existUser._id }, process.env.JWT_SECRET_KEY, {
+      expiresIn: "7d",
+    });
+    res.status(200).json({
+      message: "Success",
+      status: true,
+      user: existUser,
+      token: token,
+    });
   } catch (error) {
     res.json({ error: error, message: "Error in login" });
   }
@@ -67,4 +84,4 @@ const userProfile = async (req, res) => {
   }
 };
 
-module.exports = { SignupUser, loginuser ,userProfile };
+module.exports = { SignupUser, loginuser, userProfile };

@@ -4,6 +4,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const fs = require("fs");
+require("dotenv").config();
+const {protectRoute} = require("./Middlewares/protectedRoute")
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -39,10 +41,6 @@ app.use(cors());
 // Link userRoutes....
 app.use("", require("./routes/userRoutes"));
 app.use("", require("./routes/StudentRoute"));
-
-
-
-
 
 // Profile
 app.post("/profile", async (req, res) => {
@@ -105,7 +103,7 @@ app.post("/registerform", upload.single("image"), async (req, res) => {
 });
 
 // get All Students
-app.get("/allStudents", async (req, res) => {
+app.get("/allStudents", protectRoute,  async (req, res) => {
   try {
     const fetchStudent = await StudentReg.find({});
     if (!fetchStudent) {
