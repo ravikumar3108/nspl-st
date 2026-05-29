@@ -6,4 +6,4 @@ function PrivateRoute({ children }) {
     return isloggin ? children : <Navigate to={"/login"} />
 }
 
-export default PrivateRoute
+export default PrivateRoute;

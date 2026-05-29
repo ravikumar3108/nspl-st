@@ -1,14 +1,32 @@
 import axios from "axios";
 
-// const API_URL = "http://localhost:8000";
-const API_URL = "https://snaptalk-back.vercel.app";
+const API_URL = "http://localhost:8000";
+// const API_URL = "https://snaptalk-back.vercel.app";
 
-const Api = axios.create({
+function getToken() {
+  const data = localStorage && localStorage.getItem("tokenAuth");
+  return data;
+}
+
+let Api = axios.create({
   baseURL: API_URL,
   headers: {
-    "Content-Type": "application/json",
+    Authorization: `Bearer ${getToken()}`,
     Accept: "*/*",
   },
 });
+
+Api.interceptors.request.use(
+  async (config) => {
+    const token = getToken();
+    if (token !== null) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 export default Api;

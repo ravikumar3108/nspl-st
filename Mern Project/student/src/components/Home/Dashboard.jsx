@@ -1,9 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import StudentContext from "../context/StudentContext";
 
 function Dashboard() {
 
+    const user = useContext(StudentContext)
+    console.log(user)
 
     const [allStudents, setAllStudents] = useState([])
     const [Mca, setMca] = useState([])
@@ -36,7 +39,7 @@ function Dashboard() {
             {/* HEADER */}
             <div className="header">
                 <div className="logo">
-                    <h2>NeuroSharp Pvt Ltd.</h2>
+                    <h2>NeuroSharp Pvt Ltd.{user}</h2>
                     <span>Student Management System</span>
                 </div>
 
