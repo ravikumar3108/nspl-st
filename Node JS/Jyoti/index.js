@@ -38,11 +38,20 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model("user", userSchema);
 
-
 // Post Api
-app.post("/api/post", (req, res) => {
+app.post("/api/post", async (req, res) => {
   console.log(req.body);
-  res.json({ message: "Post Api", data: req.body });
+
+  const { name, email, age, password } = req.body;
+
+  const newUser = new userModel({
+    name: name,
+    email: email,
+    age: age,
+  });
+
+  const saveUSer = await newUser.save();
+  res.json({ message: "Post Api", data: saveUSer });
 });
 
 // PORT Number
