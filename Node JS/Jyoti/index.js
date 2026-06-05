@@ -30,29 +30,31 @@ app.get("/api/get", (req, res) => {
 
 // Schema :-
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  age: Number,
-});
+// const userSchema = new mongoose.Schema({
+//   name: String,
+//   email: String,
+//   age: Number,
+// });
 
-const userModel = mongoose.model("user", userSchema);
+// const userModel = mongoose.model("user", userSchema);
 
 // Post Api
-app.post("/api/post", async (req, res) => {
-  console.log(req.body);
+// app.post("/api/post", async (req, res) => {
+//   console.log(req.body);
 
-  const { name, email, age, password } = req.body;
+//   const { name, email, age, password } = req.body;
 
-  const newUser = new userModel({
-    name: name,
-    email: email,
-    age: age,
-  });
+//   const newUser = new userModel({
+//     name: name,
+//     email: email,
+//     age: age,
+//   });
 
-  const saveUSer = await newUser.save();
-  res.json({ message: "Post Api", data: saveUSer });
-});
+//   const saveUSer = await newUser.save();
+//   res.json({ message: "Post Api", data: saveUSer });
+// });
+
+app.use("/api/users", require("./routes/userRoutes"));
 
 // PORT Number
 app.listen(8000, () => {
