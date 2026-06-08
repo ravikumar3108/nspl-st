@@ -26,13 +26,31 @@ const signup = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-
-  res.json({ status: true, message: "Signup Api", data: req.body });
 };
 
 const login = async (req, res) => {
-  console.log(req.body);
-  res.json({ status: true, message: "Signup Api", data: req.body });
+  // console.log(req.body);
+
+  const { email, password } = req.body;
+
+  try {
+    const existUser = await userModel.findOne({ email: email });
+
+    if (!existUser) {
+      res.json({ message: "User not Found", status: false });
+    }
+    console.log(existUser.password);
+    if (existUser.password != password) {
+      res.json({
+        message: "Password incoorect",
+        status: false,
+      });
+    }
+
+    res.json({ message: "Login Success", status: true, data: existUser });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const profile = async (req, res) => {
