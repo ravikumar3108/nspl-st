@@ -39,7 +39,6 @@ const login = async (req, res) => {
     if (!existUser) {
       res.json({ message: "User not Found", status: false });
     }
-    console.log(existUser.password);
     if (existUser.password != password) {
       res.json({
         message: "Password incoorect",
@@ -53,9 +52,16 @@ const login = async (req, res) => {
   }
 };
 
+const deleteUser = async (req, res) => {
+  const id = req.params.id;
+
+  const delUser = await userModel.deleteOne({ _id: id });
+  console.log(delUser);
+};
+
 const profile = async (req, res) => {
   console.log(req.body);
   res.json({ status: true, message: "Signup Api", data: req.body });
 };
 
-module.exports = { signup, login, profile };
+module.exports = { signup, login, profile, deleteUser };
