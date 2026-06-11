@@ -12,8 +12,6 @@ main().catch((err) => console.log(err));
 
 const app = express();
 
-
-
 async function main() {
   await mongoose.connect(
     "mongodb+srv://ravikumar:Ravi123@cluster0.cy4n69o.mongodb.net/Jyoti?appName=Cluster0",
@@ -58,6 +56,7 @@ app.get("/api/get", (req, res) => {
 // });
 
 app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/product", require("./routes/productRoutes"));
 
 // PORT Number
 app.listen(8000, () => {

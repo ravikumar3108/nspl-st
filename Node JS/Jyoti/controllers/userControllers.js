@@ -64,4 +64,20 @@ const profile = async (req, res) => {
   res.json({ status: true, message: "Signup Api", data: req.body });
 };
 
-module.exports = { signup, login, profile, deleteUser };
+const updateUser = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  console.log(req.body);
+
+  const updateUser = await userModel.findByIdAndUpdate(id, req.body, {
+    new: true,
+  });
+
+  if (!updateUser) {
+    res.json({ message: "something Went Wrong", staus: false });
+  }
+
+  res.json({ message: "Update Succesfull", staus: true, data: updateUser });
+};
+
+module.exports = { signup, login, profile, deleteUser, updateUser };
