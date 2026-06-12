@@ -7,5 +7,6 @@ const {
 
 router.post("/createProduct", CreateProduct);
 router.get("/getAllProducts", getProducts);
+// router.get("/singleProduct/:id", getProducts);
 
 module.exports = router;

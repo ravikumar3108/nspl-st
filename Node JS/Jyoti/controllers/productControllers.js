@@ -2,9 +2,7 @@ const Product = require("../models/ProductModel");
 
 const CreateProduct = async (req, res) => {
   console.log(req.body);
-
   const { title, description, price, category } = req.body;
-
   const newProduct = Product({
     title: title,
     description: description,
@@ -20,6 +18,20 @@ const CreateProduct = async (req, res) => {
   res.json({ message: "successfull Create", status: true, data: saveProduct });
 };
 
-const getProducts = async (req, res) => {};
+const getProducts = async (req, res) => {
+  const getProducts = await Product.find({});
+  console.log(getProducts);
+};
+
+const singleProduct = async (req, res) => {
+  const id = req.params.id;
+
+  const getProducts = await Product.findOne({ _id: id });
+  console.log(getProducts);
+};
+
+const deleteProduct = async (req, res) => {};
+
+const upadteProduct = async (req, res) => {};
 
 module.exports = { CreateProduct, getProducts };
