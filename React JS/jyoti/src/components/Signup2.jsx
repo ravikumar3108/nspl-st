@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 
 function Signup2() {
@@ -19,9 +20,20 @@ function Signup2() {
     // JSON.stringify :- convert js object into json obj 
 
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-        const saveuser = localStorage.setItem("jyoti", JSON.stringify(allData))
+        // const saveuser = localStorage.setItem("jyoti", JSON.stringify(allData))
+        const data = await axios.post("http://localhost:8000/api/users/signup", allData).then((res) => {
+            console.log(res.data.data)
+            console.log(res.data.message)
+            console.log(res.data.status)
+            if (res.data.status) {
+                alert("Sucesss")
+            } else {
+                alert(res.data.message)
+            }
+        })
+
     }
 
 

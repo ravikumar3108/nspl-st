@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast'
 
 function Login() {
 
@@ -17,19 +18,19 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault()
     const existUser = JSON.parse(localStorage.getItem("jyoti"))
+    toast.error("Success")
     console.log(existUser)
-
-    if (existUser && existUser.email == loginData.email && existUser.password == loginData.password) {
-      alert("Sucess")
-      nav("/")
-    }
-    else {
-      alert("Something went wrong")
-    }
+    // if (existUser && existUser.email == loginData.email && existUser.password == loginData.password) {
+    //   nav("/")
+    // }
+    // else {
+    //   alert("Something went wrong")
+    // }
   }
 
   return (
     <>
+      <Toaster />
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">Email</label>
         <input type="text" name="email" id="" onChange={getValues} />

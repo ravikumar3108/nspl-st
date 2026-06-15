@@ -9,9 +9,7 @@ function About() {
   return (
     <div>
       <h1>About</h1>
-
       {data}
-
     </div>
   )
 }
