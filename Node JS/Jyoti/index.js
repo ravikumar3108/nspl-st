@@ -9,6 +9,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 main().catch((err) => console.log(err));
+const cors = require("cors");
 
 const app = express();
 
@@ -22,6 +23,7 @@ async function main() {
 
 // Middlewares :-
 app.use(express.json());
+app.use(cors());
 
 // Api's :- Get , post , put , delete
 
