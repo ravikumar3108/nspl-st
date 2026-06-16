@@ -9,20 +9,28 @@
     <div>
       <form>
         <label for="">First Name</label> <br />
-        <input type="text" name="" id="" />
+        <input
+          type="text"
+          name=""
+          id=""
+          required
+          placeholder="Enter Your Name"
+          minlength="3"
+          maxlength="10"
+        />
         <div>
           <label for="">Last Name</label> <br />
-          <input type="text" name="" id="" />
+          <input type="text" name="" id="" disabled />
         </div>
 
         <label for="">Email</label>
         <input type="email" name="" id="" />
 
         <label for="">Phone Number</label>
-        <input type="text" name="" id="" />
+        <input type="text" name="" id="" max="10" />
 
         <label for="">Number</label>
-        <input type="number" name="" id="" />
+        <input type="number" name="" id="" max="10" minlength="3"/>
 
         <label for="">Password</label>
         <input type="password" name="" id="" />
@@ -82,6 +90,7 @@
         <input type="date" name="" id="" />
 
         <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
       </form>
     </div>
   </body>
