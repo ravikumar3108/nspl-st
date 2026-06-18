@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
+import axios from 'axios'
 
 function Login() {
 
@@ -17,15 +18,9 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    const existUser = JSON.parse(localStorage.getItem("jyoti"))
-    toast.error("Success")
-    console.log(existUser)
-    // if (existUser && existUser.email == loginData.email && existUser.password == loginData.password) {
-    //   nav("/")
-    // }
-    // else {
-    //   alert("Something went wrong")
-    // }
+    const res = axios.post("http://localhost:8000/api/users/login", loginData).then((res) => {
+      console.log(res)
+    })
   }
 
   return (

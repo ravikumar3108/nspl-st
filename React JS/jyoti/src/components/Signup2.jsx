@@ -1,12 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Signup2() {
-
 
     const [allData, setAllData] = useState()
 
     console.log(allData)
+
+    const nav = useNavigate()
 
     function getValue(e) {
         setAllData({
@@ -29,6 +31,9 @@ function Signup2() {
             console.log(res.data.status)
             if (res.data.status) {
                 alert("Sucesss")
+                setTimeout(() => {
+                    nav("/login")
+                }, 2000);
             } else {
                 alert(res.data.message)
             }
