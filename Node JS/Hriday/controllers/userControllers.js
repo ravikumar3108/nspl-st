@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 
-const login = async (req, res) => {
+const signup = async (req, res) => {
   console.log(req.body);
 
   try {
@@ -24,4 +24,4 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { login };
+module.exports = { signup };
