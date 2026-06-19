@@ -31,7 +31,7 @@ function Signup() {
   }
 
 
-    
+
   function handleSubmit(e) {
     e.preventDefault(); // stop the page from auto-refresh
     console.log("running");
@@ -43,7 +43,6 @@ function Signup() {
       <h1> Data :- {data}</h1>
       <button onClick={Counter}>Add</button>
       {/* <button onClick={Sub}>Sub</button> */}
-
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">Name</label>
         <input type="text" name="" id="" onChange={getName} />
@@ -51,7 +50,6 @@ function Signup() {
         <input type="email" name="" id="" onChange={getEmail} />
         <label htmlFor="">Password</label>
         <input type="password" name="" id="" onChange={getPassword} />
-
         <button type="submit">Submit</button>
       </form>
     </>

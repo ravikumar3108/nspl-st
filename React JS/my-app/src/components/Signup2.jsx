@@ -12,21 +12,14 @@ function Signup2() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true)
     try {
-      const data = await axios.post("http://localhost:8000/api/student/signup", alldata).then((res) => {
-        console.log(res)
-        if (res.data.status) {
-          toast.success(res.data.message)
-        } else {
-          toast.error(res.data.message)
-        }
-        setLoading(false)
+      const res = await axios.post("http://localhost:8000/api/users/signup", alldata).then((res) => {
+        console.log(res.data.status)
+        // alert()
       })
+
     } catch (error) {
-      toast.error(error)
       console.log(error)
-      setLoading(false)
     }
   }
 
@@ -38,15 +31,14 @@ function Signup2() {
     });
   }
 
-  //   Json Objects :- Javascript object notation
-  // {"firstname":"Ravi","lastname":"Kumar","email":"gullukumar3108@gmail.com"}
+
 
   return (
     <>
       <Toaster />
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">Username</label>
-        <input type="text" name="username" id="" onChange={getValue} />
+        <input type="text" name="name" id="" onChange={getValue} />
         <label htmlFor="">Email</label>
         <input type="email" name="email" id="" onChange={getValue} />
         <label htmlFor="">Password</label>

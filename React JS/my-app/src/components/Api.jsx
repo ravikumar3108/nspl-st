@@ -61,8 +61,6 @@ function Api() {
         const res = await axios.post(`http://localhost:8000/api/cart/addtocart/${id}`).then((res) => {
             console.log(res)
         })
-
-
     }
 
     return (
