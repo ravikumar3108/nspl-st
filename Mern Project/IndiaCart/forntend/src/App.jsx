@@ -6,6 +6,9 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './features/Login'
 import Signup from './features/Signup'
+import Home from './pages/Home'
+import CategoryPage from './pages/CategoryPage'
+import ProductDetails from './pages/ProductDetails'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +19,15 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/ShopSphere' element={<Home />} />
+          <Route
+            path="/category/:slug"
+            element={<CategoryPage />}
+          />
+          <Route
+            path="/product/:id"
+            element={<ProductDetails />}
+          />
         </Routes>
       </BrowserRouter>
     </>
