@@ -16,7 +16,7 @@ function Header() {
                 <h1>Learn React js</h1>
                 <ul>
                     <li><Link to={"/"}>Home</Link></li>
-                    <li><Link to={"/about"}>About</Link></li>
+                    <li><Link to={"/addproduct"}>Add Product</Link></li>
                     <li><Link to={"/contact"}>Contact</Link></li>
                     <li><Link to={"/cart"}>Cart</Link></li>
                     <li><button className="" onClick={handleLogout}>Logout</button></li>

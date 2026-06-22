@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    margin: auto;
+}
+
 .header {
     background-color: black;
     color: white;
@@ -27,4 +33,51 @@ ul li a {
 
 .none {
     display: none;
+}
+
+/* Adddd product */
+
+.add-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form {
+    padding: 30px 40px;
+    margin: 10px 0px;
+    border: 1px solid;
+    width: 40%;
+    border-radius: 20px;
+}
+
+.input-box {
+    margin: 10px 5px;
+
+}
+
+.input-box input {
+    border-radius: 10px;
+    margin: 8px 0px;
+    padding: 8px 0px;
+    width: 100%;
+}
+
+.btn {
+    padding: 15px 20px;
+    margin: 10px 12px;
+    background-color: rgb(47, 80, 88);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+
+}
+.category-box{
+     border-radius: 10px;
+    margin: 8px 0px;
+    padding: 8px 0px;
+    width: 100%;
 }

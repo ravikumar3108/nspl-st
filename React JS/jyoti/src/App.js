@@ -11,6 +11,7 @@ import { CartProvider } from "react-use-cart";
 import Cart from "./components/Cart";
 import UserContext from "./components/UserContext";
 import Login from "./components/Login";
+import CreateProducts from "./components/CreateProducts";
 
 function App() {
   const [data, setData] = useState("Jyoti");
@@ -27,6 +28,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/addproduct" element={<CreateProducts />} />
               <Route path="/moredetails/:id" element={<MoreDetails />} />
               <Route path="/login" element={<Login />} />
             </Routes>
