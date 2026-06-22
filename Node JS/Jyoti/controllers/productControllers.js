@@ -20,14 +20,13 @@ const CreateProduct = async (req, res) => {
 
 const getProducts = async (req, res) => {
   const getProducts = await Product.find({});
-  console.log(getProducts);
+  res.json({ data: getProducts, status: true });
 };
 
 const singleProduct = async (req, res) => {
   const id = req.params.id;
-
   const getProducts = await Product.findOne({ _id: id });
-  console.log(getProducts);
+  res.json({ data: getProducts, status: true });
 };
 
 const deleteProduct = async (req, res) => {};
