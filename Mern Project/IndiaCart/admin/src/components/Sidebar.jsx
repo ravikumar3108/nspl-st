@@ -59,11 +59,9 @@ export default function Sidebar() {
       "
     >
       {/* Logo */}
-      <div className="p-6 border-b">
+      <div className="p-6">
         <h1 className="text-2xl font-bold text-purple-600">ShopSphere</h1>
       </div>
-
-      {/* Navigation */}
       <nav className="flex-1 p-4">
         {menus.map((item, index) => {
           const Icon = item.icon;
@@ -85,10 +83,9 @@ export default function Sidebar() {
                 transition-all
                 duration-300
 
-                ${
-                  isActive
-                    ? "bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-purple-100 hover:text-purple-700"
+                ${isActive
+                  ? "bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg"
+                  : "text-gray-700 hover:bg-purple-100 hover:text-purple-700"
                 }
               `
               }
