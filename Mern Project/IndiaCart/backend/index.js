@@ -1,21 +1,39 @@
 require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
-
 const connectDB = require("./config/db");
-
 const authRoutes = require("./routes/userRoutes");
-
 const app = express();
-
 connectDB();
 
-app.use(cors());
 
+// ====================================================
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+const upload = multer({
+  storage,
+});
+
+// =========================================================
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use(
+  "/api/products",
+  upload.array("images", 10),
+  require("./routes/prodcutRoutes"),
+);
 
 app.get("/", (req, res) => {
   res.send("API Running...");
