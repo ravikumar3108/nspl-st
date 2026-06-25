@@ -4,8 +4,6 @@ import React, { useState } from 'react'
 function CreateProducts() {
 
     const [allData, setAllData] = useState()
-
-
     function getValue(e) {
         setAllData(
             {
@@ -14,8 +12,6 @@ function CreateProducts() {
             }
         )
     }
-
-
     async function handleSubmit(e) {
         e.preventDefault()
         const res = await axios.post("http://localhost:8000/api/product/createProduct", allData).then((res) => {

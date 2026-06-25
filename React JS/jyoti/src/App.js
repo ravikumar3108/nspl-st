@@ -12,6 +12,7 @@ import Cart from "./components/Cart";
 import UserContext from "./components/UserContext";
 import Login from "./components/Login";
 import CreateProducts from "./components/CreateProducts";
+import Details from "./components/Details";
 
 function App() {
   const [data, setData] = useState("Jyoti");
@@ -30,6 +31,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/addproduct" element={<CreateProducts />} />
               <Route path="/moredetails/:id" element={<MoreDetails />} />
+              <Route path="/backend/:id" element={<Details />} />
               <Route path="/login" element={<Login />} />
             </Routes>
           </BrowserRouter>
