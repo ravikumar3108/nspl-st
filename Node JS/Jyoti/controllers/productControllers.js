@@ -33,4 +33,4 @@ const deleteProduct = async (req, res) => {};
 
 const upadteProduct = async (req, res) => {};
 
-module.exports = { CreateProduct, getProducts };
+module.exports = { CreateProduct, getProducts ,singleProduct };
