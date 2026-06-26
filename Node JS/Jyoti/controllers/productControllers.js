@@ -29,8 +29,14 @@ const singleProduct = async (req, res) => {
   res.json({ data: getProducts, status: true });
 };
 
+const getCategoryData = async (req, res) => {
+  const Category = req.params.category;
+  const getCategoriesProducts = await Product.find({ category: Category });
+  res.json({ data: getCategoriesProducts, status: true });
+};
+
 const deleteProduct = async (req, res) => {};
 
 const upadteProduct = async (req, res) => {};
 
-module.exports = { CreateProduct, getProducts ,singleProduct };
+module.exports = { CreateProduct, getProducts, singleProduct, getCategoryData };
