@@ -13,6 +13,7 @@ import UserContext from "./components/UserContext";
 import Login from "./components/Login";
 import CreateProducts from "./components/CreateProducts";
 import Details from "./components/Details";
+import CategoriesPage from "./components/CategoriesPage";
 
 function App() {
   const [data, setData] = useState("Jyoti");
@@ -32,6 +33,7 @@ function App() {
               <Route path="/addproduct" element={<CreateProducts />} />
               <Route path="/moredetails/:id" element={<MoreDetails />} />
               <Route path="/backend/:id" element={<Details />} />
+              <Route path="/categorypage/:category" element={<CategoriesPage />} />
               <Route path="/login" element={<Login />} />
             </Routes>
           </BrowserRouter>

@@ -27,7 +27,7 @@ function Product() {
             <h1>{item.title}</h1>
             <Link to={`/backend/${item._id}`}>
               View
-              </Link>
+            </Link>
 
           </>
         )

@@ -7,6 +7,7 @@ import Signup2 from './Signup2'
 import Slider from './Slider'
 import Api from './Api'
 import Product from './Product'
+import Categories from './Categories'
 
 function Home() {
 
@@ -24,6 +25,7 @@ function Home() {
     return (
         <div style={{ paddingTop: "10px" }}>
             <h1>Home Componenet {name}</h1>
+            <Categories/>
             <Product/>
         </div>
     )
