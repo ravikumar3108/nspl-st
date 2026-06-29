@@ -6,7 +6,6 @@ const authRoutes = require("./routes/userRoutes");
 const app = express();
 connectDB();
 
-
 // ====================================================
 const multer = require("multer");
 
@@ -34,6 +33,7 @@ app.use(
   upload.array("images", 10),
   require("./routes/prodcutRoutes"),
 );
+app.use("/carts", require("./routes/cartRoutes"));
 
 app.get("/", (req, res) => {
   res.send("API Running...");

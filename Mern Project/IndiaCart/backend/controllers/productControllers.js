@@ -32,4 +32,9 @@ const createProduct = async (req, res) => {
   }
 };
 
-module.exports = { createProduct };
+const getAllProducts = async (req, res) => {
+  const getproduct = await Product.find({});
+  res.json({ message: "fetch", data: getproduct });
+};
+
+module.exports = { createProduct, getAllProducts };
