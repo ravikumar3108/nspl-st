@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <ShoppingCart />
+          <Link to={"/cart"}> <ShoppingCart /></Link>
           <button className="bg-indigo-600 text-white px-5 py-2 rounded-lg">
             Login
           </button>
