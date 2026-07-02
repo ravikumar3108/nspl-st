@@ -11,4 +11,13 @@ const addToCart = async (req, res) => {
   res.json({ message: "Sucess", data: savecart });
 };
 
-module.exports = { addToCart };
+const getCartData = async (req, res) => {
+  try {
+    const getCart = await Cart.find({}).populate("item");
+    res.json({ message: "Cart Data", staus: true, data: getCart });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { addToCart, getCartData };
